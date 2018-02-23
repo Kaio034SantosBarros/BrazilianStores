@@ -3,7 +3,6 @@
     <title>Brazilian Stores</title>
   <head>
     <!-- Required meta tags -->
-    <link rel="stylesheet" href="css/projeto.css" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,6 +11,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0-beta.3/sketchy/bootstrap.min.css" rel="stylesheet" integrity="sha384-7ELRJF5/u1pkLd0W7K793Y7ZCb1ISE8FjEKiDAwHD3nSDbA2E9Txc423ovuNf1CV" crossorigin="anonymous">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/projeto.css" />
    
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -20,7 +20,7 @@
   </head>
   
   <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
   <a class="navbar-brand" href="#" style="font-family: 'Monoton', cursive; font-size: 150%;">Brazilian Stores</a>
   
 
@@ -47,9 +47,7 @@
 
   </li>
   <li class="nav-item">
-    <div>
-    <a class="nav-link active btn btn-light" data-toggle="modal" data-target="#myModal">Login</a>
-    </div>
+    <a class="nav-link active" href="login.php">Login</a>
   </li>
 </ul>
     <form class="form-inline my-2 my-lg-0">
@@ -59,65 +57,128 @@
 
   
 </nav>
-<div id="myModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
+	
+  <div id="demo" class="carousel slide" data-ride="carousel">
 
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <h2 class="modal-title">Entrar</h2>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
+  <!-- Indicators -->
+  <ul class="carousel-indicators">
+    <li data-target="#demo" data-slide-to="0" class="active"></li>
+    <li data-target="#demo" data-slide-to="1"></li>
+    <li data-target="#demo" data-slide-to="2"></li>
+  </ul>
+
+  <!-- The slideshow -->
+  <div class="carousel-inner text-center">
+  	
+    <div class="carousel-item active">
+      <img src="img/Desert.jpg"  alt="Los Angeles">
+      <div class="carousel-caption">
+    	<h1 class="text-center">Destaques</h1>
+    	</div>
+    </div>
+    <div class="carousel-item">
+      <img src="img/Desert.jpg "  alt="Chicago">
+      <div class="carousel-caption">
+    	<h1 class="text-center">Destaques</h1>
+    	</div>
+    </div>
+    <div class="carousel-item">
+      <img src="img/Desert.jpg"  alt="New York">
+      <div class="carousel-caption">
+    	<h1 class="text-center">Destaques</h1>
+    	</div>
+    </div>
+  </div>
+
+
+  <!-- Left and right controls -->
+  <a class="carousel-control-prev " href="#demo" data-slide="prev">
+    <span class="carousel-control-prev-icon bg-dark"></span>
+  </a>
+  <a class="carousel-control-next " href="#demo" data-slide="next">
+    <span class="carousel-control-next-icon bg-dark"></span>
+  </a>
+
+</div>
+<h3 class="text-center">Promoções</h3>
+<div class="card" style="width: 200px; height: 200px;" >
+  <img class="card-img-top" src="img/Desert.jpg" alt="Card image cap">
+  <div class="card-block">
+    <h4 class="card-title">Card title</h4>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+
+<footer>
+	<div class="footer-middle bg-dark" style="margin-top: 30px;">
+  		<div class="container">
+    		<div class="row">
+      			<div class="col-md-3 col-sm-6">
+       				 <!--Column1-->
+       				 <div class="footer-pad">
+        			  <h4>Contato</h4>
+            			<address>
+					<ul class="list-unstyled">
+					<li>
+                    	City Hall<br>
+						212  Street<br>
+						Lawoma<br>
+						735<br>
+					</li>
+					<li>
+						Telefone: (21) 2222-2222
+					</li>
+				</ul>
+			</address>
+        </div>
       </div>
-      <div class="modal-body">
-        <form method="post" action="resp2.php" class="cadastro">
-          <p>
-            E-mail:<p><input type="email" name="email" size=40 required=""></p>
-          </p>
-          <p>
-            Senha:<p><input type="password" name="senha" size=40 required=""></p>
-          </p>
-          <button type="submit" class="btn btn-info btn-lg">Logar</button>
-          <button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#myModal2">Cadastre-se</button>
-        </form>
+     
+      <div class="col-md-3 col-sm-6">
+        <!--Column1-->
+        <div class="footer-pad">
+          <h4>Informações</h4>
+          <ul class="list-unstyled">
+            <li><a href="#">Website Tutorial</a></li>
+            <li><a href="#">Accessibility</a></li>
+            <li><a href="#">Disclaimer</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Webmaster</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6">
+        <!--Column1-->
+        <div class="footer-pad">
+          <h4>Redes Sociais</h4>
+          <ul class="list-unstyled">
+            <li><a href="https://www.facebook.com" target="_blank"> <i class="fa fa-facebook-official fa-3x" aria-hidden="true" style="float: left;"></i></li>
+            <li><a href="https://twitter.com" target="_blank"><i class="fa fa-twitter fa-3x" aria-hidden="true" style="float: left;"></i></a></li>
+            <li><a href="https://www.instagram.com/?hl=pt-br" target="_blank"><i class="fa fa-instagram fa-3x" aria-hidden="true"></i></a></li>
+           
+          </ul>
+        </div>
+      </div>
+     
+    </div>
+  </div>
+  </div>
+  <div class="footer-bottom bg-dark">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <!--Footer Bottom-->
+          <p class="text-xs-center">&copy; Todos os direitos reservados.</p>
+        </div>
       </div>
     </div>
-
   </div>
-</div>
-    
-  <!-- Modal -->
-<div id="myModal2" class="modal fade" role="dialog">
-  <div class="modal-dialog">
+</footer>
 
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <h2 class="modal-title">Cadastre-se</h2>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-      </div>
-      <div class="modal-body">
-        <form method="post" action="resp2.php" class="cadastro">
-    
-          <p>
-            Nome:<p><input type="text" name="nome" size=40 required=""></p>
-          </p>
-          <p>
-            E-mail:<p><input type="email" name="email" size=40 required=""></p>
-          </p>
-          <p>
-            Senha:<p><input type="password" name="senha" size=40 required=""></p>
-          </p>
-          <button type="submit" class="btn btn-info btn-lg">Cadastrar</button>
-        </form>
-      </div>
-    </div>
 
-  </div>
-</div>
-</div>
-  </div>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	</body>
+	</html>
   </body>
 </html>
 
