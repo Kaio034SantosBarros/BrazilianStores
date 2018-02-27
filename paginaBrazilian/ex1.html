@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.container {
+    position: relative;
+    width: 16%;
+    float: left;
+}
+.middle{
+  float: left;
+  text-align: center;
+}
+.image {
+  opacity: 1;
+  display: block;
+  width: 50%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 30%;
+  transform: translate(-20%, -20%);
+  -ms-transform: translate(-20%, -20%);
+  text-align: left;
+}
+
+.container:hover .image {
+  opacity: 0.3;
+}
+
+.container:hover .middle {
+  opacity: 1;
+}
+
+.text {
+  background-color: #4CAF50;
+  color: white;
+  font-size: 16px;
+  padding: 16px 32px;
+}
+</style>
+</head>
+<body>
+
+<h2>Opacidade com caixa</h2>
+<p>Hover over the image to see the effect.</p>
+<div>
+<div class="container">
+  <img src="img/farol.jpg" alt="foto1" class="image" style="width:300px">
+  <div class="middle">
+    <div class="text">Adicinar ao carrinho</div>
+  </div>
+</div>
+  
+  <div class="container">
+  <img src="img/farol.jpg" alt="foto1" class="image" style="width:300px">
+  <div class="middle">
+    <div class="text">Adicinar ao carrinho</div>
+  </div>
+</div>
+
+<div class="container">
+  <img src="img/farol.jpg" alt="foto1" class="image" style="width:300px">
+  <div class="middle">
+    <div class="text">Adicinar ao carrinho</div>
+  </div>
+</div>
+</div>
+</body>
+</html>
