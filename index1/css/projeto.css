@@ -1,9 +1,7 @@
-html{
-  overflow-x:hidden;
-}
 #imgc{
 	height: 30%;
 	width: 30%;
+	
 }
 
 footer{
@@ -55,8 +53,3 @@ footer a:hover{
  background: white;
   color: black;
 }
-
-/* -----------------------------------------------*/
-
-
-/*---------------------------------------------------*/
