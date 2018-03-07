@@ -57,8 +57,8 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle active" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Categorias</a>
             <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 44px, 0px); top: 0px; left: 0px; will-change: transform;">
+              <a class="dropdown-item" href="roupas.php">Roupas</a>
               
-              <a class="dropdown-item" href="eletronicos.php">Eletrônicos</a>
               <a class="dropdown-item" href="livro.php">Livros</a>
               <a class="dropdown-item" href="info.php">Informática</a>
               <a class="dropdown-item" href="cel.php">Celulares</a>
@@ -175,8 +175,9 @@
 
 
 
+
     <div style="border: 3px solid black; margin-top: 1%; background-color: #BEBEBE;">  
-      <h3 class="text-center"><marquee scrollDelay=1><font color=black><DATA>Roupas disponíveis</DATA></em></font></marquee></h3>
+      <h3 class="text-center"><marquee scrollDelay=1><font color=black><DATA>Eletrônicos disponíveis</DATA></em></font></marquee></h3>
     </div>
 
 
@@ -184,13 +185,13 @@
       <div class="row">
         <div class="col-sm-3 col-xs-12 col-md-3">
           <div class="card mb-4">
-            <img class="card-img-top" src="img/casacostarwa.jpg" alt="Card image cap" height="200" width="239">
+            <img class="card-img-top" src="img/gopro.jpg" alt="Card image cap" height="200" width="239">
             <div class="card-body">
-              <h5 class="card-title">Blusa com capuz STAR WARS</h5>
-              <a href="#" class="btn btn-primary">R$ 149,00  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
+              <h5 class="card-title">GoPro Hero 5 Session</h5>
+              <a href="#" class="btn btn-primary">R$ 1,200,00  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
               <details>
                <summary>Detalhes</summary> 
-               <p>A estampa é produzida com impressão digital (DTG) e o processo é realizado com o que há de mais moderno no mercado, em impressora específica para malharia,imprimindo a arte com qualidade de definição excepcional e textura mínima sob a malha. O toque é levinho e veste bem demais, parece um abraço.</p>
+               <p>A Sessão GoPro Hero5 é uma excelente câmera para pessoas que gostam de sair ao ar livre e querem capturar cada momento em uma resolução cristalina de 4k.</p>
 
              </details>
 
@@ -201,13 +202,14 @@
 
        <div class="col-sm-3 col-xs-12 col-md-3">
         <div class="card mb-4">
-          <img class="card-img-top" src="img/camisetapanteranegra.jpg" alt="Card image cap" height="200" width="239">
+          <img class="card-img-top" src="img/fonesjbl.jpg" alt="Card image cap" height="200" width="239">
           <div class="card-body">
-            <h5 class="card-title">Camiseta Feminina</h5>
-            <a href="#" class="btn btn-primary">R$ 59,00<i class="fa fa-cart-arrow-down fa-2x"></i></a>
+            <h5 class="card-title">Fones JBL</h5>
+            <a href="#" class="btn btn-primary">R$ 63,10  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
             <details>
              <summary>Detalhes</summary> 
-             <p>A estampa é produzida com impressão digital (DTG) e o processo é realizado com o que há de mais moderno no mercado, em impressora específica para malharia,imprimindo a arte com qualidade de definição excepcional e textura mínima sob a malha. O toque é levinho e veste bem demais, parece um abraço.</p>
+             <p>Alto-falantes de alta potência
+             Produz sonoridade padrão JBL com graves encorpados.Conchas com estrutura leve e ajustáveis.Proporciona experiência acústica com conforto, mesmo quando usado por períodos prolongados.Compatível com aparelhos IOS e Android, dando a flexibilidade que você precisa para desfrutar o seu som.</p>
 
            </details>
 
@@ -217,13 +219,13 @@
      </div>
      <div class="col-sm-6 col-xs-12 col-md-3">
       <div class="card mb-4">
-        <img class="card-img-top" src="img/dk.jpg" alt="Card image cap" height="200" width="239">
+        <img class="card-img-top" src="img/somsony.jpg" alt="Card image cap" height="200" width="239">
         <div class="card-body">
-          <h5 class="card-title">Camiseta Feminina</h5>
-          <a href="#" class="btn btn-primary">R$ 59,00  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
+          <h5 class="card-title">Caixa Multimidia - Sony</h5>
+          <a href="#" class="btn btn-primary">R$ 649,00  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
           <details>
            <summary>Detalhes</summary> 
-           <p>A estampa é produzida com impressão digital (DTG) e o processo é realizado com o que há de mais moderno no mercado, em impressora específica para malharia,imprimindo a arte com qualidade de definição excepcional e textura mínima sob a malha. O toque é levinho e veste bem demais, parece um abraço.</p>
+           <p>Entrada USB:Sim Bluetooth:Sim Potência (RMS): 30W - Som: Tipo de alto-falante Alto-falante satélite: aproximado 4,8 cm Modos de som: Clear audio+, dsee - Conexões sem fio: Nfc: Sim Função mãos-livres: Sim -Especificação do bluetooth® versão 4.2 Intervalo de comunicação máximo: 10 m </p>
 
          </details>
 
@@ -232,13 +234,13 @@
    </div>
    <div class="col-sm-3 col-xs-12 col-md-3">
     <div class="card mb-4">
-      <img class="card-img-top" src="img/casacocrossfire.png" alt="Card image cap" height="200" width="239">
+      <img class="card-img-top" src="img/cartao.jpg" alt="Card image cap" height="200" width="239">
       <div class="card-body">
-        <h5 class="card-title">Casaco CrossFire - SAS</h5>
-        <a href="#" class="btn btn-primary">R$ 129,90  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
+        <h5 class="card-title">Cartão Mini SD 64 GB</h5>
+        <a href="#" class="btn btn-primary">R$ 109,00  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
         <details>
          <summary>Detalhes</summary> 
-         <p>A estampa é produzida com impressão digital (DTG) e o processo é realizado com o que há de mais moderno no mercado, em impressora específica para malharia,imprimindo a arte com qualidade de definição excepcional e textura mínima sob a malha. O toque é levinho e veste bem demais, parece um abraço.</p>
+         <p>CARTÃO DE MEMORIA SANDISK MICRO SD 64GB O micro SD é designado para uso em celulares. Com esse cartão você pode baixar imagens fotos e vídeos do seu celular direto para seu computador ou do seu computador para seu celular atraves do adaptador SD Esses cartões evoluíram muito ao longo dos anos. As principais diferenças podem ser notadas no tamanho e na capacidade de armazenagem. Com o passar do tempo, eles se tornaram menores e passaram a oferecer mais espaço para a gravação de arquivos.</p>
 
        </details>
 
@@ -247,13 +249,13 @@
   </div>
   <div class="col-sm-3 col-xs-12 col-md-3">
     <div class="card mb-4">
-      <img class="card-img-top" src="img/camisetakratos.jpg" alt="Card image cap" height="200" width="239">
+      <img class="card-img-top" src="img/mouse.jpg" alt="Card image cap" height="200" width="239">
       <div class="card-body">
-        <h5 class="card-title">Camiseta Kratos</h5>
-        <a href="#" class="btn btn-primary">R$ 74,90  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
+        <h5 class="card-title">Mouse Deathadder Elite</h5>
+        <a href="#" class="btn btn-primary">R$ 335,00  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
         <details>
          <summary>Detalhes</summary> 
-         <p>A estampa é produzida com impressão digital (DTG) e o processo é realizado com o que há de mais moderno no mercado, em impressora específica para malharia,imprimindo a arte com qualidade de definição excepcional e textura mínima sob a malha. O toque é levinho e veste bem demais, parece um abraço.</p>
+         <p>Quando você usa óculos, ninguém pensará que este é um gravador e câmera escondida multifuncional. câmera espião escondida, câmera de óculos, que permite gravar fotos e vídeos. Pode registrar tudo o que acontece a cada minuto.Parâmetro:resolução de vídeo: 1920 x 1080Formato de vídeo: AVItaxa de quadros de vídeo: 30 FPSgravação: suportePorta USB: mini USBTensão de alimentação: 5 V DCtempo de carregamento: cerca de 1,5 horastem funções de foto e vídeotamanho: 15 (L) x 14,5 (W) x 3 (H) (CM)</p>
 
        </details>
 
@@ -262,13 +264,13 @@
   </div>
   <div class="col-sm-3 col-xs-12 col-md-3">
     <div class="card mb-4">
-      <img class="card-img-top" src="img/camisetachucky.jpg" alt="Card image cap" height="200" width="239">
+      <img class="card-img-top" src="img/pokebola.jpg" alt="Card image cap" height="200" width="239">
       <div class="card-body">
-        <h5 class="card-title">Camiseta Chucky</h5> 
+        <h5 class="card-title">Pokebola Power Bank</h5> 
         <a href="#" class="btn btn-primary">R$ 59,90  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
         <details>
          <summary>Detalhes</summary> 
-         <p>A estampa é produzida com impressão digital (DTG) e o processo é realizado com o que há de mais moderno no mercado, em impressora específica para malharia,imprimindo a arte com qualidade de definição excepcional e textura mínima sob a malha. O toque é levinho e veste bem demais, parece um abraço.</p>
+         <p>Super carregador de celular para capturar seu Pokemon! Carregue em qualquer lugar Acabamento metalizado 12000 Mha , carrega até 3 vezes seu celular Tamanho Aproximado 8,5 X 8,5 Cm (Circunferência)</p>
 
        </details>
 
@@ -277,13 +279,13 @@
   </div>
   <div class="col-sm-3 col-xs-12 col-md-3">
     <div class="card mb-4">
-      <img class="card-img-top" src="img/camisagoku.jpg" alt="Card image cap" height="200" width="239">
+      <img class="card-img-top" src="img/atari.jpg" alt="Card image cap" height="200" width="239">
       <div class="card-body">
-       <h5 class="card-title">Camiseta Goku</h5> 
-        <a href="#" class="btn btn-primary">R$ 100,00  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
+       <h5 class="card-title">Atari Flashback</h5> 
+        <a href="#" class="btn btn-primary">R$ 249,00  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
         <details>
          <summary>Detalhes</summary> 
-         <p>A estampa é produzida com impressão digital (DTG) e o processo é realizado com o que há de mais moderno no mercado, em impressora específica para malharia,imprimindo a arte com qualidade de definição excepcional e textura mínima sob a malha. O toque é levinho e veste bem demais, parece um abraço.</p>
+         <p>Descrição do Produto:Videogame Atari Flashback 7 com 101 jogos na memória.Uma super e clássica coletânea com os melhores jogos.Destaques: Centipede, Frogger e Space IvadersAcompanha dois joysticks com fio clássicos do Atari.Classificação etária LIVRE. Conteúdo da Embalagem:- 1 Videogame Atari Flashback 7 Classic Game- 101 Jogos inclusos na Memória- 2 Joysticks com fio- 1 Manual de instruções com certificado de garantia Características:Sistema Bi-volt automático: 110/220 VoltsConsumo: 1,7WSistema PAL-MSaída AV Mono3 Meses de garantia Jogos Destaque:JUNGLE HUNTTM, FRONT LINETM, POLARISTM, O Original FROGGER FOR ATARI 2600, e a versão de SPACE INVADERSTM.</p>
 
        </details>
 
@@ -292,13 +294,13 @@
   </div>
   <div class="col-sm-3 col-xs-12 col-md-3">
     <div class="card mb-4">
-      <img class="card-img-top" src="img/camisetajirem.jpg" alt="Card image cap" height="200" width="239">
+      <img class="card-img-top" src="img/ssd.jpg" alt="Card image cap" height="200" width="239">
       <div class="card-body">
-        <h5 class="card-title">Camiseta Jiren</h5> 
-        <a href="#" class="btn btn-primary">R$ 60,00  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
+        <h5 class="card-title">SSD Kingston 240 GB</h5> 
+        <a href="#" class="btn btn-primary">R$ 378,00  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
         <details>
          <summary>Detalhes</summary> 
-         <p>A estampa é produzida com impressão digital (DTG) e o processo é realizado com o que há de mais moderno no mercado, em impressora específica para malharia,imprimindo a arte com qualidade de definição excepcional e textura mínima sob a malha. O toque é levinho e veste bem demais, parece um abraço.</p>
+         <p>A unidade de estado sólido A400 da Kingston aumenta drasticamente a resposta do seu computador com tempos incríveis de inicialização, carregamento e transferência, comparados a discos rígidos mecânicos. Reforçado com uma controladora de última geração para velocidades de leitura e gravação de até 500MB/s e 450MB/s¹, este SSD é 10x mais rápido do que um disco rígido tradicional¹ para melhor desempenho, resposta ultrarrápida em multitarefas e um computador mais rápido de modo geral</p>
 
        </details>
 
@@ -307,13 +309,13 @@
   </div>
   <div class="col-sm-3 col-xs-12 col-md-3">
     <div class="card mb-4">
-      <img class="card-img-top" src="img/casaco3d1.jpg" alt="Card image cap" height="200" width="239">
+      <img class="card-img-top" src="img/nintendo.jpg" alt="Card image cap" height="200" width="239">
       <div class="card-body">
-        <h5 class="card-title">Casaco- 3d</h5> 
-        <a href="#" class="btn btn-primary">R$ 120,00  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
+        <h5 class="card-title">Nintendo Switch </h5> 
+        <a href="#" class="btn btn-primary">R$ 549,00  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
         <details>
          <summary>Detalhes</summary> 
-         <p>A estampa é produzida com impressão digital (DTG) e o processo é realizado com o que há de mais moderno no mercado, em impressora específica para malharia,imprimindo a arte com qualidade de definição excepcional e textura mínima sob a malha. O toque é levinho e veste bem demais, parece um abraço.</p>
+         <p>Introduzindo Joy-Con, Controladores Que Tornam Possível Novos Tipos De Jogos, Para Uso Com O Nintendo Switch. O Versátil Joy-Con Oferece Múltiplas Formas Surpreendentes Para Que Os Jogadores Se Divirtam. Dois Joy-Con Pode Ser Usado De Forma Independente Em Cada Mão, Ou Juntos Como Um Controlador De Jogo Quando Ligado Ao Grip Joy-Con. Eles Também Podem Anexar Ao Console Principal Para Uso Em Modo Handheld, Ou Ser Compartilhado Com Amigos Para Desfrutar De Ação De Dois Jogadores Em Jogos Suportados. Cada Joy-Con Tem Um Conjunto Completo De Botões E Pode Atuar Como Um Controlador Autônomo, E Cada Um Inclui Um Acelerômetro E Gyro-Sensor, Tornando Independente Esquerdo E Direito Controle De Movimento Possível</p>
 
        </details>
 
@@ -322,14 +324,14 @@
   </div>
   <div class="col-sm-3 col-xs-12 col-md-3">
     <div class="card mb-4">
-      <img class="card-img-top" src="img/casaco3d2.jpg" alt="Card image cap" height="200" width="239">
+      <img class="card-img-top" src="img/camera.jpg" alt="Card image cap" height="200" width="239">
       <div class="card-body">
-        <h5 class="card-title">Casaco - 3d</h5> 
-        <a href="#" class="btn btn-primary">R$ 120,00  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
+        <h5 class="card-title">Canon PowerShot</h5> 
+        <a href="#" class="btn btn-primary">R$ 2.080,00  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
 
         <details>
          <summary>Detalhes</summary> 
-         <p>A estampa é produzida com impressão digital (DTG) e o processo é realizado com o que há de mais moderno no mercado, em impressora específica para malharia,imprimindo a arte com qualidade de definição excepcional e textura mínima sob a malha. O toque é levinho e veste bem demais, parece um abraço.</p>
+         <p>Zoom Inacreditável de 65X, equivalente a 21-1365mm, além do zoom absurdo de 65x ainda está disponivel o modo de filmagem, em FullHd, com dois microfones (estéreo), a SX60HS ainda conta com um painel LCD móvel, de 3 polegadas que vai facilitar ao máximo a filmagem e a fotografia; sapata hotshoe para qualquer flash Canon Speedlite, auto focus com reconhecimento de face; estabilizador de imagem e muito mais. Sensor - A SX60HS está equipada com um CMOS de 16.1MP e processador Canon Digic 6. A combinação entre sensor e processador permite a captura simultânea de imagens RAW+JPG, e velocidades mais elevadas de burst, chegando até incriveis 6 frames por segundo</p>
 
        </details>
      </div>
@@ -337,13 +339,13 @@
   </div>
   <div class="col-sm-3 col-xs-12 col-md-3">
     <div class="card mb-4">
-      <img class="card-img-top" src="img/casaco3d3.jpg" alt="Card image cap" height="200" width="239">
+      <img class="card-img-top" src="img/drone.jpg" alt="Card image cap" height="200" width="239">
       <div class="card-body">
-        <h5 class="card-title">Casaco - 3d </h5>
-        <a href="#" class="btn btn-primary">R$ 125,00  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
+        <h5 class="card-title">DJI Spark </h5>
+        <a href="#" class="btn btn-primary">R$ 1.895,00  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
         <details>
          <summary>Detalhes</summary> 
-         <p> A estampa é produzida com impressão digital (DTG) e o processo é realizado com o que há de mais moderno no mercado, em impressora específica para malharia,imprimindo a arte com qualidade de definição excepcional e textura mínima sob a malha. O toque é levinho e veste bem demais, parece um abraço. </p>
+         <p> Atinge até 4.000 metros de altura, e em Modo Sport pode voar a 50kmh. Modelo: Spark Alpine Câmera: Sensor 12MP CMOS Memória Externa: Suporta uso de cartão Micro SD de até 64GB Conectividade Wireless Tempo de Voo: Máximo: 16 minutos Velocidade: Velocidade máxima: 50 Kmh Velocidade de descida: máxima 3 metros por segundo Velocidade de subida: máxima 3 metros por segundo,Resolução de Vídeo: 1920 × 1080 30p Estabilizador: Intervalo controlável: -85 a 0 ° de inclinação Estabilização: mecânica dois eixos (de rotação da inclinação) Formato de Vídeo MP4 (MPEG-4 AVCH.264) Observação: Não acompanha Controle Remoto </p>
 
        </details>
 
@@ -352,14 +354,14 @@
   </div>
   <div class="col-sm-3 col-xs-12 col-md-3">
     <div class="card mb-4">
-      <img class="card-img-top" src="img/casacodeadpol.jpg" alt="Card image cap" height="200" width="239">
+      <img class="card-img-top" src="img/microfone.jpg" alt="Card image cap" height="200" width="239">
       <div class="card-body">
-        <h5 class="card-title">Casaco Deadpool</h5>
+        <h5 class="card-title">Microfone Compacto RODE</h5>
 
-        <a href="#" class="btn btn-primary">R$ 130,00  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
+        <a href="#" class="btn btn-primary">R$ 490,00  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
         <details>
          <summary>Detalhes</summary> 
-         <p>A estampa é produzida com impressão digital (DTG) e o processo é realizado com o que há de mais moderno no mercado, em impressora específica para malharia,imprimindo a arte com qualidade de definição excepcional e textura mínima sob a malha. O toque é levinho e veste bem demais, parece um abraço.</p>
+         <p>Microfone compacto Rode VideoMicro</p>
 
        </details>
      </div>
@@ -369,7 +371,7 @@
   </div>
 
   <footer>
-    <div class="footer-middle bg-dark" style="margin-top: 1%;">
+  	<div class="footer-middle bg-dark" style="margin-top: 1%;">
       <div class="container">
         <div class="row">
          <div class="col-md-3 col-sm-6">
