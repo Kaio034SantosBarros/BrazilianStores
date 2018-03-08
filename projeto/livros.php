@@ -72,13 +72,13 @@
     <div class="row">
       <div class="col-sm-3 col-xs-12 col-md-3">
         <div class="card mb-4">
-          <img class="card-img-top" src="img/gopro.jpg" alt="Card image cap">
+          <img class="card-img-top" src="img/livro1.jpg" alt="Card image cap">
           <div class="card-body">
-            <h5 class="card-title">GoPro Hero 5 Session</h5>
-            <a href="#" class="btn btn-primary">R$ 1,200,00  <i class="fa fa-shopping-cart"></i></a>
+            <h5 class="card-title">A Sutil Arte de ligar o F#da-se</h5>
+            <a href="#" class="btn btn-primary">R$ 22,90  <i class="fa fa-shopping-cart"></i></a>
             <details>
              <summary>Detalhes</summary> 
-             <p>A Sessão GoPro Hero5 é uma excelente câmera para pessoas que gostam de sair ao ar livre e querem capturar cada momento em uma resolução cristalina de 4k.</p>
+             <p>Mark manson não tem meandros ou meias palavras. Com um estilo honesto, divertido e incrivelmente perspicaz, ele se tornou popular escrevendo em seu blog o que as pessoas realmente precisam ouvir, pois só isso funciona para nos fazer evoluir pessoal e profissionalmente. Mora em Nova York.</p>
 
            </details>
 
