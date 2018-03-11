@@ -1,12 +1,13 @@
 <?php
 	session_start();
 
-		if(isset($_SESSION['adm'])){
-		$adm = $_SESSION['adm'];			
-		} 
-		if(isset($_COOKIE['adm'])){
-		$adm = $_COOKIE['adm'];
-			}
+	if(isset($_SESSION['adm']) or isset($_COOKIE)){
+			$adm = $_SESSION['adm'] or $_COOKIE['adm'];
+	}
+
+	if($adm != 'sim'){
+		header("Location: perfil.php");
+	}
 
 	if(empty($_SESSION['email']) and empty($_COOKIE['email'])){
 		header("Location: index.php");
@@ -19,7 +20,6 @@
 		$email = $_COOKIE['email'];	
 		$nome = $_COOKIE['nome'];
 	}
-		
 ?>
 <!doctype html>
 <html lang="pt-br">
@@ -65,7 +65,7 @@
       </div>
       <li class="nav-item">
   
-        <a class="nav-link active" href="carrinho.php"><i class="fa fa-shopping-cart "></i></a>
+        <a class="nav-link active" href="#home"><i class="fa fa-shopping-cart "></i></a>
       </li>
 
   </li>
@@ -78,7 +78,7 @@
 				</div>
 			</li>
 				 ";
-			}
+		}
 		?>
   <li class="nav-item">
     <div>
@@ -97,10 +97,13 @@
     </form>
 
 </nav>
-
-
+<div>
+	<form method="post" action="fotoprod.php" enctype="multipart/form-data">
+		<input type="file" name="arquivo" accept="image/jpeg, image/png">
+		<button type="submit">Mudar foto</button>
+	</form>
+</div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   </body>
 </html>
-

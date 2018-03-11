@@ -1,7 +1,7 @@
 <?php
   session_start();
 
-  if(isset($_SESSION['email'])){
+  if(isset($_SESSION['email']) or isset($_COOKIE['email'])){
       header("Location: perfil.php");
 
   $nome = $_SESSION['nome'];

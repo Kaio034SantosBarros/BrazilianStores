@@ -36,16 +36,22 @@ if ($_UP['tamanho'] < $_FILES['arquivo']['size']) {
 // Primeiro verifica se deve trocar o nome do arquivo
 if ($_UP['renomeia'] == true) {
   // Cria um nome baseado no UNIX TIMESTAMP atual e com extensão .png
-  session_start();
-  $email = $_SESSION['email'];
-  include "banco.php";
-  $query = mysqli_query($con, "select * from usuario where email = '$email' limit 1");
-
-  if($dados = mysqli_fetch_assoc($query)){
-    $id = $dados['id'];  
+  if(isset($_GET['id'])){
+    $id = $_GET['id'];
+  }else{
+  include "bd.php";
+  $query = "select * from produto order by id desc limit 1";
+  $consulta = mysqli_query($con, $query);
+  if($dados = mysqli_fetch_assoc($consulta)){
+    $id = $dados['id'];
+    }
   }
 
   $nome_final = "$id.$extensao";
+
+  mysqli_query($con, "update produto set img = '$nome_final' where id = $id");
+
+
 } else {
   // Mantém o nome original do arquivo
   $nome_final = $_FILES['arquivo']['name'];
@@ -62,6 +68,7 @@ if (move_uploaded_file($_FILES['arquivo']['tmp_name'], $_UP['pasta'] . $nome_fin
 } else {
   // Não foi possível fazer o upload, provavelmente a pasta está incorreta
   echo "Não foi possível enviar o arquivo, tente novamente";
+  header("Refresh: 3, upfoto.php");
 }
 
 ?>

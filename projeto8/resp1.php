@@ -12,6 +12,7 @@
 
 	if($total == 0){
 		echo "Usuário ou senha inválidos!";
+		header("Refresh: 2, index.php");
 	}
 
 	if(isset($_POST['conect'])){
@@ -21,7 +22,7 @@
 	while($usuario = mysqli_fetch_array($consulta)){
 			$nome = $usuario['nome'];
 			$adm = $usuario['adm'];
-	}
+	
 
 	if($conect == 0){
 		session_start();
@@ -33,9 +34,9 @@
 		setcookie("email", $email, time()+120);
 		setcookie("nome", $nome, time()+120);
 		setcookie("adm", $adm, time()+120);
+		}
 	
-	}
-
 	header("Location: perfil.php");
 	
+	}
  ?>
