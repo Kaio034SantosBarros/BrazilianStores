@@ -1,5 +1,4 @@
 <?php 
-	$adm = "nao";
 	$nome = strip_tags($_POST['nome']);
 	$identidade = strip_tags($_POST['identidade']);
 	$cpf = strip_tags($_POST['cpf']);
@@ -23,13 +22,12 @@
 			echo "E-mail já cadastrado! Tente outro.";
 			header("Refresh: 3, index.php");
 		}else{
-			$query = "insert into usuario(adm, nome, identidade, cpf, nascimento, endereco, cep, complemento, numero, bairro, cidade, estado, email, senha) values ('$adm', '$nome', '$identidade', '$cpf', '$nascimento', '$endereco', '$cep', '$complemento', '$numero', '$bairro', '$cidade', '$estado', '$email', '$senha')";
+			$query = "insert into usuario(nome, identidade, cpf, nascimento, endereco, cep, complemento, numero, bairro, cidade, estado, email, senha) values ('$nome', '$identidade', '$cpf', '$nascimento', '$endereco', '$cep', '$complemento', '$numero', '$bairro', '$cidade', '$estado', '$email', '$senha')";
 			mysqli_query($con, $query);
 			echo "Usuário cadastrado com sucesso!";
 			session_start();
 			$_SESSION['nome'] = $nome;
 			$_SESSION['email'] = $email;
-			$_SESSION['adm'] = $adm;
 			header("Refresh: 3, perfil.php");
 		}
 

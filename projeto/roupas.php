@@ -57,11 +57,11 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle active" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Categorias</a>
             <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 44px, 0px); top: 0px; left: 0px; will-change: transform;">
-              
+              <a class="dropdown-item" href="roupas.php">Roupas</a>
               <a class="dropdown-item" href="eletronicos.php">Eletrônicos</a>
-              <a class="dropdown-item" href="livro.php">Livros</a>
+              <a class="dropdown-item" href="livros.php">Livros</a>
               <a class="dropdown-item" href="info.php">Informática</a>
-              <a class="dropdown-item" href="cel.php">Celulares</a>
+              <a class="dropdown-item" href="celulares.php">Celulares</a>
               <a class="dropdown-item" href="game.php">Games</a>
             </div>
             <li class="nav-item">

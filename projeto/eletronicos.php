@@ -56,12 +56,12 @@
           
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle active" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Categorias</a>
-            <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 44px, 0px); top: 0px; left: 0px; will-change: transform;">
+             <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 44px, 0px); top: 0px; left: 0px; will-change: transform;">
               <a class="dropdown-item" href="roupas.php">Roupas</a>
-              
-              <a class="dropdown-item" href="livro.php">Livros</a>
+              <a class="dropdown-item" href="eletronicos.php">Eletrônicos</a>
+              <a class="dropdown-item" href="livros.php">Livros</a>
               <a class="dropdown-item" href="info.php">Informática</a>
-              <a class="dropdown-item" href="cel.php">Celulares</a>
+              <a class="dropdown-item" href="celulares.php">Celulares</a>
               <a class="dropdown-item" href="game.php">Games</a>
             </div>
             <li class="nav-item">
@@ -184,7 +184,7 @@
     <div style="margin-left: 2%; margin-right: 2%; margin-top: 2%">
       <div class="row">
         <div class="col-sm-3 col-xs-12 col-md-3">
-          <div class="card mb-4">
+          <div class="card mb-4" style="width: 18rem;">
             <img class="card-img-top" src="img/gopro.jpg" alt="Card image cap" height="200" width="239">
             <div class="card-body">
               <h5 class="card-title">GoPro Hero 5 Session</h5>
@@ -201,7 +201,7 @@
        </div>
 
        <div class="col-sm-3 col-xs-12 col-md-3">
-        <div class="card mb-4">
+        <div class="card mb-4" style="width: 18rem;">
           <img class="card-img-top" src="img/fonesjbl.jpg" alt="Card image cap" height="200" width="239">
           <div class="card-body">
             <h5 class="card-title">Fones JBL</h5>
@@ -218,7 +218,7 @@
        </div>
      </div>
      <div class="col-sm-6 col-xs-12 col-md-3">
-      <div class="card mb-4">
+      <div class="card mb-4" style="width: 18rem;">
         <img class="card-img-top" src="img/somsony.jpg" alt="Card image cap" height="200" width="239">
         <div class="card-body">
           <h5 class="card-title">Caixa Multimidia - Sony</h5>
@@ -233,7 +233,7 @@
      </div>
    </div>
    <div class="col-sm-3 col-xs-12 col-md-3">
-    <div class="card mb-4">
+    <div class="card mb-4" style="width: 18rem;">
       <img class="card-img-top" src="img/cartao.jpg" alt="Card image cap" height="200" width="239">
       <div class="card-body">
         <h5 class="card-title">Cartão Mini SD 64 GB</h5>
@@ -248,7 +248,7 @@
    </div>
   </div>
   <div class="col-sm-3 col-xs-12 col-md-3">
-    <div class="card mb-4">
+    <div class="card mb-4" style="width: 18rem;">
       <img class="card-img-top" src="img/mouse.jpg" alt="Card image cap" height="200" width="239">
       <div class="card-body">
         <h5 class="card-title">Mouse Deathadder Elite</h5>
@@ -263,7 +263,7 @@
    </div>
   </div>
   <div class="col-sm-3 col-xs-12 col-md-3">
-    <div class="card mb-4">
+    <div class="card mb-4" style="width: 18rem;">
       <img class="card-img-top" src="img/pokebola.jpg" alt="Card image cap" height="200" width="239">
       <div class="card-body">
         <h5 class="card-title">Pokebola Power Bank</h5> 
@@ -278,7 +278,7 @@
    </div>
   </div>
   <div class="col-sm-3 col-xs-12 col-md-3">
-    <div class="card mb-4">
+    <div class="card mb-4" style="width: 18rem;">
       <img class="card-img-top" src="img/atari.jpg" alt="Card image cap" height="200" width="239">
       <div class="card-body">
        <h5 class="card-title">Atari Flashback</h5> 
@@ -293,7 +293,7 @@
    </div>
   </div>
   <div class="col-sm-3 col-xs-12 col-md-3">
-    <div class="card mb-4">
+    <div class="card mb-4" style="width: 18rem;">
       <img class="card-img-top" src="img/ssd.jpg" alt="Card image cap" height="200" width="239">
       <div class="card-body">
         <h5 class="card-title">SSD Kingston 240 GB</h5> 
@@ -308,7 +308,7 @@
    </div>
   </div>
   <div class="col-sm-3 col-xs-12 col-md-3">
-    <div class="card mb-4">
+    <div class="card mb-4" style="width: 18rem;">
       <img class="card-img-top" src="img/nintendo.jpg" alt="Card image cap" height="200" width="239">
       <div class="card-body">
         <h5 class="card-title">Nintendo Switch </h5> 
@@ -323,7 +323,7 @@
    </div>
   </div>
   <div class="col-sm-3 col-xs-12 col-md-3">
-    <div class="card mb-4">
+    <div class="card mb-4" style="width: 18rem;">
       <img class="card-img-top" src="img/camera.jpg" alt="Card image cap" height="200" width="239">
       <div class="card-body">
         <h5 class="card-title">Canon PowerShot</h5> 
@@ -338,7 +338,7 @@
    </div>
   </div>
   <div class="col-sm-3 col-xs-12 col-md-3">
-    <div class="card mb-4">
+    <div class="card mb-4" style="width: 18rem;">
       <img class="card-img-top" src="img/drone.jpg" alt="Card image cap" height="200" width="239">
       <div class="card-body">
         <h5 class="card-title">DJI Spark </h5>
@@ -353,7 +353,7 @@
    </div>
   </div>
   <div class="col-sm-3 col-xs-12 col-md-3">
-    <div class="card mb-4">
+    <div class="card mb-4" style="width: 18rem;">
       <img class="card-img-top" src="img/microfone.jpg" alt="Card image cap" height="200" width="239">
       <div class="card-body">
         <h5 class="card-title">Microfone Compacto RODE</h5>

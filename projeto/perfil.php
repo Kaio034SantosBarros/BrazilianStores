@@ -1,13 +1,12 @@
 <?php
 	session_start();
 
-	if(isset($_SESSION['adm']) or isset($_COOKIE['adm'])){
-			$adm = "sim";
-	}
-
-	if($adm != 'sim'){
-		header("Location: perfil.php");
-	}
+		if(isset($_SESSION['adm'])){
+		$adm = $_SESSION['adm'];			
+		} 
+		if(isset($_COOKIE['adm'])){
+		$adm = $_COOKIE['adm'];
+			}
 
 	if(empty($_SESSION['email']) and empty($_COOKIE['email'])){
 		header("Location: index.php");
@@ -20,6 +19,7 @@
 		$email = $_COOKIE['email'];	
 		$nome = $_COOKIE['nome'];
 	}
+		
 ?>
 <!doctype html>
 <html lang="pt-br">
@@ -39,14 +39,6 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
-    <script type="text/javascript">
-
-    	function categoria(){
-    		categoria = document.getElementById("categoria").value;
-    	}
-
-    </script>
   
   </head>
   
@@ -86,9 +78,8 @@
 				</div>
 			</li>
 				 ";
-		}
+			}
 		?>
-		
   <li class="nav-item">
     <div>
     <a class="nav-link active btn btn-light" href="sair.php">Sair</a>
@@ -106,50 +97,10 @@
     </form>
 
 </nav>
-<div>
-	<form method="post" action="respcadprod.php">
-		<h2 class="text-center">CADASTRAR PRODUTO</h2>
-		<ul id="listprod">
-			<li>
-				<div>
-				Nome do Produto: <input type="text" name="nomeprod" required="">
-				</div>
-			</li>
-			<li>
-				<div>
-				Preço do Produto: <input type="number" name="preco" required="">
-				</div>
-			</li>
-			<li>
-				<div>
-				Marca do Produto: <input type="text" name="marca" required="">
-				</div>
-			</li>
-			<li>
-				<div>
-				Quantidade Por Item: <input type="number" name="quantidade" required="">
-				</div>
-			</li>
-			<li>
-				<div>
-					<label for="categoria">Categorias</label>
-				<select name="categoria" id="categoria">
-					 <option value="roupas">Roupas</option>
-					 <option value="eletronicos">Eletrônicos</option>
-					 <option value="livros">Livros</option>
-					 <option value="informatica">Informática</option>
-					 <option value="celulares">Celulares</option>
-					 <option value="games">Games</option>
-				</select>
-				</div>
-			</li>
-			<li>
-				<input class="nav-link active text-center" onclick="categoria()" id="cadfoto" type="submit" value="Cadastrar Produto">
-			</li>
-		</ul>
-	</form>
-</div>
+
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   </body>
 </html>
+

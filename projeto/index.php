@@ -1,4 +1,4 @@
-     <?php
+    <?php
     session_start();
 
     if(isset($_SESSION['email'])){
@@ -59,10 +59,10 @@
             <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 44px, 0px); top: 0px; left: 0px; will-change: transform;">
               <a class="dropdown-item" href="roupas.php">Roupas</a>
               <a class="dropdown-item" href="eletronicos.php">Eletrônicos</a>
-              <a class="dropdown-item" href="livro.php">Livros</a>
-              
-              <a class="dropdown-item" href="cel.php">Celulares</a>
-              
+              <a class="dropdown-item" href="livros.php">Livros</a>
+              <a class="dropdown-item" href="info.php">Informática</a>
+              <a class="dropdown-item" href="celulares.php">Celulares</a>
+              <a class="dropdown-item" href="game.php">Games</a>
             </div>
             <li class="nav-item">
               
@@ -172,205 +172,173 @@
         </div>
       </div>
 
+      
+      <div id="demo" class="carousel slide" data-ride="carousel">
 
+        <!-- Indicators -->
+        <ul class="carousel-indicators">
+          <li data-target="#demo" data-slide-to="0" class="active"></li>
+          <li data-target="#demo" data-slide-to="1"></li>
+          <li data-target="#demo" data-slide-to="2"></li>
+          <li data-target="#demo" data-slide-to="3"></li>
+          <li data-target="#demo" data-slide-to="4"></li>
+          <li data-target="#demo" data-slide-to="5"></li>
+        </ul>
 
-
-
-      <div style="border: 3px solid black; margin-top: 1%; background-color: #BEBEBE;">  
-        <h3 class="text-center"><marquee scrollDelay=1><font color=black><DATA>Informática</DATA></em></font></marquee></h3>
+        <!-- The slideshow -->
+        <div class="carousel-inner text-center" style="margin-top: 10px;">
+          <div class="carousel-item active">
+            <img  id="imgc" src="img/roupa1.jpg" alt="Blusa Gamer, vida/coração">
+            <img  id="imgc" src="img/roupa2.jpg" alt="Casaco nintendo">
+            <img  id="imgc" src="img/roupa3.jpg" alt="Casaco Hardcore Gamer">
+            <div class="carousel-caption">
+             <h3><strong style="color:black;"><u>Roupas</u></strong></h3>
+           </div>
+         </div>
+         <div class="carousel-item">
+          <img  id="imgc" src="img/ele1.jpg" alt="TV Box">
+          <img  id="imgc" src="img/ele2.png" alt="Smart TV">
+          <img  id="imgc" src="img/ele3.jpg" alt="ChromeCast">
+          <div class="carousel-caption">
+            <h3><strong style="color:black;"><u>Eletrônicos</u></strong></h3>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img  id="imgc" src="img/livro1.jpg" alt="A arte da Guerra">
+          <img  id="imgc" src="img/livro2.png" alt="Harry Potter">
+          <img  id="imgc" src="img/livro3.jpg" alt="Assassin's Creed">
+          <div class="carousel-caption">
+            <h3><strong style="color:black;"><u>Livros</u></strong></h3>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img  id="imgc" src="img/info1.jpg" alt="Fone Multilazer">
+          <img  id="imgc" src="img/info2.jpg" alt="Notebook">
+          <img  id="imgc" src="img/info3.jpg" alt="Tablet">
+          <div class="carousel-caption">
+            <h3><strong style="color:black;"><u>Informática</u></strong></h3>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img  id="imgc" src="img/cel1.png" alt="Galaxy j7">
+          <img  id="imgc" src="img/cel2.png" alt="Galaxy j6">
+          <img  id="imgc" src="img/cel3.jpg" alt="Moto G5 Plus">
+          <div class="carousel-caption">
+            <h3><strong style="color:black;"><u>Celular</u></strong></h3>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img  id="imgc" src="img/game1.jpg" alt="BF4">
+          <img  id="imgc" src="img/game2.jpg" alt="Plants vs Zombies">
+          <img  id="imgc" src="img/game3.jpg" alt="Gta 5">
+          <div class="carousel-caption">
+            <h3><strong style="color:black;"><u>Games</u></strong></h3>
+          </div>
+        </div>
       </div>
 
+      <!-- Left and right controls -->
+      <a class="carousel-control-prev" href="#demo" data-slide="prev">
+        <span class="carousel-control-prev-icon" style="background-color: black"></span>
+      </a>
+      <a class="carousel-control-next" href="#demo" data-slide="next">
+        <span class="carousel-control-next-icon" style="background-color: black"></span>
+      </a>
 
-      <div style="margin-left: 2%; margin-right: 2%; margin-top: 2%">
-        <div class="row">
-          <div class="col-sm-3 col-xs-12 col-md-3">
-            <div class="card mb-4" style="width: 18rem;">
-              <img class="card-img-top" src="img/corei7.jpg" alt="Card image cap" height="200" width="239">
-              <div class="card-body">
-                <h5 class="card-title">Processador Intel core I7</h5>
-                <a href="#" class="btn btn-primary">R$ 1.704,41<i class="fa fa-cart-arrow-down fa-2x"></i></a>
-                <details>
-                 <summary>Detalhes</summary> 
-                 <p>Marca Intel, Modelo BX80684I78700K,Soquete LGA 1151, Litografia 14nm,Número de núcleos 6, Threads 12, Frequência 3,70 GHz, Frequência Turbo 4,70 GHz, Cache 12 MB, Velocidade do barramento 8 GT/s DMI3, TDP 95 W, Tamanho Máximo de Memória 64 GB, Tipos de memória DDR4-2666, Máximo de Canais de Memória 2</p>
+    </div>
 
-               </details>
-
-
-             </div>
-           </div>
-         </div>
-
-         <div class="col-sm-3 col-xs-12 col-md-3">
-          <div class="card mb-4" style="width: 18rem;" >
-            <img class="card-img-top" src="img/corei5.jpg" alt="Card image cap" height="200" width="239" >
-            <div class="card-body">
-              <h5 class="card-title">Processador Intel Core i5</h5>
-              <a href="#" class="btn btn-primary">R$ 768,90  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
-              <details>
-               <summary>Detalhes</summary> 
-               <p>Processador Intel Core i5-8400 Coffee Lake 8a Geração, Cache 9MB, 2.8GHz (4.0GHz Max Turbo), LGA 1151 Intel UHD Graphics 630 - BX80684I58400</p>
-
-             </details>
-
-
-           </div>
-         </div>
-       </div>
-       <div class="col-sm-6 col-xs-12 col-md-3">
-        <div class="card mb-4" style="width: 18rem;">
-          <img class="card-img-top" src="img/gtx1050.jpg" alt="Card image cap" height="200" width="239">
-          <div class="card-body">
-            <h5 class="card-title">Placa de Video VGA NVIDIA </h5>
-            <a href="#" class="btn btn-primary">R$ 637,90  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
-            <details>
-             <summary>Detalhes</summary> 
-             <p>Placa de Video VGA NVIDIA ASUS GEFORCE GTX 1050 2GB, Boost Clock 1518 MHz, DVI/HDMI/Display port/suport HDCP, DirectX 12, Expedition eSports EX-GTX1050-O2G</p>
-
-           </details>
-
-         </div>
-       </div>
-     </div>
-     <div class="col-sm-3 col-xs-12 col-md-3">
-      <div class="card mb-4" style="width: 18rem;">
-        <img class="card-img-top" src="img/videoamd.jpg" alt="Card image cap" height="200" width="239">
+    <div style="border: 3px solid black; margin-top: 10px; background-color: #BEBEBE;">	
+    	<h3 class="text-center"><marquee scrollDelay=1><font color=black><DATA>Destaques da Semana</DATA></em></font></marquee></h3>
+    </div>
+    
+    
+    
+    <div class="card-deck">
+      <div class="card mb-4">
+        <div class="view overlay">
+          <img class="img-fluid" src="img/ele2.png" alt="Card image cap">
+          <a href="#!">
+            <div class="mask rgba-white-slight"></div>
+          </a>
+        </div>
         <div class="card-body">
-          <h5 class="card-title">Placa de Vídeo VGA AMD</h5>
-          <a href="#" class="btn btn-primary">R$ 421,06  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
-          <details>
-           <summary>Detalhes</summary> 
-           <p>Placa de Vídeo VGA AMD GIGABYTE RADEON R7 360 OC 2G Rev. 3.0 - GV-R736OC-2GD</p>
-
-         </details>
-
-       </div>
-     </div>
-    </div>
-    <div class="col-sm-3 col-xs-12 col-md-3">
-      <div class="card mb-4" style="width: 18rem;">
-        <img class="card-img-top" src="img/gamer1.jpg" alt="Card image cap" height="200" width="239">
+          <h4 class="card-title">Card title</h4>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <button type="button" class="btn btn-light-blue btn-md">Saiba mais</button>
+        </div>
+      </div>
+      <div class="card mb-4">
+        <div class="view overlay">
+          <img class="img-fluid" src="img/info1.jpg" alt="Card image cap">
+          <a href="#!">
+            <div class="mask rgba-white-slight"></div>
+          </a>
+        </div>
         <div class="card-body">
-          <h5 class="card-title">Computador Gamer</h5>
-          <a href="#" class="btn btn-primary">R$ 1.902,24  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
-          <details>
-           <summary>Detalhes</summary> 
-           <p>Computador Gamer G-Fire AMD A8-7600, 4GB, HD 500GB, Radeon R7 integrada, Linux - Ícarus LT HTAVA-R54 </p>
-
-         </details>
-
-       </div>
-     </div>
-    </div>
-    <div class="col-sm-3 col-xs-12 col-md-3">
-      <div class="card mb-4" style="width: 18rem;">
-        <img class="card-img-top" src="img/gamer2.jpg" alt="Card image cap" height="200" width="239">
+          <h4 class="card-title">Card title</h4>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <button type="button" class="btn btn-light-blue btn-md">Saiba mais</button>
+        </div>
+      </div>
+      <div class="card mb-4">
+        <div class="view overlay">
+          <img class="img-fluid" src="img/game1.jpg" alt="Card image cap">
+          <a href="#!">
+            <div class="mask rgba-white-slight"></div>
+          </a>
+        </div>
         <div class="card-body">
-          <h5 class="card-title">Computador Gamer</h5> 
-          <a href="#" class="btn btn-primary">R$ 3.670,47  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
-          <details>
-           <summary>Detalhes</summary> 
-           <p>Computador Gamer Rawar Armata Intel Core i3-7100, 8GB, HD 1TB, Geforce GTX1050TI - RW252PAZ</p>
-
-         </details>
-
-       </div>
-     </div>
+          <h4 class="card-title">Card title</h4>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <button type="button" class="btn btn-light-blue btn-md">Saiba mais</button>
+        </div>
+      </div>
     </div>
-    <div class="col-sm-3 col-xs-12 col-md-3">
-      <div class="card mb-4" style="width: 18rem;">
-        <img class="card-img-top" src="img/gamer3.jpg" alt="Card image cap" height="200" width="239">
+    <div class="card-deck">
+      <div class="card mb-4">
+        <div class="view overlay">
+          <img class="img-fluid" src="img/cel2.png" alt="Card image cap">
+          <a href="#!">
+            <div class="mask rgba-white-slight"></div>
+          </a>
+        </div>
         <div class="card-body">
-         <h5 class="card-title">Computador Gamer</h5> 
-          <a href="#" class="btn btn-primary">R$ 3.168,12<i class="fa fa-cart-arrow-down fa-2x"></i></a>
-          <details>
-           <summary>Detalhes</summary> 
-           <p>Computador Gamer NTC AMD Ryzen 1200, 8GB, HD 1TB, GTX 1050, Windows 10 (Versão de Avaliação) - 6501</p>
-
-         </details>
-
-       </div>
-     </div>
-    </div>
-    <div class="col-sm-3 col-xs-12 col-md-3">
-      <div class="card mb-4" style="width: 18rem;">
-        <img class="card-img-top" src="img/gamer4.jpg" alt="Card image cap" height="200" width="239">
+          <h4 class="card-title">Card title</h4>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <button type="button" class="btn btn-light-blue btn-md">Saiba mais</button>
+        </div>
+      </div>
+      <div class="card mb-4">
+        <div class="view overlay">
+          <img class="img-fluid" src="img/roupa3.jpg" alt="Card image cap">
+          <a href="#!">
+            <div class="mask rgba-white-slight"></div>
+          </a>
+        </div>
         <div class="card-body">
-          <h5 class="card-title">Computador Gamer</h5> 
-          <a href="#" class="btn btn-primary">R$ 2.368,12  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
-          <details>
-           <summary>Detalhes</summary> 
-           <p>Computador Gamer G-Fire AMD FX8300, 8GB, HD 1TB, DVD-RW, Linux - HTAVA-66</p>
-
-         </details>
-
-       </div>
-     </div>
-    </div>
-    <div class="col-sm-3 col-xs-12 col-md-3">
-      <div class="card mb-4" style="width: 18rem;">
-        <img class="card-img-top" src="img/not1.jpg" alt="Card image cap" height="200" width="239">
+          <h4 class="card-title">Card title</h4>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <button type="button" class="btn btn-light-blue btn-md">Saiba mais</button>
+        </div>
+      </div>
+      <div class="card mb-4">
+        <div class="view overlay">
+          <img class="img-fluid" src="img/livro1.jpg" alt="Card image cap">
+          <a href="#!">
+            <div class="mask rgba-white-slight"></div>
+          </a>
+        </div>
         <div class="card-body">
-          <h5 class="card-title">Notebook Gamer</h5>
-          <a href="#" class="btn btn-primary">R$ 3.999,88  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
-          <details>
-           <summary>Detalhes</summary> 
-           <p>Notebook Gamer Acer Intel Core I5-7300HQ, 8GB, 1TB, DDR4, NVIDIA GEFORCE GTX 1050 4GB, DDR5, 15,6´´ FULL HD, Windows 10 HOME - VX5-591G-54PG</p>
-
-         </details>
-
-       </div>
-     </div>
-    </div>
-    <div class="col-sm-3 col-xs-12 col-md-3">
-      <div class="card mb-4" style="width: 18rem;">
-        <img class="card-img-top" src="img/not2.jpg" alt="Card image cap" height="200" width="239">
-        <div class="card-body">
-          <h5 class="card-title">Notebook Gamer</h5> 
-          <a href="#" class="btn btn-primary">R$ 7.599,90  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
-
-          <details>
-           <summary>Detalhes</summary> 
-           <p>Notebook Gamer MSI GT72 6QD Dominator G Intel Core i7-6820HK, NVIDIA GEFORCE GTX 970M, 16GB DDR4,128 SSD, 1TB, BD Writer , Tela 17.3</p>
-
-         </details>
-       </div>
-     </div>
-    </div>
-    <div class="col-sm-3 col-xs-12 col-md-3">
-      <div class="card mb-4" style="width: 18rem;">
-        <img class="card-img-top" src="img/mouse1.jpg" alt="Card image cap" height="200" width="239">
-        <div class="card-body">
-          <h5 class="card-title">Mouse Gamer</h5>
-          <a href="#" class="btn btn-primary">R$ 246,94  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
-          <details>
-           <summary>Detalhes</summary> 
-           <p>Mouse Gamer Logitech G403 RGB 12000DPI </p>
-
-         </details>
-
-       </div>
-     </div>
-    </div>
-    <div class="col-sm-3 col-xs-12 col-md-3">
-      <div class="card mb-4" style="width: 18rem;">
-        <img class="card-img-top" src="img/mouse2.jpg" alt="Card image cap" height="200" width="239">
-        <div class="card-body">
-          <h5 class="card-title">Mouse 2</h5>
-
-          <a href="#" class="btn btn-primary">R$ 235,18  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
-          <details>
-           <summary>Detalhes</summary> 
-           <p>Mouse Gamer Logitech Ultra-rápido G402 Hyperion Fury FPS 4000DPI Preto</p>
-
-         </details>
-       </div>
-     </div>
-    </div>
-    </div>
+          <h4 class="card-title">Card title</h4>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <button type="button" class="btn btn-light-blue btn-md">Saiba mais</button>
+        </div>
+      </div>
     </div>
 
+    
     <footer>
-    	<div class="footer-middle bg-dark" style="margin-top: 1%;">
+    	<div class="footer-middle bg-dark" style="margin-top: 30px;">
         <div class="container">
           <div class="row">
            <div class="col-md-3 col-sm-6">
@@ -392,7 +360,7 @@
             </address>
           </div>
         </div>
-
+        
         <div class="col-md-3 col-sm-6">
           <!--Column1-->
           <div class="footer-pad">
@@ -412,31 +380,32 @@
           <div class="footer-pad">
             <h4>Redes Sociais</h4>
             <ul class="list-unstyled">
-              <li><a href="https://www.facebook.com" target="_blank"> <i class="fa fa-facebook-official fa-3x" aria-hidden="true" style="float: left;"></i></li>
-                <li><a href="https://twitter.com" target="_blank"><i class="fa fa-twitter fa-3x" aria-hidden="true" style="float: left;"></i></a></li>
-                <li><a href="https://www.instagram.com/?hl=pt-br" target="_blank"><i class="fa fa-instagram fa-3x" aria-hidden="true"></i></a></li>
-
-              </ul>
-            </div>
+              <li><a href="https://www.facebook.com" target="_blank"> <i class="fa fa-facebook-official fa-3x" aria-hidden="true" style="float: left;"></i></a></li>
+              <li><a href="https://twitter.com" target="_blank"><i class="fa fa-twitter fa-3x" aria-hidden="true" style="float: left;"></i></a></li>
+              <li><a href="https://www.instagram.com/?hl=pt-br" target="_blank"><i class="fa fa-instagram fa-3x" aria-hidden="true"></i></a></li>
+              
+            </ul>
           </div>
-
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom bg-dark">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <!--Footer Bottom-->
+          <p class="text-xs-center">&copy; Todos os direitos reservados.</p>
         </div>
       </div>
     </div>
-    <div class="footer-bottom bg-dark">
-      <div class="container">
-        <div class="row">
-          <div class="col-xs-12">
-            <!--Footer Bottom-->
-            <p class="text-xs-center">&copy; Todos os direitos reservados.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    </footer>
+  </div>
+  </footer>
 
 
 
-    </html>
-    </body>
-    </html>
+  </html>
+  </body>
+  </html>
+
