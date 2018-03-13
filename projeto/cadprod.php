@@ -1,8 +1,9 @@
 <?php
 	session_start();
 
-	if(isset($_SESSION['adm']) or isset($_COOKIE)){
-			$adm = $_SESSION['adm'] or $_COOKIE['adm'];
+	if(isset($_SESSION['adm']) or isset($_COOKIE['adm'])){
+			$adm = "sim";
+
 	}
 
 	if($adm != 'sim'){
@@ -88,6 +89,7 @@
 				 ";
 		}
 		?>
+		
   <li class="nav-item">
     <div>
     <a class="nav-link active btn btn-light" href="sair.php">Sair</a>
@@ -111,22 +113,22 @@
 		<ul id="listprod">
 			<li>
 				<div>
-				Nome do Produto: <input type="text" name="nomeprod">
+				Nome do Produto: <input type="text" name="nomeprod" required="">
 				</div>
 			</li>
 			<li>
 				<div>
-				Preço do Produto: <input type="number" name="preco">
+				Preço do Produto: <input type="number" name="preco" required="">
 				</div>
 			</li>
 			<li>
 				<div>
-				Marca do Produto: <input type="text" name="marca">
+				Marca do Produto: <input type="text" name="marca" required="">
 				</div>
 			</li>
 			<li>
 				<div>
-				Quantidade Por Item: <input type="number" name="quantidade">
+				Quantidade Por Item: <input type="number" name="quantidade" required="">
 				</div>
 			</li>
 			<li>
