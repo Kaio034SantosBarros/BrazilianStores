@@ -31,9 +31,9 @@
 		$_SESSION['adm'] = $adm;
 	
 	}else{
-		setcookie("email", $email, time()+120);
-		setcookie("nome", $nome, time()+120);
-		setcookie("adm", $adm, time()+120);
+		setcookie("email", $email, time()+60*60*24);
+		setcookie("nome", $nome, time()+60*60*24);
+		setcookie("adm", $adm, time()+60*60*24);
 		}
 	
 	header("Location: perfil.php");
