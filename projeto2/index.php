@@ -188,47 +188,47 @@
         <!-- The slideshow -->
         <div class="carousel-inner text-center" style="margin-top: 10px;">
           <div class="carousel-item active">
-            <img  id="imgc" src="img/roupa1.jpg" alt="Blusa Gamer, vida/coração">
-            <img  id="imgc" src="img/roupa2.jpg" alt="Casaco nintendo">
-            <img  id="imgc" src="img/roupa3.jpg" alt="Casaco Hardcore Gamer">
+            <img  id="imgc" src="img/goku.jpg" alt="Blusa Goku">
+            <img  id="imgc" src="img/camisetakratos.jpg" alt="Blusa Kratos">
+            <img  id="imgc" src="img/deadpool.jpg" alt="Casaco Deadpool">
             <div class="carousel-caption">
-             <h3><strong style="color:black;"><u>Roupas</u></strong></h3>
+             <h3><strong style="color:white;"><u>Roupas</u></strong></h3>
            </div>
          </div>
          <div class="carousel-item">
-          <img  id="imgc" src="img/ele1.jpg" alt="TV Box">
-          <img  id="imgc" src="img/ele2.png" alt="Smart TV">
-          <img  id="imgc" src="img/ele3.jpg" alt="ChromeCast">
+          <img  id="imgc" src="img/drone.jpg" alt="DJI Spark">
+          <img  id="imgc" src="img/ele2.jpg" alt="Go Pro Hero 5">
+          <img  id="imgc" src="img/ele3.jpg" alt="Microfone Rode">
           <div class="carousel-caption">
             <h3><strong style="color:black;"><u>Eletrônicos</u></strong></h3>
           </div>
         </div>
         <div class="carousel-item">
-          <img  id="imgc" src="img/livro1.jpg" alt="A arte da Guerra">
-          <img  id="imgc" src="img/livro2.png" alt="Harry Potter">
-          <img  id="imgc" src="img/livro3.jpg" alt="Assassin's Creed">
+          <img  id="imgc" src="img/livro1.jpg" alt="A Sutil Arte de Ligar o F#da -se">
+          <img  id="imgc" src="img/livro2.jpg" alt="Uma Breve História da Humanidade">
+          <img  id="imgc" src="img/livro3.jpg" alt="Seja F#da!">
           <div class="carousel-caption">
             <h3><strong style="color:black;"><u>Livros</u></strong></h3>
           </div>
         </div>
         <div class="carousel-item">
-          <img  id="imgc" src="img/info1.jpg" alt="Fone Multilazer">
-          <img  id="imgc" src="img/info2.jpg" alt="Notebook">
-          <img  id="imgc" src="img/info3.jpg" alt="Tablet">
+          <img  id="imgc" src="img/info1.jpg" alt="GeForce Gtx 1050">
+          <img  id="imgc" src="img/info2.jpg" alt="Notebook Gamer">
+          <img  id="imgc" src="img/info3.jpg" alt="Mouse Deathadder">
           <div class="carousel-caption">
             <h3><strong style="color:black;"><u>Informática</u></strong></h3>
           </div>
         </div>
         <div class="carousel-item">
-          <img  id="imgc" src="img/cel1.png" alt="Galaxy j7">
-          <img  id="imgc" src="img/cel2.png" alt="Galaxy j6">
+          <img  id="imgc" src="img/cel1.jpg" alt="Iphone 8">
+          <img  id="imgc" src="img/cel2.jpg" alt="Galaxy S8 Plus">
           <img  id="imgc" src="img/cel3.jpg" alt="Moto G5 Plus">
           <div class="carousel-caption">
             <h3><strong style="color:black;"><u>Celular</u></strong></h3>
           </div>
         </div>
         <div class="carousel-item">
-          <img  id="imgc" src="img/game1.jpg" alt="BF4">
+          <img  id="imgc" src="img/game1.jpg" alt="Farcry3">
           <img  id="imgc" src="img/game2.jpg" alt="Plants vs Zombies">
           <img  id="imgc" src="img/game3.jpg" alt="Gta 5">
           <div class="carousel-caption">
@@ -256,40 +256,41 @@
     <div class="card-deck">
       <div class="card mb-4">
         <div class="view overlay">
-          <img class="img-fluid" src="img/ele2.png" alt="Card image cap">
+          <img class="img-fluid" src="img/info3.jpg" alt="Mouse Deathadder">
           <a href="#!">
             <div class="mask rgba-white-slight"></div>
           </a>
         </div>
         <div class="card-body">
-          <h4 class="card-title">Card title</h4>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <h4 class="card-title">Mouse Deathadder</h4>
+          <p class="card-text">Mouse Gamer Destiny 2 Razer DeathAdder Elite</p>
           <button type="button" class="btn btn-light-blue btn-md">Saiba mais</button>
         </div>
       </div>
       <div class="card mb-4">
         <div class="view overlay">
-          <img class="img-fluid" src="img/info1.jpg" alt="Card image cap">
+          <img class="img-fluid" src="img/dk.jpg" alt="Blusa Feminina">
           <a href="#!">
             <div class="mask rgba-white-slight"></div>
           </a>
         </div>
         <div class="card-body">
-          <h4 class="card-title">Card title</h4>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <h4 class="card-title">Blusa Feminina</h4>
+          <p class="card-text">A estampa é produzida com impressão digital (DTG) e o processo é realizado com o que há de mais moderno no mercado, em impressora específica para malharia,imprimindo a arte com qualidade de definição excepcional e textura mínima sob a malha. O toque é levinho e veste bem demais, parece um abraço.</p>
           <button type="button" class="btn btn-light-blue btn-md">Saiba mais</button>
         </div>
       </div>
       <div class="card mb-4">
         <div class="view overlay">
-          <img class="img-fluid" src="img/game1.jpg" alt="Card image cap">
+          <img class="img-fluid" src="img/farcry3.jpg" alt="Farcry3">
           <a href="#!">
             <div class="mask rgba-white-slight"></div>
           </a>
         </div>
         <div class="card-body">
-          <h4 class="card-title">Card title</h4>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <h4 class="card-title">Far Cry 3</h4>
+          <p class="card-text">Jogo onde você assume o papel de Jason Brody, um homem sozinho, preso em uma ilha tropical misteriosa. Neste paraíso selvagem, onde a ilegalidade e a violência são a única coisa certa, os jogadores determinam o desenrolar da história, as batalhas que lutarão com aliados ou inimigos e outras situações intensas que vão além do certo e errado. Como Jason Brody, os jogadores vão usar vários tipos de ataque em um mundo aberto, possibilitando ao jogador realizar as missões de maneiras bastante distintas, com muitos desafios pela frente, perigo e muita ação.</p>
+
           <button type="button" class="btn btn-light-blue btn-md">Saiba mais</button>
         </div>
       </div>
@@ -297,27 +298,27 @@
     <div class="card-deck">
       <div class="card mb-4">
         <div class="view overlay">
-          <img class="img-fluid" src="img/cel2.png" alt="Card image cap">
+          <img class="img-fluid" src="img/livro4.jpg" alt="O Poder do Hábito">
           <a href="#!">
             <div class="mask rgba-white-slight"></div>
           </a>
         </div>
         <div class="card-body">
-          <h4 class="card-title">Card title</h4>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <h4 class="card-title">O Poder do Hábito</h4>
+          <p class="card-text">Segundo o autor, a chave para se exercitar regularmente, perder peso, educar os filhos, tornar-se mais produtivo, criar empresas revolucionárias e alcançar o sucesso é entender como os hábitos funcionam. Ele procura mostrar que, ao dominar esta ciência, todos podem transformar suas empresas e suas vidas.</p>
           <button type="button" class="btn btn-light-blue btn-md">Saiba mais</button>
         </div>
       </div>
       <div class="card mb-4">
         <div class="view overlay">
-          <img class="img-fluid" src="img/roupa3.jpg" alt="Card image cap">
+          <img class="img-fluid" src="img/casacocrossfire.png" alt="Casaco CrossFire">
           <a href="#!">
             <div class="mask rgba-white-slight"></div>
           </a>
         </div>
         <div class="card-body">
-          <h4 class="card-title">Card title</h4>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <h4 class="card-title">Casaco CrossFire</h4>
+          <p class="card-text">A estampa é produzida com impressão digital (DTG) e o processo é realizado com o que há de mais moderno no mercado, em impressora específica para malharia,imprimindo a arte com qualidade de definição excepcional e textura mínima sob a malha. O toque é levinho e veste bem demais,parece um abraço.</p>
           <button type="button" class="btn btn-light-blue btn-md">Saiba mais</button>
         </div>
       </div>
@@ -329,8 +330,9 @@
           </a>
         </div>
         <div class="card-body">
-          <h4 class="card-title">Card title</h4>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <h4 class="card-title">A Arte de Ligar o F#da-se</h4>
+          <p class="card-text">Mark manson não tem meandros ou meias palavras. Com um estilo honesto, divertido e incrivelmente perspicaz, ele se tornou popular escrevendo em seu blog o que as pessoas realmente precisam ouvir, pois só isso funciona para nos fazer evoluir pessoal e profissionalmente. Mora em Nova York.</p>
+
           <button type="button" class="btn btn-light-blue btn-md">Saiba mais</button>
         </div>
       </div>

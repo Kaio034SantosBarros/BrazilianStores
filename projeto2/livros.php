@@ -71,10 +71,10 @@
   <div style="margin-left: 2%; margin-right: 2%; margin-top: 2%">
     <div class="row">
       <div class="col-sm-3 col-xs-12 col-md-3">
-        <div class="card mb-4">
-          <img class="card-img-top" src="img/livro1.jpg" alt="Card image cap">
+        <div class="card mb-4" style="width: 18rem;">
+          <img class="card-img-top" src="img/livro1.jpg" alt="Card image cap" height="260" width="239">
           <div class="card-body">
-            <h5 class="card-title">A Sutil Arte de ligar o F#da-se</h5>
+            <h5 class="card-title">A Arte de ligar o F#da-se</h5>
             <a href="#" class="btn btn-primary">R$ 22,90  <i class="fa fa-shopping-cart"></i></a>
             <details>
              <summary>Detalhes</summary> 
@@ -88,15 +88,14 @@
      </div>
 
      <div class="col-sm-3 col-xs-12 col-md-3">
-      <div class="card mb-4">
-        <img class="card-img-top" src="img/fonesjbl.jpg" alt="Card image cap">
+      <div class="card mb-4" style="width: 18rem;">
+        <img class="card-img-top" src="img/livro2.jpg" alt="Card image cap" height="260" width="239">
         <div class="card-body">
-          <h5 class="card-title">Fones JBL</h5>
-          <a href="#" class="btn btn-primary">R$ 63,10  <i class="fa fa-shopping-cart"></i></a>
+          <h5 class="card-title">Sapiens</h5>
+          <a href="#" class="btn btn-primary">R$ 35,20  <i class="fa fa-shopping-cart"></i></a>
           <details>
            <summary>Detalhes</summary> 
-           <p>Alto-falantes de alta potência
-           Produz sonoridade padrão JBL com graves encorpados.Conchas com estrutura leve e ajustáveis.Proporciona experiência acústica com conforto, mesmo quando usado por períodos prolongados.Compatível com aparelhos IOS e Android, dando a flexibilidade que você precisa para desfrutar o seu som.</p>
+           <p>Sapiens é realmente impressionante, de se ler num fôlego só. De fato, questiona nossas ideias preconcebidas a respeito do universo." (The Guardian) “...uma explosão em forma de livro, tão agradável de ler quanto perturbador.</p>
 
          </details>
 
@@ -105,14 +104,14 @@
      </div>
    </div>
    <div class="col-sm-3 col-xs-12 col-md-3">
-    <div class="card mb-4">
-      <img class="card-img-top" src="img/somsony.jpg" alt="Card image cap">
+    <div class="card mb-4" style="width: 18rem;">
+      <img class="card-img-top" src="img/livro3.jpg" alt="Card image cap" height="260" width="239">
       <div class="card-body">
-        <h5 class="card-title">Caixa Multimidia - Sony</h5>
-        <a href="#" class="btn btn-primary">R$ 649,00  <i class="fa fa-shopping-cart"></i></a>
+        <h5 class="card-title">Seja f#da!</h5>
+        <a href="#" class="btn btn-primary">R$ 23,50  <i class="fa fa-shopping-cart"></i></a>
         <details>
          <summary>Detalhes</summary> 
-         <p>Entrada USB:Sim Bluetooth:Sim Potência (RMS): 30W - Som: Tipo de alto-falante Alto-falante satélite: aproximado 4,8 cm Modos de som: Clear audio+, dsee - Conexões sem fio: Nfc: Sim Função mãos-livres: Sim -Especificação do bluetooth® versão 4.2 Intervalo de comunicação máximo: 10 m </p>
+         <p>Aposto que você quer, no final da sua vida, olhar para trás, bater no peito com o coração cheio de felicidade, sem falsa modéstia, com plena convicção e serenidade, e dizer: minha vida foi FODA. Mas calma, encontrar este livro é só o começo. Agora, você precisa levá-lo com você. Com ele, você vai aprender comportamentos e atitudes necessários para conquistar, em todos os aspectos da sua vida, resultados incríveis.</p>
 
        </details>
 
@@ -120,14 +119,14 @@
    </div>
  </div>
  <div class="col-sm-3 col-xs-12 col-md-3">
-  <div class="card mb-4">
-    <img class="card-img-top" src="img/cartao.jpg" alt="Card image cap">
+  <div class="card mb-4" style="width: 18rem;">
+    <img class="card-img-top" src="img/livro4.jpg" alt="Card image cap" height="260" width="239">
     <div class="card-body">
-      <h5 class="card-title">Cartão Mini SD 64 GB</h5>
-      <a href="#" class="btn btn-primary">R$ 109,00  <i class="fa fa-shopping-cart"></i></a>
+      <h5 class="card-title">O Poder do Hábito</h5>
+      <a href="#" class="btn btn-primary">R$ 31,90  <i class="fa fa-shopping-cart"></i></a>
       <details>
        <summary>Detalhes</summary> 
-       <p>CARTÃO DE MEMORIA SANDISK MICRO SD 64GB O micro SD é designado para uso em celulares. Com esse cartão você pode baixar imagens fotos e vídeos do seu celular direto para seu computador ou do seu computador para seu celular atraves do adaptador SD Esses cartões evoluíram muito ao longo dos anos. As principais diferenças podem ser notadas no tamanho e na capacidade de armazenagem. Com o passar do tempo, eles se tornaram menores e passaram a oferecer mais espaço para a gravação de arquivos.</p>
+       <p>Segundo o autor, a chave para se exercitar regularmente, perder peso, educar os filhos, tornar-se mais produtivo, criar empresas revolucionárias e alcançar o sucesso é entender como os hábitos funcionam. Ele procura mostrar que, ao dominar esta ciência, todos podem transformar suas empresas e suas vidas.</p>
 
      </details>
 
@@ -135,14 +134,14 @@
  </div>
 </div>
 <div class="col-sm-3 col-xs-12 col-md-3">
-  <div class="card mb-4">
-    <img class="card-img-top" src="img/mouse.jpg" alt="Card image cap">
+  <div class="card mb-4" style="width: 18rem;">
+    <img class="card-img-top" src="img/livro5.jpg" alt="Card image cap" height="260" width="239">
     <div class="card-body">
-      <h5 class="card-title">Mouse Deathadder Elite</h5>
-      <a href="#" class="btn btn-primary">R$ 335,00  <i class="fa fa-shopping-cart"></i></a>
+      <h5 class="card-title">MindSet</h5>
+      <a href="#" class="btn btn-primary">R$ 26,90  <i class="fa fa-shopping-cart"></i></a>
       <details>
        <summary>Detalhes</summary> 
-       <p>Quando você usa óculos, ninguém pensará que este é um gravador e câmera escondida multifuncional. câmera espião escondida, câmera de óculos, que permite gravar fotos e vídeos. Pode registrar tudo o que acontece a cada minuto.Parâmetro:resolução de vídeo: 1920 x 1080Formato de vídeo: AVItaxa de quadros de vídeo: 30 FPSgravação: suportePorta USB: mini USBTensão de alimentação: 5 V DCtempo de carregamento: cerca de 1,5 horastem funções de foto e vídeotamanho: 15 (L) x 14,5 (W) x 3 (H) (CM)</p>
+       <p>Carol S. Dweck, professora de psicologia na Universidade Stanford e especialista internacional em sucesso e motivação, desenvolveu, ao longo de décadas de pesquisa, um conceito fundamental: a atitude mental com que encaramos a vida, que ela chama de “mindset”, é crucial para o sucesso. Dweck revela de forma brilhante como o sucesso pode ser alcançado pela maneira como lidamos com nossos objetivos. O mindset não é um mero traço de personalidade, é a explicação de por que somos otimistas.</p>
 
      </details>
 
@@ -150,14 +149,15 @@
  </div>
 </div>
 <div class="col-sm-3 col-xs-12 col-md-3">
-  <div class="card mb-4">
-    <img class="card-img-top" src="img/pokebola.jpg" alt="Card image cap">
+  <div class="card mb-4" style="width: 18rem;">
+    <img class="card-img-top" src="img/livro6.jpg" alt="Card image cap" height="260" width="239">
     <div class="card-body">
-      <h5 class="card-title">Pokebola Power Bank</h5> 
-      <a href="#" class="btn btn-primary">R$ 59,90  <i class="fa fa-shopping-cart"></i></a>
+      <h5 class="card-title">Arrume sua Cama</h5> 
+      <a href="#" class="btn btn-primary">R$ 21,90  <i class="fa fa-shopping-cart"></i></a>
       <details>
        <summary>Detalhes</summary> 
-       <p>Super carregador de celular para capturar seu Pokemon! Carregue em qualquer lugar Acabamento metalizado 12000 Mha , carrega até 3 vezes seu celular Tamanho Aproximado 8,5 X 8,5 Cm (Circunferência)</p>
+       <p>Dez lições de um almirante das forças especiais para mudar sua vida 
+       Quando foi convidado para proferir o discurso da aula inaugural dos alunos de graduação da Universidade do Texas, o almirante William McRaven pensou em compartilhar suas lições sobre liderança. Afinal, em 37 anos de carreira na Marinha norte-americana, ele exerceu o comando em vários níveis – inclusive tendo sido o responsável pela missão que capturou Osama Bin Laden.</p>
 
      </details>
 
@@ -165,14 +165,14 @@
  </div>
 </div>
 <div class="col-sm-3 col-xs-12 col-md-3">
-  <div class="card mb-4">
-    <img class="card-img-top" src="img/atari.jpg" alt="Card image cap">
+  <div class="card mb-4" style="width: 18rem;">
+    <img class="card-img-top" src="img/livro7.jpg" alt="Card image cap" height="260" width="239">
     <div class="card-body">
-     <h5 class="card-title">Atari Flashback</h5> 
-      <a href="#" class="btn btn-primary">R$ 249,00  <i class="fa fa-shopping-cart"></i></a>
+     <h5 class="card-title">Como fazer amigos</h5> 
+      <a href="#" class="btn btn-primary">R$ 21,90  <i class="fa fa-shopping-cart"></i></a>
       <details>
        <summary>Detalhes</summary> 
-       <p>Descrição do Produto:Videogame Atari Flashback 7 com 101 jogos na memória.Uma super e clássica coletânea com os melhores jogos.Destaques: Centipede, Frogger e Space IvadersAcompanha dois joysticks com fio clássicos do Atari.Classificação etária LIVRE. Conteúdo da Embalagem:- 1 Videogame Atari Flashback 7 Classic Game- 101 Jogos inclusos na Memória- 2 Joysticks com fio- 1 Manual de instruções com certificado de garantia Características:Sistema Bi-volt automático: 110/220 VoltsConsumo: 1,7WSistema PAL-MSaída AV Mono3 Meses de garantia Jogos Destaque:JUNGLE HUNTTM, FRONT LINETM, POLARISTM, O Original FROGGER FOR ATARI 2600, e a versão de SPACE INVADERSTM.</p>
+       <p>Carnegie nos ensina maneiras de conquistar as pessoas de uma maneira que ainda nos dias de hoje é muito válida. A leitura do livro é enriquecedora, nos leva a refletir sobre formas de abordagem que muitas vezes usamos sem perceber e que não trazem os efeitos desejados. O autor, sabiamente dá diversas dicas de como conduzir diversas situações e reverter o pensamento do interlocutor para que fique de acordo com o seu.Quanto à edição, a diagramação é muito boa, letras grandes; livro bastante confortável de manusear.</p>
 
      </details>
 
@@ -180,14 +180,14 @@
  </div>
 </div>
 <div class="col-sm-3 col-xs-12 col-md-3">
-  <div class="card mb-4">
-    <img class="card-img-top" src="img/ssd.jpg" alt="Card image cap">
+  <div class="card mb-4" style="width: 18rem;">
+    <img class="card-img-top" src="img/livro8.jpg" alt="Card image cap" height="260" width="239">
     <div class="card-body">
-      <h5 class="card-title">SSD Kingston 240 GB</h5> 
-      <a href="#" class="btn btn-primary">R$ 378,00  <i class="fa fa-shopping-cart"></i></a>
+      <h5 class="card-title">Roube como um Artista</h5> 
+      <a href="#" class="btn btn-primary">R$ 17,90  <i class="fa fa-shopping-cart"></i></a>
       <details>
        <summary>Detalhes</summary> 
-       <p>A unidade de estado sólido A400 da Kingston aumenta drasticamente a resposta do seu computador com tempos incríveis de inicialização, carregamento e transferência, comparados a discos rígidos mecânicos. Reforçado com uma controladora de última geração para velocidades de leitura e gravação de até 500MB/s e 450MB/s¹, este SSD é 10x mais rápido do que um disco rígido tradicional¹ para melhor desempenho, resposta ultrarrápida em multitarefas e um computador mais rápido de modo geral</p>
+       <p>Verdadeiro manifesto ilustrado de como ser criativo na era digital, Roube como um artista, do designer e escritor Austin Kleon, ganhou a lista dos mais vendidos do The New York Times e figurou no ranking de 2012 da rede Amazon ao mostrar  com bom humor, ousadia e simplicidade  que não é preciso ser um gênio para ser criativo, basta ser autêntico.</p>
 
      </details>
 
@@ -195,14 +195,14 @@
  </div>
 </div>
 <div class="col-sm-3 col-xs-12 col-md-3">
-  <div class="card mb-4">
-    <img class="card-img-top" src="img/nintendo.jpg" alt="Card image cap" style="height: 100%; width: 100%;">
+  <div class="card mb-4" style="width: 18rem;">
+    <img class="card-img-top" src="img/livro9.jpg" alt="Card image cap" height="260" width="239">
     <div class="card-body">
-      <h5 class="card-title">Nintendo Switch </h5> 
-      <a href="#" class="btn btn-primary">R$ 549,00  <i class="fa fa-shopping-cart"></i></a>
+      <h5 class="card-title">O poder do Silêncio</h5> 
+      <a href="#" class="btn btn-primary">R$ 14,70  <i class="fa fa-shopping-cart"></i></a>
       <details>
        <summary>Detalhes</summary> 
-       <p>Introduzindo Joy-Con, Controladores Que Tornam Possível Novos Tipos De Jogos, Para Uso Com O Nintendo Switch. O Versátil Joy-Con Oferece Múltiplas Formas Surpreendentes Para Que Os Jogadores Se Divirtam. Dois Joy-Con Pode Ser Usado De Forma Independente Em Cada Mão, Ou Juntos Como Um Controlador De Jogo Quando Ligado Ao Grip Joy-Con. Eles Também Podem Anexar Ao Console Principal Para Uso Em Modo Handheld, Ou Ser Compartilhado Com Amigos Para Desfrutar De Ação De Dois Jogadores Em Jogos Suportados. Cada Joy-Con Tem Um Conjunto Completo De Botões E Pode Atuar Como Um Controlador Autônomo, E Cada Um Inclui Um Acelerômetro E Gyro-Sensor, Tornando Independente Esquerdo E Direito Controle De Movimento Possível</p>
+       <p>O silêncio e a calma não são apenas a ausência de barulho e de conteúdo. São a dimensão mais profunda do nosso ser, a inteligência primordial, a consciência de que só podemos ser felizes Agora. O poder transformador do silêncio está em nos libertar de nossos pensamentos, medos e desejos, dissipando as tensões do passado e as expectativas em relação ao futuro. Só no presente podemos descobrir quem realmente somos, alcançando assim a paz e a alegria que estão dentro de nós. Neste livro, seguindo a tradição dos sutras indianos, Tolle optou por transmitir seus ensinamentos espirituais em forma de aforismos. São 200 textos curtos e inspiradores que abordam diversos temas, entre eles, o Agora, os relacionamentos, a morte e a eternidade.</p>
 
      </details>
 
@@ -210,29 +210,29 @@
  </div>
 </div>
 <div class="col-sm-3 col-xs-12 col-md-3">
-  <div class="card mb-4">
-    <img class="card-img-top" src="img/camera.jpg" alt="Card image cap">
+  <div class="card mb-4" style="width: 18rem;">
+    <img class="card-img-top" src="img/livro10.jpg" alt="Card image cap" height="260" width="239">
     <div class="card-body">
-      <h5 class="card-title">Canon PowerShot</h5> 
-      <a href="#" class="btn btn-primary">R$ 2.080,00  <i class="fa fa-shopping-cart"></i></a>
+      <h5 class="card-title">Mostre seu Trabalho</h5> 
+      <a href="#" class="btn btn-primary">R$ 29,90  <i class="fa fa-shopping-cart"></i></a>
 
       <details>
        <summary>Detalhes</summary> 
-       <p>Zoom Inacreditável de 65X, equivalente a 21-1365mm, além do zoom absurdo de 65x ainda está disponivel o modo de filmagem, em FullHd, com dois microfones (estéreo), a SX60HS ainda conta com um painel LCD móvel, de 3 polegadas que vai facilitar ao máximo a filmagem e a fotografia; sapata hotshoe para qualquer flash Canon Speedlite, auto focus com reconhecimento de face; estabilizador de imagem e muito mais. Sensor - A SX60HS está equipada com um CMOS de 16.1MP e processador Canon Digic 6. A combinação entre sensor e processador permite a captura simultânea de imagens RAW+JPG, e velocidades mais elevadas de burst, chegando até incriveis 6 frames por segundo</p>
+       <p>Depois de Roube como um artista, um manifesto irreverente e repleto de dicas bem-humoradas para ativar o potencial criativo, e Roube como um artista: o diário, o escritor e artista gráfico Austin Kleon ensina ao leitor como compartilhar sua criatividade e tornar seu trabalho conhecido na era digital. </p>
 
      </details>
    </div>
  </div>
 </div>
 <div class="col-sm-3 col-xs-12 col-md-3">
-  <div class="card mb-4">
-    <img class="card-img-top" src="img/drone.jpg" alt="Card image cap">
+  <div class="card mb-4" style="width: 18rem;">
+    <img class="card-img-top" src="img/livro11.jpg" alt="Card image cap" height="260" width="239">
     <div class="card-body">
-      <h5 class="card-title">DJI Spark </h5>
+      <h5 class="card-title">Segredos da Mente</h5>
       <a href="#" class="btn btn-primary">R$ 1.895,00  <i class="fa fa-shopping-cart "></i></a>
       <details>
        <summary>Detalhes</summary> 
-       <p> Atinge até 4.000 metros de altura, e em Modo Sport pode voar a 50kmh. Modelo: Spark Alpine Câmera: Sensor 12MP CMOS Memória Externa: Suporta uso de cartão Micro SD de até 64GB Conectividade Wireless Tempo de Voo: Máximo: 16 minutos Velocidade: Velocidade máxima: 50 Kmh Velocidade de descida: máxima 3 metros por segundo Velocidade de subida: máxima 3 metros por segundo,Resolução de Vídeo: 1920 × 1080 30p Estabilizador: Intervalo controlável: -85 a 0 ° de inclinação Estabilização: mecânica dois eixos (de rotação da inclinação) Formato de Vídeo MP4 (MPEG-4 AVCH.264) Observação: Não acompanha Controle Remoto </p>
+       <p>O autor desta obra nos apresenta algumas dezenas de narrativas. São fatos reais, extraídos do dia a dia das centenas de pessoas por ele atendidas. Necessitadas de compreensão e carinho são encaminhadas e orientadas na busca da solução dos problemas que os afligem, acalmando-as e devolvendo-lhes a fé, a esperança e a coragem. </p>
 
      </details>
 
@@ -240,15 +240,15 @@
  </div>
 </div>
 <div class="col-sm-3 col-xs-12 col-md-3">
-  <div class="card mb-4">
-    <img class="card-img-top" src="img/microfone.jpg" alt="Card image cap">
+  <div class="card mb-4" style="width: 18rem;">
+    <img class="card-img-top" src="img/livro12.jpg" alt="Card image cap" height="260" width="239">
     <div class="card-body">
-      <h5 class="card-title">Microfone Compacto RODE</h5>
+      <h5 class="card-title">A Coragem de Ser</h5>
 
       <a href="#" class="btn btn-primary">R$ 490,00  <i class="fa fa-shopping-cart"></i></a>
       <details>
        <summary>Detalhes</summary> 
-       <p>Microfone compacto Rode VideoMicro</p>
+       <p>Primeiro lugar na lista do The New York Times.Brené Brown ousou tocar em assuntos que costumam ser evitados por causarem grande desconforto. Sua palestra a respeito de vulnerabilidade, medo, vergonha e imperfeição já teve mais de 25 milhões de visualizações.</p>
 
      </details>
    </div>
@@ -258,7 +258,7 @@
 </div>
 
 <footer>
-	<div class="footer-middle bg-dark" style="margin-top: 1%;">
+  <div class="footer-middle bg-dark" style="margin-top: 1%;">
     <div class="container">
       <div class="row">
        <div class="col-md-3 col-sm-6">
