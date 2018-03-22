@@ -28,7 +28,7 @@
 			session_start();
 			$_SESSION['nome'] = $nome;
 			$_SESSION['email'] = $email;
-			header("Refresh: 3, perfil.php");
+			header("Refresh: 3, index.php");
 		}
 
  ?>

@@ -55,7 +55,6 @@ footer a:hover{
  background: white;
   color: black;
 }
-
 /* ------------------------------------Parte Salum*/
 .entrar{
   padding-top: 60px;
@@ -64,10 +63,12 @@ p{
   font-size: 15px;
   font-family: sans-serif;
 }
+.modal-body p{
+  font-size: 25px;
+}
 
 .nomeusu{
-  font-size: 20px;
-  color: blue;
+  font-size: 125%;
 }
 #listprod{
   list-style-type: none;

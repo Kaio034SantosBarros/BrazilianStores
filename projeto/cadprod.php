@@ -53,7 +53,7 @@
   
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#" style="font-family: 'Monoton', cursive; font-size: 150%;">Brazilian Stores</a>
+  <a class="navbar-brand" href="index.php" style="font-family: 'Monoton', cursive; font-size: 150%;">Brazilian Stores</a>
   
 
 
@@ -65,12 +65,12 @@
   <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle active" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Categorias</a>
     <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 44px, 0px); top: 0px; left: 0px; will-change: transform;">
-      <a class="dropdown-item" href="#">Roupas</a>
-      <a class="dropdown-item" href="#">Eletrônicos</a>
-      <a class="dropdown-item" href="#">Livros</a>
-      <a class="dropdown-item" href="#">Informática</a>
-      <a class="dropdown-item" href="#">Celulares</a>
-      <a class="dropdown-item" href="#">Games</a>
+      <a class="dropdown-item" href="roupas.php">Roupas</a>
+      <a class="dropdown-item" href="eletronicos.php">Eletrônicos</a>
+      <a class="dropdown-item" href="livros.php">Livros</a>
+      <a class="dropdown-item" href="info.php">Informática</a>
+      <a class="dropdown-item" href="celulares.php">Celulares</a>
+      <a class="dropdown-item" href="game.php">Games</a>
       </div>
       <li class="nav-item">
   
@@ -102,7 +102,7 @@
   </li>
 </ul>
     <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="text" placeholder="Pesquisar" size="50">
+      <input class="form-control mr-sm-2" type="text" placeholder="Pesquisar" size="30">
       <button class="btn btn-primary my-2 my-sm-0 bg-dark " type="submit"><i class="fa fa-search"></i></button>
     </form>
 

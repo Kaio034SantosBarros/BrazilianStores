@@ -1,11 +1,22 @@
-<?php 
+<?php
+  session_start();
 	if(isset($_POST['p'])){
-      $pesquisa = 1;
-      $p = $_POST['p'];
-      }else{
-        $pesquisa = 0;
-          }
+    $pesquisa = 1;
+    $p = $_POST['p'];
+    if($p == " "){
+      
+      header("Location: pesquisa.php");
+    }
+  }else{
+    $pesquisa = 0;
+  }
+  header('Cache-Control: no cache');
+  session_cache_limiter('private_no_expire'); // Cliente não vai receber o header expirado.
+         
 	include "bd.php";
+  
+
+  
 	?>
 	<!doctype html>
     <html lang="pt-br">
@@ -21,6 +32,7 @@
       <link href="https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0-beta.3/sketchy/bootstrap.min.css" rel="stylesheet" integrity="sha384-7ELRJF5/u1pkLd0W7K793Y7ZCb1ISE8FjEKiDAwHD3nSDbA2E9Txc423ovuNf1CV" crossorigin="anonymous">
       <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
       <link rel="stylesheet" type="text/css" href="css/projeto.css" />
+      <link rel="shortcut icon" href="icon/favicon.ico" />
       
       <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -44,7 +56,7 @@
     
     <body>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
-        <a class="navbar-brand" href="#" style="font-family: 'Monoton', cursive; font-size: 150%;">Brazilian Stores</a>
+        <a class="navbar-brand" href="index.php" style="font-family: 'Monoton', cursive; font-size: 150%;">Brazilian Stores</a>
         
 
 
@@ -67,14 +79,57 @@
               
               <a class="nav-link active" href="#home"><i class="fa fa-shopping-cart "></i></a>
             </li>
+          </li>
+          <?php
+          $adm = "";
+                if(isset($_SESSION['adm'])){
+                $adm = $_SESSION['adm'];      
+                } 
+                if(isset($_COOKIE['adm'])){
+                $adm = $_COOKIE['adm'];
+                  }
+             
+              if($adm == 'sim'){
+                echo "
+                <li>
+                  <div>
+                    <a class='nav-link active' href='cadprod.php'>Cadastrar Produto</a>
+                  </div>
+                </li>
+                   ";
+              }
 
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active btn btn-light" data-toggle="modal" data-target="#myModal">Login</a>
-          </li>
+            if(empty($_SESSION['email']) and empty($_COOKIE['email'])){
+              echo "<li class='nav-item'>
+                      <a class='nav-link active btn btn-light' data-toggle='modal' data-target='#myModal'>Login</a>
+                    </li>";
+            }
+             $nome = "";
+             $email = "";
+
+             if(isset($_SESSION['email'])){
+                $email = $_SESSION['email'];
+                $nome = $_SESSION['nome'];
+              }else if(isset($_COOKIE['email'])){
+                $email = $_COOKIE['email'];
+                $nome = $_COOKIE['nome'];
+              } 
+              if($nome != ""){
+                echo "<li class='nav-item'>
+                        <div>
+                          <a class='nav-link active btn btn-light' href='sair.php'>Sair</a>
+                        </div>
+                      </li>
+                      <li class='nav-item'>
+                        <div>
+                          <a class='nomeusu' href='perfil.php' title='Perfil $nome'>$nome,</a> você está online!
+                        </div>
+                      </li>";
+              }
+          ?>
         </ul>
         <form class="form-inline my-2 my-lg-0" method="post" action="pesquisa.php">
-          <input class="form-control mr-sm-2" type="text" placeholder="Pesquisar" size="50" name="p" required="">
+          <input class="form-control mr-sm-2" type="text" placeholder="Pesquisar" size="30" name="p" required="">
           <button class="btn btn-primary my-2 my-sm-0 bg-dark " type="submit"><i class="fa fa-search"></i></button>
         </form>
         
@@ -183,7 +238,7 @@
       // as próximas linhas, servem para exibir uma mensagem de erro, caso a pesquisa não tenha nenhum retorno!
       $total = mysqli_num_rows($consulta);
       if($total == 0){
-        echo "Nenhum item encontrado!";
+        echo "Produto $p não encontrado!";
       }
  		
  	echo "<div class=\"row\">";
@@ -192,18 +247,26 @@
       // os comandos abaixo, serve para pegar as informações que estão no banco de dados e colocá-los em uma variável
         $nomeprod = $f['nomeprod'];
         $preco = $f['preco'];
+        $idprod = $f['idprod'];
         $preco = number_format($preco, 2, ',','.');
+        $_SESSION['idprod'] = $idprod;
+        $_SESSION['nomeprod'] = $nomeprod;
     ?>
       <!-- </div> <div style="min-height: 650px;">--> 
        
 
-        
+        <form method="post">
           <div class="col-sm-3 col-xs-12 ">
             <div class="card mb-4" style="width: 18rem;">
               <img class="card-img-top" src="img/farcry3.jpg" alt="Card image cap" height="200" width="239">
               <div class="card-body">
-                <h5 class="card-title"><?php echo "$nomeprod"; ?></h5>
+                <h5 class="card-title" <?php echo "id='$idprod'>$idprod $nomeprod"; ?></h5>
                 <a href="#" class="btn btn-primary"><?php echo "$preco"; ?><i class="fa fa-cart-arrow-down fa-2x"></i></a>
+                <?php
+                if($adm == 'sim'){
+                echo "<a class='btn btn-danger' href='editprod.php'>Editar Produto</a>";
+              }
+              ?>
                 <details>
                  <summary>Detalhes</summary> 
                  <p>Jogo onde você assume o papel de Jason Brody, um homem sozinho, preso em uma ilha tropical misteriosa. Neste paraíso selvagem, onde a ilegalidade e a violência são a única coisa certa, os jogadores determinam o desenrolar da história, as batalhas que lutarão com aliados ou inimigos e outras situações intensas que vão além do certo e errado. Como Jason Brody, os jogadores vão usar vários tipos de ataque em um mundo aberto, possibilitando ao jogador realizar as missões de maneiras bastante distintas, com muitos desafios pela frente, perigo e muita ação.</p>
@@ -214,10 +277,9 @@
              </div>
            </div>
          </div>
-
-        
-    
+        </form>
      <?php } ?>
+
       <footer style="padding-top: 250px;">
     	<div class="footer-middle bg-dark" style="margin-top: 30px;">
         <div class="container">
@@ -229,13 +291,13 @@
              <address>
                <ul class="list-unstyled">
                  <li>
-                   City Hall<br>
-                   212  Street<br>
-                   Lawoma<br>
-                   735<br>
+                   Nova Iguaçu<br>
+                   Rua Xaropinho<br>
+                   Rio de Janeiro<br>
+                   Nº 400<br>
                  </li>
                  <li>
-                  Telefone: (21) 2222-2222
+                  Telefone: (21) 4002-8922
                 </li>
               </ul>
             </address>
@@ -247,12 +309,7 @@
           <div class="footer-pad">
             <h4>Informações</h4>
             <ul class="list-unstyled">
-              <li><a href="#">Website Tutorial</a></li>
-              <li><a href="#">Accessibility</a></li>
-              <li><a href="#">Disclaimer</a></li>
-              <li><a href="#">Privacy Policy</a></li>
-              <li><a href="#">FAQs</a></li>
-              <li><a href="#">Webmaster</a></li>
+              <li><a href="#">Quem Somos</a></li>
             </ul>
           </div>
         </div>
@@ -284,11 +341,5 @@
   </div>
   </footer>
 
-
-
-  </html>
   </body>
   </html>
- 
-
-

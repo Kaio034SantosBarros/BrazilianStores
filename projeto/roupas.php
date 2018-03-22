@@ -1,19 +1,13 @@
   <?php
     include "bd.php";
     session_start();
-
-    if(isset($_SESSION['email'])){
-      header("Location: perfil.php");
-
-      $nome = $_SESSION['nome'];
-      $email = $_SESSION['email'];
-    }
     ?>
     <!doctype html>
     <html lang="pt-br">
     <title>Brazilian Stores</title>
     <head>
       <!-- Required meta tags -->
+      <link rel="shortcut icon" href="icon/favicon.ico" />
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -46,7 +40,7 @@
     
     <body>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
-        <a class="navbar-brand" href="#" style="font-family: 'Monoton', cursive; font-size: 150%;">Brazilian Stores</a>
+        <a class="navbar-brand" href="index.php" style="font-family: 'Monoton', cursive; font-size: 150%;">Brazilian Stores</a>
         
 
 
@@ -59,7 +53,7 @@
             <a class="nav-link dropdown-toggle active" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Categorias</a>
             <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 44px, 0px); top: 0px; left: 0px; will-change: transform;">
               
-                <a class="dropdown-item" href="roupas.php">Roupas</a>
+              <a class="dropdown-item" href="roupas.php">Roupas</a>
               <a class="dropdown-item" href="eletronicos.php">Eletrônicos</a>
               <a class="dropdown-item" href="livros.php">Livros</a>
               <a class="dropdown-item" href="info.php">Informática</a>
@@ -70,14 +64,59 @@
               
               <a class="nav-link active" href="#home"><i class="fa fa-shopping-cart "></i></a>
             </li>
+          </li>
+          <?php 
+              $adm = "";
+              if(isset($_SESSION['adm'])){
+              $adm = $_SESSION['adm'];      
+              } 
+              if(isset($_COOKIE['adm'])){
+              $adm = $_COOKIE['adm'];
+              }
+              if($adm == 'sim'){
+              echo "
+              <li>
+                <div>
+                  <a class='nav-link active' href='cadprod.php'>Cadastrar Produto</a>
+                </div>
+              </li>
+                 ";
+              }
 
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active btn btn-light" data-toggle="modal" data-target="#myModal">Login</a>
-          </li>
+            if(empty($_SESSION['email']) and empty($_COOKIE['email'])){
+              echo "<li class='nav-item'>
+                      <a class='nav-link active btn btn-light' data-toggle='modal' data-target='#myModal'>Login</a>
+                    </li>";
+            }
+             $nome = "";
+             $email = "";
+
+             if(isset($_SESSION['email'])){
+                $email = $_SESSION['email'];
+                $nome = $_SESSION['nome'];
+              }else if(isset($_COOKIE['email'])){
+                $email = $_COOKIE['email'];
+                $nome = $_COOKIE['nome'];
+              } 
+              if($nome != ""){
+                echo "<li class='nav-item'>
+                        <div>
+                          <a class='nav-link active btn btn-light' href='sair.php'>Sair</a>
+                        </div>
+                      </li>
+                      <li class='nav-item'>
+                        <div>
+                          <a class='nomeusu' href='perfil.php' title='Perfil $nome'>$nome,</a> você está online!
+                        </div>
+                      </li>";
+              }
+              
+              
+                    
+          ?>
         </ul>
         <form class="form-inline my-2 my-lg-0" method="post" action="pesquisa.php">
-          <input class="form-control mr-sm-2" type="text" placeholder="Pesquisar" size="50" name="p" required="">
+          <input class="form-control mr-sm-2" type="text" placeholder="Pesquisar" size="30" name="p" required="">
           <button class="btn btn-primary my-2 my-sm-0 bg-dark " type="submit"><i class="fa fa-search"></i></button>
         </form>
 
@@ -190,6 +229,11 @@
             <div class="card-body">
               <h5 class="card-title">Blusa com capuz</h5>
               <a href="#" class="btn btn-primary">R$ 149,00  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
+              <?php
+                if($adm == 'sim'){
+                echo "<a class='btn btn-danger' href='editprod.php'>Editar Produto</a>";
+              }
+              ?>
               <details>
                <summary>Detalhes</summary> 
                <p>A estampa é produzida com impressão digital (DTG) e o processo é realizado com o que há de mais moderno no mercado, em impressora específica para malharia,imprimindo a arte com qualidade de definição excepcional e textura mínima sob a malha. O toque é levinho e veste bem demais, parece um abraço.</p>
