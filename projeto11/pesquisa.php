@@ -1,22 +1,12 @@
 <?php
   session_start();
 	if(isset($_POST['p'])){
-    $pesquisa = 1;
-    $p = $_POST['p'];
-    if($p == " "){
-      
-      header("Location: pesquisa.php");
-    }
-  }else{
-    $pesquisa = 0;
-  }
-  header('Cache-Control: no cache');
-  session_cache_limiter('private_no_expire'); // Cliente não vai receber o header expirado.
-         
+      $pesquisa = 1;
+      $p = $_POST['p'];
+      }else{
+        $pesquisa = 0;
+          }
 	include "bd.php";
-  
-
-  
 	?>
 	<!doctype html>
     <html lang="pt-br">
@@ -262,11 +252,7 @@
               <div class="card-body">
                 <h5 class="card-title" <?php echo "id='$idprod'>$idprod $nomeprod"; ?></h5>
                 <a href="#" class="btn btn-primary"><?php echo "$preco"; ?><i class="fa fa-cart-arrow-down fa-2x"></i></a>
-                <?php
-                if($adm == 'sim'){
-                echo "<a class='btn btn-danger' href='editprod.php'>Editar Produto</a>";
-              }
-              ?>
+                <?php echo "<a class='btn btn-danger' href='produto.php?id=$idprod'>Ver Produto</a>" ?>
                 <details>
                  <summary>Detalhes</summary> 
                  <p>Jogo onde você assume o papel de Jason Brody, um homem sozinho, preso em uma ilha tropical misteriosa. Neste paraíso selvagem, onde a ilegalidade e a violência são a única coisa certa, os jogadores determinam o desenrolar da história, as batalhas que lutarão com aliados ou inimigos e outras situações intensas que vão além do certo e errado. Como Jason Brody, os jogadores vão usar vários tipos de ataque em um mundo aberto, possibilitando ao jogador realizar as missões de maneiras bastante distintas, com muitos desafios pela frente, perigo e muita ação.</p>
@@ -291,13 +277,13 @@
              <address>
                <ul class="list-unstyled">
                  <li>
-                   Nova Iguaçu<br>
-                   Rua Xaropinho<br>
-                   Rio de Janeiro<br>
-                   Nº 400<br>
+                   City Hall<br>
+                   212  Street<br>
+                   Lawoma<br>
+                   735<br>
                  </li>
                  <li>
-                  Telefone: (21) 4002-8922
+                  Telefone: (21) 2222-2222
                 </li>
               </ul>
             </address>
@@ -309,7 +295,12 @@
           <div class="footer-pad">
             <h4>Informações</h4>
             <ul class="list-unstyled">
-              <li><a href="#">Quem Somos</a></li>
+              <li><a href="#">Website Tutorial</a></li>
+              <li><a href="#">Accessibility</a></li>
+              <li><a href="#">Disclaimer</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">FAQs</a></li>
+              <li><a href="#">Webmaster</a></li>
             </ul>
           </div>
         </div>
