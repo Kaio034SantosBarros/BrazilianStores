@@ -224,196 +224,88 @@
     </div>
 
 
-    <div style="margin-left: 2%; margin-right: 2%; margin-top: 2%">
-      <div class="row">
-        <div class="col-sm-3 col-xs-12 col-md-3">
-          <div class="card mb-4" style="width: 18rem;">
-            <img class="card-img-top" src="img/gopro.jpg" alt="Card image cap" height="200" width="239">
-            <div class="card-body">
-              <h5 class="card-title">GoPro Hero 5 Session</h5>
-              <a href="#" class="btn btn-primary">R$ 1,200,00  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
-              <details>
-               <summary>Detalhes</summary> 
-               <p>A Sessão GoPro Hero5 é uma excelente câmera para pessoas que gostam de sair ao ar livre e querem capturar cada momento em uma resolução cristalina de 4k.</p>
+    <div style="margin-left: 5%;">
+      <form method="get">
+        Quantos produtos por vez?
+        <select name="exibir">
+          <?php 
+            include "banco.php";
+            if(empty($_GET['exibir'])){
+              $exibir = 4;      
+            }else{
+              $exibir = $_GET['exibir'];
+            }
+          ?>
+          <option value="4" <?php if($exibir == 4){ echo "selected";} ?>>4</option>
+          <option value="8" <?php if($exibir == 8){ echo "selected";} ?>>8</option>
+          <option value="12" <?php if($exibir == 12){ echo "selected";} ?>>12</option>
+        </select>
+        <button type="submit">Ir</button>
+      </form>
+      <?php 
+      
+        if(empty($_GET['pi'])){
+          $inicial = 0;     
+        }else{
+          $inicial = $_GET['pi'];
+        }
+        $query2 = "select * from produto";
+        $consulta2 = mysqli_query($con, $query2);
+        $total = mysqli_num_rows($consulta2);
 
-             </details>
+        $query = "select * from produto where categoria = 'Eletronicos'";
+        $consulta = mysqli_query($con, $query);
+
+        $paginas = ceil($total / $exibir);
+          
+          
+          echo "<div class=\"row\">";
+
+      while($f = mysqli_fetch_array($consulta)){
+      // os comandos abaixo, serve para pegar as informações que estão no banco de dados e colocá-los em uma variável
+        $nomeprod = $f['nomeprod'];
+        $preco = $f['preco'];
+        $idprod = $f['idprod'];
+        $preco = number_format($preco, 2, ',','.');
+        $img = $f['img'];
+        $_SESSION['idprod'] = $idprod;
+        $_SESSION['nomeprod'] = $nomeprod;
+    ?>
+      
+       
+
+        
+          <div class="col-sm-3 col-xs-12 ">
+            <div class="card mb-4" style="width: 18rem;">
+              <img class="card-img-top" src="produto/<?php echo $img ?>" alt="Card image cap" height="200" width="239">
+              <div class="card-body">
+                <h5 class="card-title" <?php echo "id='$idprod'>$idprod $nomeprod"; ?></h5>
+                <a href="#" class="btn btn-primary"><?php echo "$preco </a>
+                  <a href='carrinho.php?idprod=$idprod' style='height: 1%;''><i class='fa fa-cart-arrow-down fa-2x'></i></a>"; ?>
+                <?php echo "<a class='btn btn-danger' href='produto.php?id=$idprod'>Ver Produto</a>"; ?>
+                <a href="#" class="btn btn-secondary">Comprar</a>
 
 
+             </div>
            </div>
          </div>
-       </div>
 
-       <div class="col-sm-3 col-xs-12 col-md-3">
-        <div class="card mb-4" style="width: 18rem;">
-          <img class="card-img-top" src="img/fonesjbl.jpg" alt="Card image cap" height="200" width="239">
-          <div class="card-body">
-            <h5 class="card-title">Fones JBL</h5>
-            <a href="#" class="btn btn-primary">R$ 63,10  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
-            <details>
-             <summary>Detalhes</summary> 
-             <p>Alto-falantes de alta potência
-             Produz sonoridade padrão JBL com graves encorpados.Conchas com estrutura leve e ajustáveis.Proporciona experiência acústica com conforto, mesmo quando usado por períodos prolongados.Compatível com aparelhos IOS e Android, dando a flexibilidade que você precisa para desfrutar o seu som.</p>
-
-           </details>
-
-
-         </div>
-       </div>
-     </div>
-     <div class="col-sm-6 col-xs-12 col-md-3">
-      <div class="card mb-4" style="width: 18rem;">
-        <img class="card-img-top" src="img/somsony.jpg" alt="Card image cap" height="200" width="239">
-        <div class="card-body">
-          <h5 class="card-title">Caixa Multimidia - Sony</h5>
-          <a href="#" class="btn btn-primary">R$ 649,00  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
-          <details>
-           <summary>Detalhes</summary> 
-           <p>Entrada USB:Sim Bluetooth:Sim Potência (RMS): 30W - Som: Tipo de alto-falante Alto-falante satélite: aproximado 4,8 cm Modos de som: Clear audio+, dsee - Conexões sem fio: Nfc: Sim Função mãos-livres: Sim -Especificação do bluetooth® versão 4.2 Intervalo de comunicação máximo: 10 m </p>
-
-         </details>
-
-       </div>
-     </div>
-   </div>
-   <div class="col-sm-3 col-xs-12 col-md-3">
-    <div class="card mb-4" style="width: 18rem;">
-      <img class="card-img-top" src="img/cartao.jpg" alt="Card image cap" height="200" width="239">
-      <div class="card-body">
-        <h5 class="card-title">Cartão Mini SD 64 GB</h5>
-        <a href="#" class="btn btn-primary">R$ 109,00  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
-        <details>
-         <summary>Detalhes</summary> 
-         <p>CARTÃO DE MEMORIA SANDISK MICRO SD 64GB O micro SD é designado para uso em celulares. Com esse cartão você pode baixar imagens fotos e vídeos do seu celular direto para seu computador ou do seu computador para seu celular atraves do adaptador SD Esses cartões evoluíram muito ao longo dos anos. As principais diferenças podem ser notadas no tamanho e na capacidade de armazenagem. Com o passar do tempo, eles se tornaram menores e passaram a oferecer mais espaço para a gravação de arquivos.</p>
-
-       </details>
-
-     </div>
-   </div>
+      <?php } ?>
+    </div>
   </div>
-  <div class="col-sm-3 col-xs-12 col-md-3">
-    <div class="card mb-4" style="width: 18rem;">
-      <img class="card-img-top" src="img/info3.jpg" alt="Card image cap" height="200" width="239">
-      <div class="card-body">
-        <h5 class="card-title">Mouse Deathadder Elite</h5>
-        <a href="#" class="btn btn-primary">R$ 335,00  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
-        <details>
-         <summary>Detalhes</summary> 
-         <p>Mouse Gamer Destiny 2 Razer DeathAdder Elite</p>
-
-       </details>
-
-     </div>
-   </div>
-  </div>
-  <div class="col-sm-3 col-xs-12 col-md-3">
-    <div class="card mb-4" style="width: 18rem;">
-      <img class="card-img-top" src="img/pokebola.jpg" alt="Card image cap" height="200" width="239">
-      <div class="card-body">
-        <h5 class="card-title">Pokebola Power Bank</h5> 
-        <a href="#" class="btn btn-primary">R$ 59,90  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
-        <details>
-         <summary>Detalhes</summary> 
-         <p>Super carregador de celular para capturar seu Pokemon! Carregue em qualquer lugar Acabamento metalizado 12000 Mha , carrega até 3 vezes seu celular Tamanho Aproximado 8,5 X 8,5 Cm (Circunferência)</p>
-
-       </details>
-
-     </div>
-   </div>
-  </div>
-  <div class="col-sm-3 col-xs-12 col-md-3">
-    <div class="card mb-4" style="width: 18rem;">
-      <img class="card-img-top" src="img/atari.jpg" alt="Card image cap" height="200" width="239">
-      <div class="card-body">
-       <h5 class="card-title">Atari Flashback</h5> 
-        <a href="#" class="btn btn-primary">R$ 249,00  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
-        <details>
-         <summary>Detalhes</summary> 
-         <p>Descrição do Produto:Videogame Atari Flashback 7 com 101 jogos na memória.Uma super e clássica coletânea com os melhores jogos.Destaques: Centipede, Frogger e Space IvadersAcompanha dois joysticks com fio clássicos do Atari.Classificação etária LIVRE. Conteúdo da Embalagem:- 1 Videogame Atari Flashback 7 Classic Game- 101 Jogos inclusos na Memória- 2 Joysticks com fio- 1 Manual de instruções com certificado de garantia Características:Sistema Bi-volt automático: 110/220 VoltsConsumo: 1,7WSistema PAL-MSaída AV Mono3 Meses de garantia Jogos Destaque:JUNGLE HUNTTM, FRONT LINETM, POLARISTM, O Original FROGGER FOR ATARI 2600, e a versão de SPACE INVADERSTM.</p>
-
-       </details>
-
-     </div>
-   </div>
-  </div>
-  <div class="col-sm-3 col-xs-12 col-md-3">
-    <div class="card mb-4" style="width: 18rem;">
-      <img class="card-img-top" src="img/ssd.jpg" alt="Card image cap" height="200" width="239">
-      <div class="card-body">
-        <h5 class="card-title">SSD Kingston 240 GB</h5> 
-        <a href="#" class="btn btn-primary">R$ 378,00  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
-        <details>
-         <summary>Detalhes</summary> 
-         <p>A unidade de estado sólido A400 da Kingston aumenta drasticamente a resposta do seu computador com tempos incríveis de inicialização, carregamento e transferência, comparados a discos rígidos mecânicos. Reforçado com uma controladora de última geração para velocidades de leitura e gravação de até 500MB/s e 450MB/s¹, este SSD é 10x mais rápido do que um disco rígido tradicional¹ para melhor desempenho, resposta ultrarrápida em multitarefas e um computador mais rápido de modo geral</p>
-
-       </details>
-
-     </div>
-   </div>
-  </div>
-  <div class="col-sm-3 col-xs-12 col-md-3">
-    <div class="card mb-4" style="width: 18rem;">
-      <img class="card-img-top" src="img/nintendo.jpg" alt="Card image cap" height="200" width="239">
-      <div class="card-body">
-        <h5 class="card-title">Nintendo Switch </h5> 
-        <a href="#" class="btn btn-primary">R$ 549,00  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
-        <details>
-         <summary>Detalhes</summary> 
-         <p>Introduzindo Joy-Con, Controladores Que Tornam Possível Novos Tipos De Jogos, Para Uso Com O Nintendo Switch. O Versátil Joy-Con Oferece Múltiplas Formas Surpreendentes Para Que Os Jogadores Se Divirtam. Dois Joy-Con Pode Ser Usado De Forma Independente Em Cada Mão, Ou Juntos Como Um Controlador De Jogo Quando Ligado Ao Grip Joy-Con. Eles Também Podem Anexar Ao Console Principal Para Uso Em Modo Handheld, Ou Ser Compartilhado Com Amigos Para Desfrutar De Ação De Dois Jogadores Em Jogos Suportados. Cada Joy-Con Tem Um Conjunto Completo De Botões E Pode Atuar Como Um Controlador Autônomo, E Cada Um Inclui Um Acelerômetro E Gyro-Sensor, Tornando Independente Esquerdo E Direito Controle De Movimento Possível</p>
-
-       </details>
-
-     </div>
-   </div>
-  </div>
-  <div class="col-sm-3 col-xs-12 col-md-3">
-    <div class="card mb-4" style="width: 18rem;">
-      <img class="card-img-top" src="img/camera.jpg" alt="Card image cap" height="200" width="239">
-      <div class="card-body">
-        <h5 class="card-title">Canon PowerShot</h5> 
-        <a href="#" class="btn btn-primary">R$ 2.080,00  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
-
-        <details>
-         <summary>Detalhes</summary> 
-         <p>Zoom Inacreditável de 65X, equivalente a 21-1365mm, além do zoom absurdo de 65x ainda está disponivel o modo de filmagem, em FullHd, com dois microfones (estéreo), a SX60HS ainda conta com um painel LCD móvel, de 3 polegadas que vai facilitar ao máximo a filmagem e a fotografia; sapata hotshoe para qualquer flash Canon Speedlite, auto focus com reconhecimento de face; estabilizador de imagem e muito mais. Sensor - A SX60HS está equipada com um CMOS de 16.1MP e processador Canon Digic 6. A combinação entre sensor e processador permite a captura simultânea de imagens RAW+JPG, e velocidades mais elevadas de burst, chegando até incriveis 6 frames por segundo</p>
-
-       </details>
-     </div>
-   </div>
-  </div>
-  <div class="col-sm-3 col-xs-12 col-md-3">
-    <div class="card mb-4" style="width: 18rem;">
-      <img class="card-img-top" src="img/drone.jpg" alt="Card image cap" height="200" width="239">
-      <div class="card-body">
-        <h5 class="card-title">DJI Spark </h5>
-        <a href="#" class="btn btn-primary">R$ 1.895,00  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
-        <details>
-         <summary>Detalhes</summary> 
-         <p> Atinge até 4.000 metros de altura, e em Modo Sport pode voar a 50kmh. Modelo: Spark Alpine Câmera: Sensor 12MP CMOS Memória Externa: Suporta uso de cartão Micro SD de até 64GB Conectividade Wireless Tempo de Voo: Máximo: 16 minutos Velocidade: Velocidade máxima: 50 Kmh Velocidade de descida: máxima 3 metros por segundo Velocidade de subida: máxima 3 metros por segundo,Resolução de Vídeo: 1920 × 1080 30p Estabilizador: Intervalo controlável: -85 a 0 ° de inclinação Estabilização: mecânica dois eixos (de rotação da inclinação) Formato de Vídeo MP4 (MPEG-4 AVCH.264) Observação: Não acompanha Controle Remoto </p>
-
-       </details>
-
-     </div>
-   </div>
-  </div>
-  <div class="col-sm-3 col-xs-12 col-md-3">
-    <div class="card mb-4" style="width: 18rem;">
-      <img class="card-img-top" src="img/microfone.jpg" alt="Card image cap" height="200" width="239">
-      <div class="card-body">
-        <h5 class="card-title">Microfone Compacto RODE</h5>
-
-        <a href="#" class="btn btn-primary">R$ 490,00  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
-        <details>
-         <summary>Detalhes</summary> 
-         <p>Microfone compacto Rode VideoMicro</p>
-
-       </details>
-     </div>
-   </div>
-  </div>
-  </div>
-  </div>
-
-  <footer>
+  <?php echo "<div class='text-center'>"; 
+    echo "<div><a class='btn btn-primary' href='roupas.php?pi=0&exibir=$exibir'>Primeiro</a>";
+        for($i = 1; $i <= $paginas; $i++){
+         if($i == 1){
+          $pi = 0;
+           }else{
+          $pi = $pi + $exibir;
+        }
+        echo "<a class='btn btn-primary' href='roupas.php?pi=$pi&exibir=$exibir'>$i</a>";
+        }
+        echo "<a class='btn btn-primary' href='roupas.php?pi=$pi&exibir=$exibir'>ultimo</a></div>";
+  ?>
+  <footer >
   	<div class="footer-middle bg-dark" style="margin-top: 1%;">
       <div class="container">
         <div class="row">
@@ -481,6 +373,6 @@
 
 
 
-  </html>
+  
   </body>
   </html>

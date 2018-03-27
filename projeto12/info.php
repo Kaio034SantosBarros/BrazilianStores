@@ -225,194 +225,87 @@
       </div>
 
 
-      <div style="margin-left: 2%; margin-right: 2%; margin-top: 2%">
-        <div class="row">
-          <div class="col-sm-3 col-xs-12 col-md-3">
-            <div class="card mb-4" style="width: 18rem;">
-              <img class="card-img-top" src="img/corei7.jpg" alt="Card image cap" height="200" width="239">
-              <div class="card-body">
-                <h5 class="card-title">Processador Intel core I7</h5>
-                <a href="#" class="btn btn-primary">R$ 1.704,41<i class="fa fa-cart-arrow-down fa-2x"></i></a>
-                <details>
-                 <summary>Detalhes</summary> 
-                 <p>Marca Intel, Modelo BX80684I78700K,Soquete LGA 1151, Litografia 14nm,Número de núcleos 6, Threads 12, Frequência 3,70 GHz, Frequência Turbo 4,70 GHz, Cache 12 MB, Velocidade do barramento 8 GT/s DMI3, TDP 95 W, Tamanho Máximo de Memória 64 GB, Tipos de memória DDR4-2666, Máximo de Canais de Memória 2</p>
+      <div style="margin-left: 5%;">
+      <form method="get">
+        Quantos produtos por vez?
+        <select name="exibir">
+          <?php 
+            include "banco.php";
+            if(empty($_GET['exibir'])){
+              $exibir = 4;      
+            }else{
+              $exibir = $_GET['exibir'];
+            }
+          ?>
+          <option value="4" <?php if($exibir == 4){ echo "selected";} ?>>4</option>
+          <option value="8" <?php if($exibir == 8){ echo "selected";} ?>>8</option>
+          <option value="12" <?php if($exibir == 12){ echo "selected";} ?>>12</option>
+        </select>
+        <button type="submit">Ir</button>
+      </form>
+      <?php 
+      
+        if(empty($_GET['pi'])){
+          $inicial = 0;     
+        }else{
+          $inicial = $_GET['pi'];
+        }
+        $query2 = "select * from produto";
+        $consulta2 = mysqli_query($con, $query2);
+        $total = mysqli_num_rows($consulta2);
 
-               </details>
+        $query = "select * from produto where categoria = 'informatica'";
+        $consulta = mysqli_query($con, $query);
+
+        $paginas = ceil($total / $exibir);
+          
+          
+          echo "<div class=\"row\">";
+
+      while($f = mysqli_fetch_array($consulta)){
+      // os comandos abaixo, serve para pegar as informações que estão no banco de dados e colocá-los em uma variável
+        $nomeprod = $f['nomeprod'];
+        $preco = $f['preco'];
+        $idprod = $f['idprod'];
+        $preco = number_format($preco, 2, ',','.');
+        $img = $f['img'];
+        $_SESSION['idprod'] = $idprod;
+        $_SESSION['nomeprod'] = $nomeprod;
+    ?>
+      
+       
+
+        
+          <div class="col-sm-3 col-xs-12 ">
+            <div class="card mb-4" style="width: 18rem;">
+              <img class="card-img-top" src="produto/<?php echo $img ?>" alt="Card image cap" height="200" width="239">
+              <div class="card-body">
+                <h5 class="card-title" <?php echo "id='$idprod'>$idprod $nomeprod"; ?></h5>
+                <a href="#" class="btn btn-primary"><?php echo "$preco </a>
+                  <a href='carrinho.php?idprod=$idprod' style='height: 1%;''><i class='fa fa-cart-arrow-down fa-2x'></i></a>"; ?>
+                <?php echo "<a class='btn btn-danger' href='produto.php?id=$idprod'>Ver Produto</a>"; ?>
+                <a href="#" class="btn btn-secondary">Comprar</a>
 
 
              </div>
            </div>
          </div>
 
-         <div class="col-sm-3 col-xs-12 col-md-3">
-          <div class="card mb-4" style="width: 18rem;" >
-            <img class="card-img-top" src="img/corei5.jpg" alt="Card image cap" height="200" width="239" >
-            <div class="card-body">
-              <h5 class="card-title">Processador Intel Core i5</h5>
-              <a href="#" class="btn btn-primary">R$ 768,90  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
-              <details>
-               <summary>Detalhes</summary> 
-               <p>Processador Intel Core i5-8400 Coffee Lake 8a Geração, Cache 9MB, 2.8GHz (4.0GHz Max Turbo), LGA 1151 Intel UHD Graphics 630 - BX80684I58400</p>
-
-             </details>
-
-
-           </div>
-         </div>
-       </div>
-       <div class="col-sm-6 col-xs-12 col-md-3">
-        <div class="card mb-4" style="width: 18rem;">
-          <img class="card-img-top" src="img/gtx1050.jpg" alt="Card image cap" height="200" width="239">
-          <div class="card-body">
-            <h5 class="card-title">Placa de Video VGA NVIDIA </h5>
-            <a href="#" class="btn btn-primary">R$ 637,90  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
-            <details>
-             <summary>Detalhes</summary> 
-             <p>Placa de Video VGA NVIDIA ASUS GEFORCE GTX 1050 2GB, Boost Clock 1518 MHz, DVI/HDMI/Display port/suport HDCP, DirectX 12, Expedition eSports EX-GTX1050-O2G</p>
-
-           </details>
-
-         </div>
-       </div>
-     </div>
-     <div class="col-sm-3 col-xs-12 col-md-3">
-      <div class="card mb-4" style="width: 18rem;">
-        <img class="card-img-top" src="img/videoamd.jpg" alt="Card image cap" height="200" width="239">
-        <div class="card-body">
-          <h5 class="card-title">Placa de Vídeo VGA AMD</h5>
-          <a href="#" class="btn btn-primary">R$ 421,06  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
-          <details>
-           <summary>Detalhes</summary> 
-           <p>Placa de Vídeo VGA AMD GIGABYTE RADEON R7 360 OC 2G Rev. 3.0 - GV-R736OC-2GD</p>
-
-         </details>
-
-       </div>
-     </div>
+      <?php } ?>
     </div>
-    <div class="col-sm-3 col-xs-12 col-md-3">
-      <div class="card mb-4" style="width: 18rem;">
-        <img class="card-img-top" src="img/gamer1.jpg" alt="Card image cap" height="200" width="239">
-        <div class="card-body">
-          <h5 class="card-title">Computador Gamer</h5>
-          <a href="#" class="btn btn-primary">R$ 1.902,24  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
-          <details>
-           <summary>Detalhes</summary> 
-           <p>Computador Gamer G-Fire AMD A8-7600, 4GB, HD 500GB, Radeon R7 integrada, Linux - Ícarus LT HTAVA-R54 </p>
-
-         </details>
-
-       </div>
-     </div>
-    </div>
-    <div class="col-sm-3 col-xs-12 col-md-3">
-      <div class="card mb-4" style="width: 18rem;">
-        <img class="card-img-top" src="img/gamer2.jpg" alt="Card image cap" height="200" width="239">
-        <div class="card-body">
-          <h5 class="card-title">Computador Gamer</h5> 
-          <a href="#" class="btn btn-primary">R$ 3.670,47  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
-          <details>
-           <summary>Detalhes</summary> 
-           <p>Computador Gamer Rawar Armata Intel Core i3-7100, 8GB, HD 1TB, Geforce GTX1050TI - RW252PAZ</p>
-
-         </details>
-
-       </div>
-     </div>
-    </div>
-    <div class="col-sm-3 col-xs-12 col-md-3">
-      <div class="card mb-4" style="width: 18rem;">
-        <img class="card-img-top" src="img/gamer3.jpg" alt="Card image cap" height="200" width="239">
-        <div class="card-body">
-         <h5 class="card-title">Computador Gamer</h5> 
-          <a href="#" class="btn btn-primary">R$ 3.168,12<i class="fa fa-cart-arrow-down fa-2x"></i></a>
-          <details>
-           <summary>Detalhes</summary> 
-           <p>Computador Gamer NTC AMD Ryzen 1200, 8GB, HD 1TB, GTX 1050, Windows 10 (Versão de Avaliação) - 6501</p>
-
-         </details>
-
-       </div>
-     </div>
-    </div>
-    <div class="col-sm-3 col-xs-12 col-md-3">
-      <div class="card mb-4" style="width: 18rem;">
-        <img class="card-img-top" src="img/gamer4.jpg" alt="Card image cap" height="200" width="239">
-        <div class="card-body">
-          <h5 class="card-title">Computador Gamer</h5> 
-          <a href="#" class="btn btn-primary">R$ 2.368,12  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
-          <details>
-           <summary>Detalhes</summary> 
-           <p>Computador Gamer G-Fire AMD FX8300, 8GB, HD 1TB, DVD-RW, Linux - HTAVA-66</p>
-
-         </details>
-
-       </div>
-     </div>
-    </div>
-    <div class="col-sm-3 col-xs-12 col-md-3">
-      <div class="card mb-4" style="width: 18rem;">
-        <img class="card-img-top" src="img/not1.jpg" alt="Card image cap" height="200" width="239">
-        <div class="card-body">
-          <h5 class="card-title">Notebook Gamer</h5>
-          <a href="#" class="btn btn-primary">R$ 3.999,88  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
-          <details>
-           <summary>Detalhes</summary> 
-           <p>Notebook Gamer Acer Intel Core I5-7300HQ, 8GB, 1TB, DDR4, NVIDIA GEFORCE GTX 1050 4GB, DDR5, 15,6´´ FULL HD, Windows 10 HOME - VX5-591G-54PG</p>
-
-         </details>
-
-       </div>
-     </div>
-    </div>
-    <div class="col-sm-3 col-xs-12 col-md-3">
-      <div class="card mb-4" style="width: 18rem;">
-        <img class="card-img-top" src="img/not2.jpg" alt="Card image cap" height="200" width="239">
-        <div class="card-body">
-          <h5 class="card-title">Notebook Gamer</h5> 
-          <a href="#" class="btn btn-primary">R$ 7.599,90  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
-
-          <details>
-           <summary>Detalhes</summary> 
-           <p>Notebook Gamer MSI GT72 6QD Dominator G Intel Core i7-6820HK, NVIDIA GEFORCE GTX 970M, 16GB DDR4,128 SSD, 1TB, BD Writer , Tela 17.3</p>
-
-         </details>
-       </div>
-     </div>
-    </div>
-    <div class="col-sm-3 col-xs-12 col-md-3">
-      <div class="card mb-4" style="width: 18rem;">
-        <img class="card-img-top" src="img/mouse1.jpg" alt="Card image cap" height="200" width="239">
-        <div class="card-body">
-          <h5 class="card-title">Mouse Gamer</h5>
-          <a href="#" class="btn btn-primary">R$ 246,94  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
-          <details>
-           <summary>Detalhes</summary> 
-           <p>Mouse Gamer Logitech G403 RGB 12000DPI </p>
-
-         </details>
-
-       </div>
-     </div>
-    </div>
-    <div class="col-sm-3 col-xs-12 col-md-3">
-      <div class="card mb-4" style="width: 18rem;">
-        <img class="card-img-top" src="img/mouse2.jpg" alt="Card image cap" height="200" width="239">
-        <div class="card-body">
-          <h5 class="card-title">Mouse 2</h5>
-
-          <a href="#" class="btn btn-primary">R$ 235,18  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
-          <details>
-           <summary>Detalhes</summary> 
-           <p>Mouse Gamer Logitech Ultra-rápido G402 Hyperion Fury FPS 4000DPI Preto</p>
-
-         </details>
-       </div>
-     </div>
-    </div>
-    </div>
-    </div>
-
+  </div>
+  <?php echo "<div class='text-center'>"; 
+    echo "<div><a class='btn btn-primary' href='roupas.php?pi=0&exibir=$exibir'>Primeiro</a>";
+        for($i = 1; $i <= $paginas; $i++){
+         if($i == 1){
+          $pi = 0;
+           }else{
+          $pi = $pi + $exibir;
+        }
+        echo "<a class='btn btn-primary' href='roupas.php?pi=$pi&exibir=$exibir'>$i</a>";
+        }
+        echo "<a class='btn btn-primary' href='roupas.php?pi=$pi&exibir=$exibir'>ultimo</a></div>";
+  ?>
     <footer>
     	<div class="footer-middle bg-dark" style="margin-top: 1%;">
         <div class="container">
@@ -481,6 +374,6 @@
 
 
 
-    </html>
+    
     </body>
     </html>

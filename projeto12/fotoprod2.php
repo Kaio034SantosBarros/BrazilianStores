@@ -16,7 +16,7 @@ $_UP['erros'][4] = 'Não foi feito o upload do arquivo';
 // Verifica se houve algum erro com o upload. Se sim, exibe a mensagem do erro
 if ($_FILES['arquivo']['error'] != 0) {
   
-  die("Não foi possível fazer o upload, erro:" . $_UP['erros'][$_FILES['arquivo']['error']]);
+  die("Não foi possível fazer o upload, erro: " . $_UP['erros'][$_FILES['arquivo']['error']]);
   exit; // Para a execução do 
 }
 // Caso  chegue a esse ponto, não houve erro com o upload e o PHP pode continuar
@@ -62,7 +62,7 @@ if (move_uploaded_file($_FILES['arquivo']['tmp_name'], $_UP['pasta'] . $nome_fin
   
 
   echo "Upload efetuado com sucesso!";
-  header("Refresh: 3, perfil.php");
+  header("Refresh: 3, pesquisa.php");
   
 } else {
   // Não foi possível fazer o upload, provavelmente a pasta está incorreta

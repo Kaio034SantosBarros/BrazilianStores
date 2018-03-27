@@ -225,48 +225,88 @@
     <div style="border: 3px solid black; margin-top: 1%; background-color: #BEBEBE;">  
       <h3 class="text-center"><marquee scrollDelay=1><font color=black><DATA>Games disponíveis</DATA></em></font></marquee></h3>
     </div>
+     <div style="margin-left: 5%;">
+      <form method="get">
+        Quantos produtos por vez?
+        <select name="exibir">
+          <?php 
+            include "banco.php";
+            if(empty($_GET['exibir'])){
+              $exibir = 4;      
+            }else{
+              $exibir = $_GET['exibir'];
+            }
+          ?>
+          <option value="4" <?php if($exibir == 4){ echo "selected";} ?>>4</option>
+          <option value="8" <?php if($exibir == 8){ echo "selected";} ?>>8</option>
+          <option value="12" <?php if($exibir == 12){ echo "selected";} ?>>12</option>
+        </select>
+        <button type="submit">Ir</button>
+      </form>
       <?php 
       
-      $query = "select * from produto where nomeprod or categoria = 'Livros'"; 
-                  
-      $consulta = mysqli_query($con, $query);
-      
-      $total = mysqli_num_rows($consulta);
-      
-      
-      echo "<div class=\"row\">";
+        if(empty($_GET['pi'])){
+          $inicial = 0;     
+        }else{
+          $inicial = $_GET['pi'];
+        }
+        $query2 = "select * from produto";
+        $consulta2 = mysqli_query($con, $query2);
+        $total = mysqli_num_rows($consulta2);
+
+        $query = "select * from produto where categoria = 'games'";
+        $consulta = mysqli_query($con, $query);
+
+        $paginas = ceil($total / $exibir);
+          
+          
+          echo "<div class=\"row\">";
 
       while($f = mysqli_fetch_array($consulta)){
       // os comandos abaixo, serve para pegar as informações que estão no banco de dados e colocá-los em uma variável
         $nomeprod = $f['nomeprod'];
+        $preco = $f['preco'];
+        $idprod = $f['idprod'];
+        $preco = number_format($preco, 2, ',','.');
+        $img = $f['img'];
+        $_SESSION['idprod'] = $idprod;
+        $_SESSION['nomeprod'] = $nomeprod;
     ?>
-      <!-- </div> <div style="min-height: 650px;">--> 
+      
        
 
         
           <div class="col-sm-3 col-xs-12 ">
             <div class="card mb-4" style="width: 18rem;">
-              <img class="card-img-top" src="img/farcry3.jpg" alt="Card image cap" height="200" width="239">
+              <img class="card-img-top" src="produto/<?php echo $img ?>" alt="Card image cap" height="200" width="239">
               <div class="card-body">
-                <h5 class="card-title"><?php echo "$nomeprod"; ?></h5>
-                <a href="#" class="btn btn-primary">R$ 57,90<i class="fa fa-cart-arrow-down fa-2x"></i></a>
-                <details>
-                 <summary>Detalhes</summary> 
-                 <p>Jogo onde você assume o papel de Jason Brody, um homem sozinho, preso em uma ilha tropical misteriosa. Neste paraíso selvagem, onde a ilegalidade e a violência são a única coisa certa, os jogadores determinam o desenrolar da história, as batalhas que lutarão com aliados ou inimigos e outras situações intensas que vão além do certo e errado. Como Jason Brody, os jogadores vão usar vários tipos de ataque em um mundo aberto, possibilitando ao jogador realizar as missões de maneiras bastante distintas, com muitos desafios pela frente, perigo e muita ação.</p>
-
-               </details>
+                <h5 class="card-title" <?php echo "id='$idprod'>$idprod $nomeprod"; ?></h5>
+                <a href="#" class="btn btn-primary"><?php echo "$preco </a>
+                  <a href='carrinho.php?idprod=$idprod' style='height: 1%;''><i class='fa fa-cart-arrow-down fa-2x'></i></a>"; ?>
+                <?php echo "<a class='btn btn-danger' href='produto.php?id=$idprod'>Ver Produto</a>"; ?>
+                <a href="#" class="btn btn-secondary">Comprar</a>
 
 
              </div>
            </div>
          </div>
 
-        
-    
-     <?php } ?>
-
-<!-- </div> -->
-    <footer style="padding-top: 250px;">
+      <?php } ?>
+    </div>
+  </div>
+  <?php echo "<div class='text-center'>"; 
+    echo "<div><a class='btn btn-primary' href='roupas.php?pi=0&exibir=$exibir'>Primeiro</a>";
+        for($i = 1; $i <= $paginas; $i++){
+         if($i == 1){
+          $pi = 0;
+           }else{
+          $pi = $pi + $exibir;
+        }
+        echo "<a class='btn btn-primary' href='roupas.php?pi=$pi&exibir=$exibir'>$i</a>";
+        }
+        echo "<a class='btn btn-primary' href='roupas.php?pi=$pi&exibir=$exibir'>ultimo</a></div>";
+  ?>
+    <footer >
     	<div class="footer-middle bg-dark" style="margin-top: 1%;">
         <div class="container">
           <div class="row">
@@ -334,6 +374,6 @@
 
 
 
-    </html>
+    
     </body>
     </html>

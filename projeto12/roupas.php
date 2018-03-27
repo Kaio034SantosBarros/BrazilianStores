@@ -224,250 +224,139 @@
     </div>
    
 
-    <div style="margin-left: 2%; margin-right: 2%; margin-top: 2%">
-      <div class="row">
-        <div class="col-sm-3 col-xs-12 col-md-3">
-          <div class="card mb-4" style="width: 18rem;">
-            <img class="card-img-top" src="img/casacostarwa.jpg" alt="Card image cap" height="200" width="239" >
-            <div class="card-body">
-              <h5 class="card-title">Blusa com capuz</h5>
-              <a href="#" class="btn btn-primary">R$ 149,00  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
-              <?php
-                if($adm == 'sim'){
-                echo "<a class='btn btn-danger' href='editprod.php'>Editar Produto</a>";
-              }
-              ?>
-              <details>
-               <summary>Detalhes</summary> 
-               <p>A estampa é produzida com impressão digital (DTG) e o processo é realizado com o que há de mais moderno no mercado, em impressora específica para malharia,imprimindo a arte com qualidade de definição excepcional e textura mínima sob a malha. O toque é levinho e veste bem demais, parece um abraço.</p>
+    <div style="margin-left: 5%;">
+      <form method="get">
+        Quantos produtos por vez?
+        <select name="exibir">
+          <?php 
+            include "banco.php";
+            if(empty($_GET['exibir'])){
+              $exibir = 4;      
+            }else{
+              $exibir = $_GET['exibir'];
+            }
+          ?>
+          <option value="4" <?php if($exibir == 4){ echo "selected";} ?>>4</option>
+          <option value="8" <?php if($exibir == 8){ echo "selected";} ?>>8</option>
+          <option value="12" <?php if($exibir == 12){ echo "selected";} ?>>12</option>
+        </select>
+        <button type="submit">Ir</button>
+      </form>
+      <?php 
+      
+        if(empty($_GET['pi'])){
+          $inicial = 0;     
+        }else{
+          $inicial = $_GET['pi'];
+        }
+        $query2 = "select * from produto  where categoria = 'roupas'";
+        $consulta2 = mysqli_query($con, $query2);
+        $total = mysqli_num_rows($consulta2);
 
-             </details>
+        $query = "select * from produto where categoria = 'roupas' limit $inicial, $exibir";
+        $consulta = mysqli_query($con, $query);
+
+        $paginas = ceil($total / $exibir);
+          
+          
+          echo "<div class=\"row\">";
+
+      while($f = mysqli_fetch_array($consulta)){
+      // os comandos abaixo, serve para pegar as informações que estão no banco de dados e colocá-los em uma variável
+        $nomeprod = $f['nomeprod'];
+        $preco = $f['preco'];
+        $idprod = $f['idprod'];
+        $preco = number_format($preco, 2, ',','.');
+        $img = $f['img'];
+        $_SESSION['idprod'] = $idprod;
+        $_SESSION['nomeprod'] = $nomeprod;
+    ?>
+      
+       
+
+        
+          <div class="col-sm-3 col-xs-12 ">
+            <div class="card mb-4" style="width: 18rem;">
+              <img class="card-img-top" src="produto/<?php echo $img ?>" alt="Card image cap" height="200" width="239">
+              <div class="card-body">
+                <h5 class="card-title" <?php echo "id='$idprod'>$idprod $nomeprod"; ?></h5>
+                <a href="#" class="btn btn-primary"><?php echo " R$ $preco </a>
+                  <a href='carrinho.php?idprod=$idprod' style='height: 1%;''><i class='fa fa-cart-arrow-down fa-2x'></i></a>"; ?>
+                <?php echo "<a class='btn btn-danger' href='produto.php?id=$idprod'>Ver Produto</a>"; ?>
+                <a href="#" class="btn btn-secondary">Comprar</a>
 
 
+             </div>
            </div>
          </div>
-       </div>
 
-       <div class="col-sm-3 col-xs-12 col-md-3">
-        <div class="card mb-4" style="width: 18rem;">
-          <img class="card-img-top" src="img/camisetapanteranegra.jpg" alt="Card image cap" height="200" width="239">
-          <div class="card-body">
-            <h5 class="card-title">Camiseta Feminina</h5>
-            <a href="#" class="btn btn-primary">R$ 59,00<i class="fa fa-cart-arrow-down fa-2x"></i></a>
-            <details>
-             <summary>Detalhes</summary> 
-             <p>A estampa é produzida com impressão digital (DTG) e o processo é realizado com o que há de mais moderno no mercado, em impressora específica para malharia,imprimindo a arte com qualidade de definição excepcional e textura mínima sob a malha. O toque é levinho e veste bem demais, parece um abraço.</p>
-
-           </details>
-
-
-         </div>
-       </div>
-     </div>
-     <div class="col-sm-6 col-xs-12 col-md-3">
-      <div class="card mb-4" style="width: 18rem;">
-        <img class="card-img-top" src="img/dk.jpg" alt="Card image cap" height="200" width="239">
-        <div class="card-body">
-          <h5 class="card-title">Camiseta Feminina</h5>
-          <a href="#" class="btn btn-primary">R$ 59,00  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
-          <details>
-           <summary>Detalhes</summary> 
-           <p>A estampa é produzida com impressão digital (DTG) e o processo é realizado com o que há de mais moderno no mercado, em impressora específica para malharia,imprimindo a arte com qualidade de definição excepcional e textura mínima sob a malha. O toque é levinho e veste bem demais, parece um abraço.</p>
-
-         </details>
-
-       </div>
-     </div>
-   </div>
-   <div class="col-sm-3 col-xs-12 col-md-3">
-    <div class="card mb-4" style="width: 18rem;">
-      <img class="card-img-top" src="img/casacocrossfire.png" alt="Card image cap" height="200" width="239">
-      <div class="card-body">
-        <h5 class="card-title">Casaco CrossFire - SAS</h5>
-        <a href="#" class="btn btn-primary">R$ 129,90  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
-        <details>
-         <summary>Detalhes</summary> 
-         <p>A estampa é produzida com impressão digital (DTG) e o processo é realizado com o que há de mais moderno no mercado, em impressora específica para malharia,imprimindo a arte com qualidade de definição excepcional e textura mínima sob a malha. O toque é levinho e veste bem demais, parece um abraço.</p>
-
-       </details>
-
-     </div>
-   </div>
+      <?php } ?>
+    </div>
   </div>
-  <div class="col-sm-3 col-xs-12 col-md-3">
-    <div class="card mb-4" style="width: 18rem;">
-      <img class="card-img-top" src="img/camisetakratos.jpg" alt="Card image cap" height="200" width="239">
-      <div class="card-body">
-        <h5 class="card-title">Camiseta Kratos</h5>
-        <a href="#" class="btn btn-primary">R$ 74,90  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
-        <details>
-         <summary>Detalhes</summary> 
-         <p>A estampa é produzida com impressão digital (DTG) e o processo é realizado com o que há de mais moderno no mercado, em impressora específica para malharia,imprimindo a arte com qualidade de definição excepcional e textura mínima sob a malha. O toque é levinho e veste bem demais, parece um abraço.</p>
-
-       </details>
-
-     </div>
-   </div>
-  </div>
-  <div class="col-sm-3 col-xs-12 col-md-3">
-    <div class="card mb-4" style="width: 18rem;">
-      <img class="card-img-top" src="img/camisetachucky.jpg" alt="Card image cap" height="200" width="239">
-      <div class="card-body">
-        <h5 class="card-title">Camiseta Chucky</h5> 
-        <a href="#" class="btn btn-primary">R$ 59,90  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
-        <details>
-         <summary>Detalhes</summary> 
-         <p>A estampa é produzida com impressão digital (DTG) e o processo é realizado com o que há de mais moderno no mercado, em impressora específica para malharia,imprimindo a arte com qualidade de definição excepcional e textura mínima sob a malha. O toque é levinho e veste bem demais, parece um abraço.</p>
-
-       </details>
-
-     </div>
-   </div>
-  </div>
-  <div class="col-sm-3 col-xs-12 col-md-3">
-    <div class="card mb-4" style="width: 18rem;">
-      <img class="card-img-top" src="img/camisagoku.jpg" alt="Card image cap" height="200" width="239">
-      <div class="card-body">
-       <h5 class="card-title">Camiseta Goku</h5> 
-        <a href="#" class="btn btn-primary">R$ 100,00  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
-        <details>
-         <summary>Detalhes</summary> 
-         <p>A estampa é produzida com impressão digital (DTG) e o processo é realizado com o que há de mais moderno no mercado, em impressora específica para malharia,imprimindo a arte com qualidade de definição excepcional e textura mínima sob a malha. O toque é levinho e veste bem demais, parece um abraço.</p>
-
-       </details>
-
-     </div>
-   </div>
-  </div>
-  <div class="col-sm-3 col-xs-12 col-md-3">
-    <div class="card mb-4" style="width: 18rem;">
-      <img class="card-img-top" src="img/camisetajirem.jpg" alt="Card image cap" height="200" width="239">
-      <div class="card-body">
-        <h5 class="card-title">Camiseta Jiren</h5> 
-        <a href="#" class="btn btn-primary">R$ 60,00  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
-        <details>
-         <summary>Detalhes</summary> 
-         <p>A estampa é produzida com impressão digital (DTG) e o processo é realizado com o que há de mais moderno no mercado, em impressora específica para malharia,imprimindo a arte com qualidade de definição excepcional e textura mínima sob a malha. O toque é levinho e veste bem demais, parece um abraço.</p>
-
-       </details>
-
-     </div>
-   </div>
-  </div>
-  <div class="col-sm-3 col-xs-12 col-md-3">
-    <div class="card mb-4" style="width: 18rem;">
-      <img class="card-img-top" src="img/casaco3d1.jpg" alt="Card image cap" height="200" width="239">
-      <div class="card-body">
-        <h5 class="card-title">Casaco- 3d</h5> 
-        <a href="#" class="btn btn-primary">R$ 120,00  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
-        <details>
-         <summary>Detalhes</summary> 
-         <p>A estampa é produzida com impressão digital (DTG) e o processo é realizado com o que há de mais moderno no mercado, em impressora específica para malharia,imprimindo a arte com qualidade de definição excepcional e textura mínima sob a malha. O toque é levinho e veste bem demais, parece um abraço.</p>
-
-       </details>
-
-     </div>
-   </div>
-  </div>
-  <div class="col-sm-3 col-xs-12 col-md-3">
-    <div class="card mb-4" style="width: 18rem;">
-      <img class="card-img-top" src="img/casaco3d2.jpg" alt="Card image cap" height="200" width="239">
-      <div class="card-body">
-        <h5 class="card-title">Casaco - 3d</h5> 
-        <a href="#" class="btn btn-primary">R$ 120,00  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
-
-        <details>
-         <summary>Detalhes</summary> 
-         <p>A estampa é produzida com impressão digital (DTG) e o processo é realizado com o que há de mais moderno no mercado, em impressora específica para malharia,imprimindo a arte com qualidade de definição excepcional e textura mínima sob a malha. O toque é levinho e veste bem demais, parece um abraço.</p>
-
-       </details>
-     </div>
-   </div>
-  </div>
-  <div class="col-sm-3 col-xs-12 col-md-3">
-    <div class="card mb-4" style="width: 18rem;">
-      <img class="card-img-top" src="img/casaco3d3.jpg" alt="Card image cap" height="200" width="239">
-      <div class="card-body">
-        <h5 class="card-title">Casaco - 3d </h5>
-        <a href="#" class="btn btn-primary">R$ 125,00  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
-        <details>
-         <summary>Detalhes</summary> 
-         <p> A estampa é produzida com impressão digital (DTG) e o processo é realizado com o que há de mais moderno no mercado, em impressora específica para malharia,imprimindo a arte com qualidade de definição excepcional e textura mínima sob a malha. O toque é levinho e veste bem demais, parece um abraço. </p>
-
-       </details>
-
-     </div>
-   </div>
-  </div>
-  <div class="col-sm-3 col-xs-12 col-md-3">
-    <div class="card mb-4" style="width: 18rem;">
-      <img class="card-img-top" src="img/casacodeadpol.jpg" alt="Card image cap" height="200" width="239">
-      <div class="card-body">
-        <h5 class="card-title">Casaco Deadpool</h5>
-
-        <a href="#" class="btn btn-primary">R$ 130,00  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
-        <details>
-         <summary>Detalhes</summary> 
-         <p>A estampa é produzida com impressão digital (DTG) e o processo é realizado com o que há de mais moderno no mercado, em impressora específica para malharia,imprimindo a arte com qualidade de definição excepcional e textura mínima sob a malha. O toque é levinho e veste bem demais, parece um abraço.</p>
-
-       </details>
-     </div>
-   </div>
-  </div>
-  </div>
-  </div>
-
+  <?php echo "<div class='text-center'>"; 
+    echo "<div><a class='btn btn-primary' href='roupas.php?pi=0&exibir=$exibir'>Primeiro</a>";
+        for($i = 1; $i <= $paginas; $i++){
+         if($i == 1){
+          $pi = 0;
+           }else{
+          $pi = $pi + $exibir;
+        }
+        echo "<a class='btn btn-primary' href='roupas.php?pi=$pi&exibir=$exibir'>$i</a>";
+        }
+        echo "<a class='btn btn-primary' href='roupas.php?pi=$pi&exibir=$exibir'>ultimo</a></div>";
+        echo "</div>"
+  ?>  
   <footer>
-    <div class="footer-middle bg-dark" style="margin-top: 1%;">
-      <div class="container">
-        <div class="row">
-         <div class="col-md-3 col-sm-6">
+      <div class="footer-middle bg-dark" style="margin-top: 30px;">
+        <div class="container">
+          <div class="row">
+           <div class="col-md-3 col-sm-6">
+            <!--Column1-->
+            <div class="footer-pad">
+             <h4>Contato</h4>
+             <address>
+               <ul class="list-unstyled">
+                 <li>
+                   City Hall<br>
+                   212  Street<br>
+                   Lawoma<br>
+                   735<br>
+                 </li>
+                 <li>
+                  Telefone: (21) 2222-2222
+                </li>
+              </ul>
+            </address>
+          </div>
+        </div>
+        
+        <div class="col-md-3 col-sm-6">
           <!--Column1-->
           <div class="footer-pad">
-           <h4>Contato</h4>
-           <address>
-             <ul class="list-unstyled">
-               <li>
-                 City Hall<br>
-                 212  Street<br>
-                 Lawoma<br>
-                 735<br>
-               </li>
-               <li>
-                Telefone: (21) 2222-2222
-              </li>
-            </ul>
-          </address>
-        </div>
-      </div>
-
-      <div class="col-md-3 col-sm-6">
-        <!--Column1-->
-        <div class="footer-pad">
-          <h4>Informações</h4>
-          <ul class="list-unstyled">
-            <li><a href="#">Website Tutorial</a></li>
-            <li><a href="#">Accessibility</a></li>
-            <li><a href="#">Disclaimer</a></li>
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">FAQs</a></li>
-            <li><a href="#">Webmaster</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="col-md-3 col-sm-6">
-        <!--Column1-->
-        <div class="footer-pad">
-          <h4>Redes Sociais</h4>
-          <ul class="list-unstyled">
-            <li><a href="https://www.facebook.com" target="_blank"> <i class="fa fa-facebook-official fa-3x" aria-hidden="true" style="float: left;"></i></li>
-              <li><a href="https://twitter.com" target="_blank"><i class="fa fa-twitter fa-3x" aria-hidden="true" style="float: left;"></i></a></li>
-              <li><a href="https://www.instagram.com/?hl=pt-br" target="_blank"><i class="fa fa-instagram fa-3x" aria-hidden="true"></i></a></li>
-
+            <h4>Informações</h4>
+            <ul class="list-unstyled">
+              <li><a href="#">Website Tutorial</a></li>
+              <li><a href="#">Accessibility</a></li>
+              <li><a href="#">Disclaimer</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">FAQs</a></li>
+              <li><a href="#">Webmaster</a></li>
             </ul>
           </div>
         </div>
-
+        <div class="col-md-3 col-sm-6">
+          <!--Column1-->
+          <div class="footer-pad">
+            <h4>Redes Sociais</h4>
+            <ul class="list-unstyled">
+              <li><a href="https://www.facebook.com" target="_blank"> <i class="fa fa-facebook-official fa-3x" aria-hidden="true" style="float: left;"></i></a></li>
+              <li><a href="https://twitter.com" target="_blank"><i class="fa fa-twitter fa-3x" aria-hidden="true" style="float: left;"></i></a></li>
+              <li><a href="https://www.instagram.com/?hl=pt-br" target="_blank"><i class="fa fa-instagram fa-3x" aria-hidden="true"></i></a></li>
+              
+            </ul>
+          </div>
+        </div>
+        
       </div>
     </div>
   </div>
@@ -485,6 +374,5 @@
 
 
 
-  </html>
   </body>
   </html>

@@ -121,194 +121,87 @@
   </div>
 
 
-  <div style="margin-left: 2%; margin-right: 2%; margin-top: 2%">
-    <div class="row">
-      <div class="col-sm-3 col-xs-12 col-md-3">
-        <div class="card mb-4" style="width: 18rem;">
-          <img class="card-img-top" src="img/livro1.jpg" alt="Card image cap" height="260" width="239">
-          <div class="card-body">
-            <h5 class="card-title">A Arte de ligar o F#da-se</h5>
-            <a href="#" class="btn btn-primary">R$ 22,90  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
-            <details>
-             <summary>Detalhes</summary> 
-             <p>Mark manson não tem meandros ou meias palavras. Com um estilo honesto, divertido e incrivelmente perspicaz, ele se tornou popular escrevendo em seu blog o que as pessoas realmente precisam ouvir, pois só isso funciona para nos fazer evoluir pessoal e profissionalmente. Mora em Nova York.</p>
+  <div style="margin-left: 5%;">
+      <form method="get">
+        Quantos produtos por vez?
+        <select name="exibir">
+          <?php 
+            include "banco.php";
+            if(empty($_GET['exibir'])){
+              $exibir = 4;      
+            }else{
+              $exibir = $_GET['exibir'];
+            }
+          ?>
+          <option value="4" <?php if($exibir == 4){ echo "selected";} ?>>4</option>
+          <option value="8" <?php if($exibir == 8){ echo "selected";} ?>>8</option>
+          <option value="12" <?php if($exibir == 12){ echo "selected";} ?>>12</option>
+        </select>
+        <button type="submit">Ir</button>
+      </form>
+      <?php 
+      
+        if(empty($_GET['pi'])){
+          $inicial = 0;     
+        }else{
+          $inicial = $_GET['pi'];
+        }
+        $query2 = "select * from produto";
+        $consulta2 = mysqli_query($con, $query2);
+        $total = mysqli_num_rows($consulta2);
 
-           </details>
+        $query = "select * from produto where categoria = 'Livros'";
+        $consulta = mysqli_query($con, $query);
+
+        $paginas = ceil($total / $exibir);
+          
+          
+          echo "<div class=\"row\">";
+
+      while($f = mysqli_fetch_array($consulta)){
+      // os comandos abaixo, serve para pegar as informações que estão no banco de dados e colocá-los em uma variável
+        $nomeprod = $f['nomeprod'];
+        $preco = $f['preco'];
+        $idprod = $f['idprod'];
+        $preco = number_format($preco, 2, ',','.');
+        $img = $f['img'];
+        $_SESSION['idprod'] = $idprod;
+        $_SESSION['nomeprod'] = $nomeprod;
+    ?>
+      
+       
+
+        
+          <div class="col-sm-3 col-xs-12 ">
+            <div class="card mb-4" style="width: 18rem;">
+              <img class="card-img-top" src="produto/<?php echo $img ?>" alt="Card image cap" height="200" width="239">
+              <div class="card-body">
+                <h5 class="card-title" <?php echo "id='$idprod'>$idprod $nomeprod"; ?></h5>
+                <a href="#" class="btn btn-primary"><?php echo "$preco </a>
+                  <a href='carrinho.php?idprod=$idprod' style='height: 1%;''><i class='fa fa-cart-arrow-down fa-2x'></i></a>"; ?>
+                <?php echo "<a class='btn btn-danger' href='produto.php?id=$idprod'>Ver Produto</a>"; ?>
+                <a href="#" class="btn btn-secondary">Comprar</a>
 
 
+             </div>
+           </div>
          </div>
-       </div>
-     </div>
 
-     <div class="col-sm-3 col-xs-12 col-md-3">
-      <div class="card mb-4" style="width: 18rem;">
-        <img class="card-img-top" src="img/livro2.jpg" alt="Card image cap" height="260" width="239">
-        <div class="card-body">
-          <h5 class="card-title">Sapiens</h5>
-          <a href="#" class="btn btn-primary">R$ 35,20  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
-          <details>
-           <summary>Detalhes</summary> 
-           <p>Sapiens é realmente impressionante, de se ler num fôlego só. De fato, questiona nossas ideias preconcebidas a respeito do universo." (The Guardian) “...uma explosão em forma de livro, tão agradável de ler quanto perturbador.</p>
-
-         </details>
-
-
-       </div>
-     </div>
-   </div>
-   <div class="col-sm-3 col-xs-12 col-md-3">
-    <div class="card mb-4" style="width: 18rem;">
-      <img class="card-img-top" src="img/livro3.jpg" alt="Card image cap" height="260" width="239">
-      <div class="card-body">
-        <h5 class="card-title">Seja f#da!</h5>
-        <a href="#" class="btn btn-primary">R$ 23,50  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
-        <details>
-         <summary>Detalhes</summary> 
-         <p>Aposto que você quer, no final da sua vida, olhar para trás, bater no peito com o coração cheio de felicidade, sem falsa modéstia, com plena convicção e serenidade, e dizer: minha vida foi FODA. Mas calma, encontrar este livro é só o começo. Agora, você precisa levá-lo com você. Com ele, você vai aprender comportamentos e atitudes necessários para conquistar, em todos os aspectos da sua vida, resultados incríveis.</p>
-
-       </details>
-
-     </div>
-   </div>
- </div>
- <div class="col-sm-3 col-xs-12 col-md-3">
-  <div class="card mb-4" style="width: 18rem;">
-    <img class="card-img-top" src="img/livro4.jpg" alt="Card image cap" height="260" width="239">
-    <div class="card-body">
-      <h5 class="card-title">O Poder do Hábito</h5>
-      <a href="#" class="btn btn-primary">R$ 31,90  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
-      <details>
-       <summary>Detalhes</summary> 
-       <p>Segundo o autor, a chave para se exercitar regularmente, perder peso, educar os filhos, tornar-se mais produtivo, criar empresas revolucionárias e alcançar o sucesso é entender como os hábitos funcionam. Ele procura mostrar que, ao dominar esta ciência, todos podem transformar suas empresas e suas vidas.</p>
-
-     </details>
-
-   </div>
- </div>
-</div>
-<div class="col-sm-3 col-xs-12 col-md-3">
-  <div class="card mb-4" style="width: 18rem;">
-    <img class="card-img-top" src="img/livro5.jpg" alt="Card image cap" height="260" width="239">
-    <div class="card-body">
-      <h5 class="card-title">MindSet</h5>
-      <a href="#" class="btn btn-primary">R$ 26,90  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
-      <details>
-       <summary>Detalhes</summary> 
-       <p>Carol S. Dweck, professora de psicologia na Universidade Stanford e especialista internacional em sucesso e motivação, desenvolveu, ao longo de décadas de pesquisa, um conceito fundamental: a atitude mental com que encaramos a vida, que ela chama de “mindset”, é crucial para o sucesso. Dweck revela de forma brilhante como o sucesso pode ser alcançado pela maneira como lidamos com nossos objetivos. O mindset não é um mero traço de personalidade, é a explicação de por que somos otimistas.</p>
-
-     </details>
-
-   </div>
- </div>
-</div>
-<div class="col-sm-3 col-xs-12 col-md-3">
-  <div class="card mb-4" style="width: 18rem;">
-    <img class="card-img-top" src="img/livro6.jpg" alt="Card image cap" height="260" width="239">
-    <div class="card-body">
-      <h5 class="card-title">Arrume sua Cama</h5> 
-      <a href="#" class="btn btn-primary">R$ 21,90  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
-      <details>
-       <summary>Detalhes</summary> 
-       <p>Dez lições de um almirante das forças especiais para mudar sua vida 
-       Quando foi convidado para proferir o discurso da aula inaugural dos alunos de graduação da Universidade do Texas, o almirante William McRaven pensou em compartilhar suas lições sobre liderança. Afinal, em 37 anos de carreira na Marinha norte-americana, ele exerceu o comando em vários níveis – inclusive tendo sido o responsável pela missão que capturou Osama Bin Laden.</p>
-
-     </details>
-
-   </div>
- </div>
-</div>
-<div class="col-sm-3 col-xs-12 col-md-3">
-  <div class="card mb-4" style="width: 18rem;">
-    <img class="card-img-top" src="img/livro7.jpg" alt="Card image cap" height="260" width="239">
-    <div class="card-body">
-     <h5 class="card-title">Como fazer amigos</h5> 
-      <a href="#" class="btn btn-primary">R$ 21,90  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
-      <details>
-       <summary>Detalhes</summary> 
-       <p>Carnegie nos ensina maneiras de conquistar as pessoas de uma maneira que ainda nos dias de hoje é muito válida. A leitura do livro é enriquecedora, nos leva a refletir sobre formas de abordagem que muitas vezes usamos sem perceber e que não trazem os efeitos desejados. O autor, sabiamente dá diversas dicas de como conduzir diversas situações e reverter o pensamento do interlocutor para que fique de acordo com o seu.Quanto à edição, a diagramação é muito boa, letras grandes; livro bastante confortável de manusear.</p>
-
-     </details>
-
-   </div>
- </div>
-</div>
-<div class="col-sm-3 col-xs-12 col-md-3">
-  <div class="card mb-4" style="width: 18rem;">
-    <img class="card-img-top" src="img/livro8.jpg" alt="Card image cap" height="260" width="239">
-    <div class="card-body">
-      <h5 class="card-title">Roube como um Artista</h5> 
-      <a href="#" class="btn btn-primary">R$ 17,90  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
-      <details>
-       <summary>Detalhes</summary> 
-       <p>Verdadeiro manifesto ilustrado de como ser criativo na era digital, Roube como um artista, do designer e escritor Austin Kleon, ganhou a lista dos mais vendidos do The New York Times e figurou no ranking de 2012 da rede Amazon ao mostrar  com bom humor, ousadia e simplicidade  que não é preciso ser um gênio para ser criativo, basta ser autêntico.</p>
-
-     </details>
-
-   </div>
- </div>
-</div>
-<div class="col-sm-3 col-xs-12 col-md-3">
-  <div class="card mb-4" style="width: 18rem;">
-    <img class="card-img-top" src="img/livro9.jpg" alt="Card image cap" height="260" width="239">
-    <div class="card-body">
-      <h5 class="card-title">O poder do Silêncio</h5> 
-      <a href="#" class="btn btn-primary">R$ 14,70  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
-      <details>
-       <summary>Detalhes</summary> 
-       <p>O silêncio e a calma não são apenas a ausência de barulho e de conteúdo. São a dimensão mais profunda do nosso ser, a inteligência primordial, a consciência de que só podemos ser felizes Agora. O poder transformador do silêncio está em nos libertar de nossos pensamentos, medos e desejos, dissipando as tensões do passado e as expectativas em relação ao futuro. Só no presente podemos descobrir quem realmente somos, alcançando assim a paz e a alegria que estão dentro de nós. Neste livro, seguindo a tradição dos sutras indianos, Tolle optou por transmitir seus ensinamentos espirituais em forma de aforismos. São 200 textos curtos e inspiradores que abordam diversos temas, entre eles, o Agora, os relacionamentos, a morte e a eternidade.</p>
-
-     </details>
-
-   </div>
- </div>
-</div>
-<div class="col-sm-3 col-xs-12 col-md-3">
-  <div class="card mb-4" style="width: 18rem;">
-    <img class="card-img-top" src="img/livro10.jpg" alt="Card image cap" height="260" width="239">
-    <div class="card-body">
-      <h5 class="card-title">Mostre seu Trabalho</h5> 
-      <a href="#" class="btn btn-primary">R$ 29,90  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
-
-      <details>
-       <summary>Detalhes</summary> 
-       <p>Depois de Roube como um artista, um manifesto irreverente e repleto de dicas bem-humoradas para ativar o potencial criativo, e Roube como um artista: o diário, o escritor e artista gráfico Austin Kleon ensina ao leitor como compartilhar sua criatividade e tornar seu trabalho conhecido na era digital. </p>
-
-     </details>
-   </div>
- </div>
-</div>
-<div class="col-sm-3 col-xs-12 col-md-3">
-  <div class="card mb-4" style="width: 18rem;">
-    <img class="card-img-top" src="img/livro11.jpg" alt="Card image cap" height="260" width="239">
-    <div class="card-body">
-      <h5 class="card-title">Segredos da Mente</h5>
-      <a href="#" class="btn btn-primary">R$ 1.895,00  <i class="fa fa-shopping-cart "></i></a>
-      <details>
-       <summary>Detalhes</summary> 
-       <p>O autor desta obra nos apresenta algumas dezenas de narrativas. São fatos reais, extraídos do dia a dia das centenas de pessoas por ele atendidas. Necessitadas de compreensão e carinho são encaminhadas e orientadas na busca da solução dos problemas que os afligem, acalmando-as e devolvendo-lhes a fé, a esperança e a coragem. </p>
-
-     </details>
-
-   </div>
- </div>
-</div>
-<div class="col-sm-3 col-xs-12 col-md-3">
-  <div class="card mb-4" style="width: 18rem;">
-    <img class="card-img-top" src="img/livro12.jpg" alt="Card image cap" height="260" width="239">
-    <div class="card-body">
-      <h5 class="card-title">A Coragem de Ser</h5>
-
-      <a href="#" class="btn btn-primary">R$ 490,00  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
-      <details>
-       <summary>Detalhes</summary> 
-       <p>Primeiro lugar na lista do The New York Times.Brené Brown ousou tocar em assuntos que costumam ser evitados por causarem grande desconforto. Sua palestra a respeito de vulnerabilidade, medo, vergonha e imperfeição já teve mais de 25 milhões de visualizações.</p>
-
-     </details>
-   </div>
- </div>
-</div>
-</div>
-</div>
+      <?php } ?>
+    </div>
+  </div>
+  <?php echo "<div class='text-center'>"; 
+    echo "<div><a class='btn btn-primary' href='roupas.php?pi=0&exibir=$exibir'>Primeiro</a>";
+        for($i = 1; $i <= $paginas; $i++){
+         if($i == 1){
+          $pi = 0;
+           }else{
+          $pi = $pi + $exibir;
+        }
+        echo "<a class='btn btn-primary' href='roupas.php?pi=$pi&exibir=$exibir'>$i</a>";
+        }
+        echo "<a class='btn btn-primary' href='roupas.php?pi=$pi&exibir=$exibir'>ultimo</a></div>";
+  ?>
 
 <footer>
   <div class="footer-middle bg-dark" style="margin-top: 1%;">
@@ -378,6 +271,6 @@
 
 
 
-</html>
+
 </body>
 </html>

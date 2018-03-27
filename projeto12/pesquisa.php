@@ -1,13 +1,21 @@
 <?php
   session_start();
-	if(isset($_POST['p'])){
-      $pesquisa = 1;
-      $p = $_POST['p'];
-      }else{
-        $pesquisa = 0;
-          }
-	include "bd.php";
-	?>
+  if(isset($_POST['p'])){
+    $pesquisa = 1;
+    $p = $_POST['p'];
+    if($p == " "){
+      
+      header("Location: pesquisa.php");
+    }
+  }else{
+    $pesquisa = 0;
+  }
+  header('Cache-Control: no cache');
+  session_cache_limiter('private_no_expire'); // Cliente não vai receber o header expirado.
+         
+  include "bd.php";
+  
+?>
 	<!doctype html>
     <html lang="pt-br">
     <title>Brazilian Stores</title>
@@ -255,7 +263,7 @@
                 <a href="#" class="btn btn-primary"><?php echo "$preco </a>
                   <a href='carrinho.php?idprod=$idprod' style='height: 1%;''><i class='fa fa-cart-arrow-down fa-2x'></i></a>"; ?>
                 <?php echo "<a class='btn btn-danger' href='produto.php?id=$idprod'>Ver Produto</a>"; ?>
-                <a href="<?php echo "comprar.php?idprod=$idprod" ?>" class="btn btn-secondary">Comprar</a>
+                <a href="#" class="btn btn-secondary">Comprar</a>
 
 
              </div>
