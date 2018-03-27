@@ -2,7 +2,7 @@
     session_start();
   include "bd.php";
  ?>
-<!doctype html>
+ <!doctype html>
 <html lang="pt-br">
 <title>Brazilian Stores</title>
 <head>
@@ -38,21 +38,23 @@
 
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle active" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Categorias</a>
-            <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 44px, 0px); top: 0px; left: 0px; will-change: transform;">
-                <a class="dropdown-item" href="roupas.php">Roupas</a>
+        <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 44px, 0px); top: 0px; left: 0px; will-change: transform;">
+           <a class="dropdown-item" href="roupas.php">Roupas</a>
               <a class="dropdown-item" href="eletronicos.php">Eletrônicos</a>
               <a class="dropdown-item" href="livros.php">Livros</a>
               <a class="dropdown-item" href="info.php">Informática</a>
               <a class="dropdown-item" href="celulares.php">Celulares</a>
               <a class="dropdown-item" href="game.php">Games</a>
-            </div>
+        </div>
         <li class="nav-item">
-
-          <a class="nav-link active" href="#home"><i class="fa fa-shopping-cart "></i></a>
-        </li>
-
-      </li>
-          <?php 
+              <?php
+              if(isset($_SESSION['email']) or isset($_COOKIE['email'])){
+              echo "
+              <a class='nav-link active' href='carrinho.php'><i class='fa fa-shopping-cart '></i></a>
+              </li>            
+            </li>
+              ";
+              }
               $adm = "";
               if(isset($_SESSION['adm'])){
               $adm = $_SESSION['adm'];      
@@ -111,8 +113,11 @@
   </nav>
 
 
+
+
+
   <div style="border: 3px solid black; margin-top: 1%; background-color: #BEBEBE;">  
-    <h3 class="text-center"><marquee scrollDelay=1><font color=black><DATA>Celulares disponíveis no Momento</DATA></em></font></marquee></h3>
+    <h3 class="text-center"><marquee scrollDelay=1><font color=black><DATA>Livros disponíveis no Momento</DATA></em></font></marquee></h3>
   </div>
 
 
@@ -120,13 +125,13 @@
     <div class="row">
       <div class="col-sm-3 col-xs-12 col-md-3">
         <div class="card mb-4" style="width: 18rem;">
-          <img class="card-img-top" src="img/celular1.jpg" alt="Card image cap" style="height: 200px; width: 239px;">
+          <img class="card-img-top" src="img/livro1.jpg" alt="Card image cap" height="260" width="239">
           <div class="card-body">
-            <h5 class="card-title">Samsung J7 Prime</h5>
-            <a href="#" class="btn btn-primary">R$ 949,00  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
+            <h5 class="card-title">A Arte de ligar o F#da-se</h5>
+            <a href="#" class="btn btn-primary">R$ 22,90  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
             <details>
              <summary>Detalhes</summary> 
-             <p>União perfeita entre design e tecnologia o Galaxy J7 Prime trás um corpo em metal de alta resistência com bordas arredondadas que lhe dão um aspecto premium. Com uma tela Full HD de 5.5" é ideal para filmes, fotos e navegação na internet. Sua câmera traseira de 13MP com f1.9 capturas fotos claras e nítidas mesmo em condições de baixa luminosidade e a sua câmera frontal de 8MP com f1.9 e Flash Frontal permite selfies incríveis. O Leitor de Impressão Digital dá mais segurança e agilidade e tudo isso suportado por um potente processador Octa Core, 3MB de RAM e 32GB de memória interna. </p>
+             <p>Mark manson não tem meandros ou meias palavras. Com um estilo honesto, divertido e incrivelmente perspicaz, ele se tornou popular escrevendo em seu blog o que as pessoas realmente precisam ouvir, pois só isso funciona para nos fazer evoluir pessoal e profissionalmente. Mora em Nova York.</p>
 
            </details>
 
@@ -137,13 +142,13 @@
 
      <div class="col-sm-3 col-xs-12 col-md-3">
       <div class="card mb-4" style="width: 18rem;">
-        <img class="card-img-top" src="img/celular2.jpg" alt="Card image cap" style="height: 200px; width: 239px;">
+        <img class="card-img-top" src="img/livro2.jpg" alt="Card image cap" height="260" width="239">
         <div class="card-body">
-          <h5 class="card-title">Asus Zenfone 2</h5>
-          <a href="#" class="btn btn-primary">R$ 815,00  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
+          <h5 class="card-title">Sapiens</h5>
+          <a href="#" class="btn btn-primary">R$ 35,20  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
           <details>
            <summary>Detalhes</summary> 
-           <p>Uma maravilhosa combinação entre tecnologia e engenharia, que equilibra a beleza e força, um desempenho sem precedentes. Design elegante com bordas incrivelmente finas, de apenas 3.9 mm. Este efeito é conseguido através de um processo de fabricação muito preciso. Tela de 5.5" polegadas, uma proporção incrível entre a tela e o corpo de 72%. Visão ampla para assistir aos seus filmes favoritos. ZenFone 2 vem equipado com o super processador intel Atom Quad-Core Z3580 de 64-bit de 2,3GHz capaz de executar aplicativos pesados sem problema algum. </p>
+           <p>Sapiens é realmente impressionante, de se ler num fôlego só. De fato, questiona nossas ideias preconcebidas a respeito do universo." (The Guardian) “...uma explosão em forma de livro, tão agradável de ler quanto perturbador.</p>
 
          </details>
 
@@ -153,13 +158,13 @@
    </div>
    <div class="col-sm-3 col-xs-12 col-md-3">
     <div class="card mb-4" style="width: 18rem;">
-      <img class="card-img-top" src="img/celular3.jpg" alt="Card image cap" style="height: 200px; width: 239px;">
+      <img class="card-img-top" src="img/livro3.jpg" alt="Card image cap" height="260" width="239">
       <div class="card-body">
-        <h5 class="card-title">Apple Iphone 8</h5>
-        <a href="#" class="btn btn-primary">R$ 3.785,00  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
+        <h5 class="card-title">Seja f#da!</h5>
+        <a href="#" class="btn btn-primary">R$ 23,50  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
         <details>
          <summary>Detalhes</summary> 
-         <p>Design inovador,totalmente em vidro.A câmera que o mundo todo inteiro adora, ainda melhor.O chip mais poderoso e inteligente em qualquer smartphone. Recarga sem fio simples de verdade, e experiências de relidade aumentada envolventes como nuncal.O Iphone 8 é brilhante.</p>
+         <p>Aposto que você quer, no final da sua vida, olhar para trás, bater no peito com o coração cheio de felicidade, sem falsa modéstia, com plena convicção e serenidade, e dizer: minha vida foi FODA. Mas calma, encontrar este livro é só o começo. Agora, você precisa levá-lo com você. Com ele, você vai aprender comportamentos e atitudes necessários para conquistar, em todos os aspectos da sua vida, resultados incríveis.</p>
 
        </details>
 
@@ -168,13 +173,13 @@
  </div>
  <div class="col-sm-3 col-xs-12 col-md-3">
   <div class="card mb-4" style="width: 18rem;">
-    <img class="card-img-top" src="img/celular4.jpg" alt="Card image cap" style="height: 200px; width: 239px;">
+    <img class="card-img-top" src="img/livro4.jpg" alt="Card image cap" height="260" width="239">
     <div class="card-body">
-      <h5 class="card-title">Sansumg Galaxy S8 Plus</h5>
-      <a href="#" class="btn btn-primary">R$ 3.299,00  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
+      <h5 class="card-title">O Poder do Hábito</h5>
+      <a href="#" class="btn btn-primary">R$ 31,90  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
       <details>
        <summary>Detalhes</summary> 
-       <p>Design surpreendentemente e inovador com seu display infinito que se estende até as laterais do aparelho. Processador Octa-Core para iniciar e alternar entre os aplicativos com muita agilidade. A bateria permite maior autonomia e um menor consumo de energia. A câmera principal do Galaxy S8 Plus oferece recursos avançados e você poderá registrar fotos de alta qualidade tanto de dia quanto à noite.</p>
+       <p>Segundo o autor, a chave para se exercitar regularmente, perder peso, educar os filhos, tornar-se mais produtivo, criar empresas revolucionárias e alcançar o sucesso é entender como os hábitos funcionam. Ele procura mostrar que, ao dominar esta ciência, todos podem transformar suas empresas e suas vidas.</p>
 
      </details>
 
@@ -183,13 +188,13 @@
 </div>
 <div class="col-sm-3 col-xs-12 col-md-3">
   <div class="card mb-4" style="width: 18rem;">
-    <img class="card-img-top" src="img/celular5.jpg" alt="Card image cap" style="height: 200px; width: 239px;">
+    <img class="card-img-top" src="img/livro5.jpg" alt="Card image cap" height="260" width="239">
     <div class="card-body">
-      <h5 class="card-title">Xiaomi Redmi Note 5A</h5>
-      <a href="#" class="btn btn-primary">R$ 579,00  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
+      <h5 class="card-title">MindSet</h5>
+      <a href="#" class="btn btn-primary">R$ 26,90  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
       <details>
        <summary>Detalhes</summary> 
-       <p>Dual SIM (Nano-SIM) Display. Tipo IPS LCD touchscreen capacitivo, 16M cores Tamanho Tela. 5,5 polegadas Resolução 720 x 1280 pixels Multitouch Sim Proteção display.Gorilla Glass 3 - MIUI 9.0 Sistema Operacional. Android 7.0 (Nougat) Chipset Qualcomm MSM8917 Snapdragon 425 CPU Quad-core Cortex-A53 GPU Adreno 308 Suporta cartão microSD de até 256GB Memória interna. 16GB Memória Ram. 2GB </p>
+       <p>Carol S. Dweck, professora de psicologia na Universidade Stanford e especialista internacional em sucesso e motivação, desenvolveu, ao longo de décadas de pesquisa, um conceito fundamental: a atitude mental com que encaramos a vida, que ela chama de “mindset”, é crucial para o sucesso. Dweck revela de forma brilhante como o sucesso pode ser alcançado pela maneira como lidamos com nossos objetivos. O mindset não é um mero traço de personalidade, é a explicação de por que somos otimistas.</p>
 
      </details>
 
@@ -198,13 +203,14 @@
 </div>
 <div class="col-sm-3 col-xs-12 col-md-3">
   <div class="card mb-4" style="width: 18rem;">
-    <img class="card-img-top" src="img/celular6.jpg" alt="Card image cap" style="height: 200px; width: 239px;">
+    <img class="card-img-top" src="img/livro6.jpg" alt="Card image cap" height="260" width="239">
     <div class="card-body">
-      <h5 class="card-title">LG K10</h5> 
-      <a href="#" class="btn btn-primary">R$ 699,00  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
+      <h5 class="card-title">Arrume sua Cama</h5> 
+      <a href="#" class="btn btn-primary">R$ 21,90  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
       <details>
        <summary>Detalhes</summary> 
-       <p>Smartphone LG K10 M250DS Dourado com 32GB, Dual Chip, Tela de 5.3" HD, 4G, Android 7.0, Câmera 13MP e Processador Octa Core de 1.5 GHz. O novo K10 agora vem com Android 7.0 (Nougat), o mais novo sistema operacional do Google. Agora a câmera de sefie de 5MP e 120° cabe todo mundo nas suas selfies, com muito mais cenário. O LG K10 novo tem 32GB de memória interna.</p>
+       <p>Dez lições de um almirante das forças especiais para mudar sua vida 
+       Quando foi convidado para proferir o discurso da aula inaugural dos alunos de graduação da Universidade do Texas, o almirante William McRaven pensou em compartilhar suas lições sobre liderança. Afinal, em 37 anos de carreira na Marinha norte-americana, ele exerceu o comando em vários níveis – inclusive tendo sido o responsável pela missão que capturou Osama Bin Laden.</p>
 
      </details>
 
@@ -213,13 +219,13 @@
 </div>
 <div class="col-sm-3 col-xs-12 col-md-3">
   <div class="card mb-4" style="width: 18rem;">
-    <img class="card-img-top" src="img/celular7.jpg" alt="Card image cap" style="height: 200px; width: 239px;">
+    <img class="card-img-top" src="img/livro7.jpg" alt="Card image cap" height="260" width="239">
     <div class="card-body">
-     <h5 class="card-title">Asus Zenfone 4 Selfie</h5> 
-      <a href="#" class="btn btn-primary">R$ 1.399,00  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
+     <h5 class="card-title">Como fazer amigos</h5> 
+      <a href="#" class="btn btn-primary">R$ 21,90  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
       <details>
        <summary>Detalhes</summary> 
-       <p>Apresentamos o Smartphone Asus Zenfone 4 Selfie Rose Ouro. Câmera Selfie Dupla Para fornecer a melhor experiência em selfies, possui duas câmeras frontais sendo 20MP que tira selfies deslumbrantes e uma câmera grande angular de 8MP com um campo de visão de 120°. Tecnologia ASUS SelfieMaster, você tem a flexibilidade de incluir apenas a si ou juntar os amigos para selfies em grupo. Flash LED Selfie Possui um flash LED com iluminação leve que oferece a quantidade perfeita de luz para suavizar a textura da sua pele para fazer você brilhar como um superstar em cada selfie. Capture Cada momento Além de duas câmeras frontais selfie, possui uma câmera traseira de 16MP para que você capture seus momentos com riqueza de detalhes.</p>
+       <p>Carnegie nos ensina maneiras de conquistar as pessoas de uma maneira que ainda nos dias de hoje é muito válida. A leitura do livro é enriquecedora, nos leva a refletir sobre formas de abordagem que muitas vezes usamos sem perceber e que não trazem os efeitos desejados. O autor, sabiamente dá diversas dicas de como conduzir diversas situações e reverter o pensamento do interlocutor para que fique de acordo com o seu.Quanto à edição, a diagramação é muito boa, letras grandes; livro bastante confortável de manusear.</p>
 
      </details>
 
@@ -228,13 +234,13 @@
 </div>
 <div class="col-sm-3 col-xs-12 col-md-3">
   <div class="card mb-4" style="width: 18rem;">
-    <img class="card-img-top" src="img/celular8.jpg" alt="Card image cap" style="height: 200px; width: 239px;">
+    <img class="card-img-top" src="img/livro8.jpg" alt="Card image cap" height="260" width="239">
     <div class="card-body">
-      <h5 class="card-title">Iphone X 64GB</h5> 
-      <a href="#" class="btn btn-primary">R$ 5.079,00  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
+      <h5 class="card-title">Roube como um Artista</h5> 
+      <a href="#" class="btn btn-primary">R$ 17,90  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
       <details>
        <summary>Detalhes</summary> 
-       <p>Fantástico produto, Tudo de novo, inspirado uma nova era para smartphone. Inteligência artificial a serviço do homem.</p>
+       <p>Verdadeiro manifesto ilustrado de como ser criativo na era digital, Roube como um artista, do designer e escritor Austin Kleon, ganhou a lista dos mais vendidos do The New York Times e figurou no ranking de 2012 da rede Amazon ao mostrar  com bom humor, ousadia e simplicidade  que não é preciso ser um gênio para ser criativo, basta ser autêntico.</p>
 
      </details>
 
@@ -243,13 +249,13 @@
 </div>
 <div class="col-sm-3 col-xs-12 col-md-3">
   <div class="card mb-4" style="width: 18rem;">
-    <img class="card-img-top" src="img/celular9.jpg" alt="Card image cap" style="height: 200px; width: 239px;">
+    <img class="card-img-top" src="img/livro9.jpg" alt="Card image cap" height="260" width="239">
     <div class="card-body">
-      <h5 class="card-title">Motorola Moto G5s Platinum </h5> 
-      <a href="#" class="btn btn-primary">R$ 899,00  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
+      <h5 class="card-title">O poder do Silêncio</h5> 
+      <a href="#" class="btn btn-primary">R$ 14,70  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
       <details>
        <summary>Detalhes</summary> 
-       <p>Não se preocupe com a bateriaFique longe do carregador. A bateria de 3000 mAh tem capacidade suficiente para o dia todo. Na hora de recarregar, não perca tempo. O carregador TurboPower fornece até 6 horas de uso com apenas 15 minutos de carregamento.Câmera traseira de 16 MP | Câmera frontal de 5 MPO moto g5S possui uma câmera de 16 MP de alta resolução e foco automático de detecção de fase (PDAF type 3), que utiliza mais de 200 mil pixels para focar no objeto em um instante, para que você não perca um clique. Tire selfies excelentes com a câmera de 5 MP com Flash Frontal e lente de ângulo aberto, para que ninguém fique de fora da fotoDesign e TelaEstrutura única em metal e tela de 5.2 Full HDEstilo ou eficiência? Fique com os dois. </p>
+       <p>O silêncio e a calma não são apenas a ausência de barulho e de conteúdo. São a dimensão mais profunda do nosso ser, a inteligência primordial, a consciência de que só podemos ser felizes Agora. O poder transformador do silêncio está em nos libertar de nossos pensamentos, medos e desejos, dissipando as tensões do passado e as expectativas em relação ao futuro. Só no presente podemos descobrir quem realmente somos, alcançando assim a paz e a alegria que estão dentro de nós. Neste livro, seguindo a tradição dos sutras indianos, Tolle optou por transmitir seus ensinamentos espirituais em forma de aforismos. São 200 textos curtos e inspiradores que abordam diversos temas, entre eles, o Agora, os relacionamentos, a morte e a eternidade.</p>
 
      </details>
 
@@ -258,14 +264,14 @@
 </div>
 <div class="col-sm-3 col-xs-12 col-md-3">
   <div class="card mb-4" style="width: 18rem;">
-    <img class="card-img-top" src="img/celular10.jpg" alt="Card image cap" style="height: 200px; width: 239px;">
+    <img class="card-img-top" src="img/livro10.jpg" alt="Card image cap" height="260" width="239">
     <div class="card-body">
-      <h5 class="card-title">Motorola MOTO X4</h5> 
-      <a href="#" class="btn btn-primary">R$ 1.329,00  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
+      <h5 class="card-title">Mostre seu Trabalho</h5> 
+      <a href="#" class="btn btn-primary">R$ 29,90  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
 
       <details>
        <summary>Detalhes</summary> 
-       <p>A Motorola apresenta a versão 4 do Smartphone Moto X! Seu formato Premium com acabamento em vidro 3D se mistura à estrutura de metal, criando um aparelho de pura beleza e requinte. Fotos e vídeos incríveis. Conheça o novo Moto X4 e sua câmera inteligente. Ele possui um sistema de câmera traseira dupla com sensores de 12MP e 8MP e recursos exclusivos, como foco seletivo, reconhecimento de objetos e efeitos de realidade aumentada que proporciona muito mais qualidade na captura das imagens. Com a super-selfie você tira fotos em alta resolução de 16 MP ou, no modo avançado, fotos incrivelmente nítidas mesmo com pouca luz. </p>
+       <p>Depois de Roube como um artista, um manifesto irreverente e repleto de dicas bem-humoradas para ativar o potencial criativo, e Roube como um artista: o diário, o escritor e artista gráfico Austin Kleon ensina ao leitor como compartilhar sua criatividade e tornar seu trabalho conhecido na era digital. </p>
 
      </details>
    </div>
@@ -273,13 +279,13 @@
 </div>
 <div class="col-sm-3 col-xs-12 col-md-3">
   <div class="card mb-4" style="width: 18rem;">
-    <img class="card-img-top" src="img/celular11.jpg" alt="Card image cap" style="height: 200px; width: 239px;">
+    <img class="card-img-top" src="img/livro11.jpg" alt="Card image cap" height="260" width="239">
     <div class="card-body">
-      <h5 class="card-title">Samsung Galaxy J7 Pro</h5>
-      <a href="#" class="btn btn-primary">R$ 1.249,00  <i class="fa fa-shopping-cart "></i></a>
+      <h5 class="card-title">Segredos da Mente</h5>
+      <a href="#" class="btn btn-primary">R$ 1.895,00  <i class="fa fa-shopping-cart "></i></a>
       <details>
        <summary>Detalhes</summary> 
-       <p>Smartphone Samsung Galaxy J7 Pro, design em metal,Octa Core, Tela 5.5", Android 7.0, 64GB, 3GB RAM, câmera 13MP f1.7 + 13MP f1.9 frontal com Flash LED, Dual Chip - Preto.</p>
+       <p>O autor desta obra nos apresenta algumas dezenas de narrativas. São fatos reais, extraídos do dia a dia das centenas de pessoas por ele atendidas. Necessitadas de compreensão e carinho são encaminhadas e orientadas na busca da solução dos problemas que os afligem, acalmando-as e devolvendo-lhes a fé, a esperança e a coragem. </p>
 
      </details>
 
@@ -288,14 +294,14 @@
 </div>
 <div class="col-sm-3 col-xs-12 col-md-3">
   <div class="card mb-4" style="width: 18rem;">
-    <img class="card-img-top" src="img/celular12.jpg" alt="Card image cap" style="height: 200px; width: 239px;">
+    <img class="card-img-top" src="img/livro12.jpg" alt="Card image cap" height="260" width="239">
     <div class="card-body">
-      <h5 class="card-title">Huawei P8 Lite L21</h5>
+      <h5 class="card-title">A Coragem de Ser</h5>
 
-      <a href="#" class="btn btn-primary">R$ 619,00 <i class="fa fa-cart-arrow-down fa-2x"></i></a>
+      <a href="#" class="btn btn-primary">R$ 490,00  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
       <details>
        <summary>Detalhes</summary> 
-       <p>Dual Chip. Não (Micro-SIM) Display. Tipo IPS LCD touchscreen capacitivo, 16M cores Tamanho Tela. 5.0 polegadas, 68.9 cm2 Resolução 720 x 1280 pixels, relação 16: 9 (~ 294 ppp de densidade) Multitouch Sim Proteção Corning Gorilla Glass 3 - Emotion 3.1 UI Sistema Operacional. Android 5.0.2 (Lollipop), atualizável para 6.0 (Marshmallow)</p>
+       <p>Primeiro lugar na lista do The New York Times.Brené Brown ousou tocar em assuntos que costumam ser evitados por causarem grande desconforto. Sua palestra a respeito de vulnerabilidade, medo, vergonha e imperfeição já teve mais de 25 milhões de visualizações.</p>
 
      </details>
    </div>
@@ -305,7 +311,7 @@
 </div>
 
 <footer>
-	<div class="footer-middle bg-dark" style="margin-top: 1%;">
+  <div class="footer-middle bg-dark" style="margin-top: 1%;">
     <div class="container">
       <div class="row">
        <div class="col-md-3 col-sm-6">

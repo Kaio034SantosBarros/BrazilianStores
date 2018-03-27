@@ -1,13 +1,18 @@
-     <?php
-     include "bd.php";
-    session_start();
-    ?>
-    <!doctype html>
+<?php
+  session_start();
+	if(isset($_POST['p'])){
+      $pesquisa = 1;
+      $p = $_POST['p'];
+      }else{
+        $pesquisa = 0;
+          }
+	include "bd.php";
+	?>
+	<!doctype html>
     <html lang="pt-br">
     <title>Brazilian Stores</title>
     <head>
       <!-- Required meta tags -->
-      <link rel="shortcut icon" href="icon/favicon.ico" />
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,6 +22,7 @@
       <link href="https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0-beta.3/sketchy/bootstrap.min.css" rel="stylesheet" integrity="sha384-7ELRJF5/u1pkLd0W7K793Y7ZCb1ISE8FjEKiDAwHD3nSDbA2E9Txc423ovuNf1CV" crossorigin="anonymous">
       <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
       <link rel="stylesheet" type="text/css" href="css/projeto.css" />
+      <link rel="shortcut icon" href="icon/favicon.ico" />
       
       <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -58,29 +64,29 @@
               <a class="dropdown-item" href="info.php">Informática</a>
               <a class="dropdown-item" href="celulares.php">Celulares</a>
               <a class="dropdown-item" href="game.php">Games</a>
-              
             </div>
             <li class="nav-item">
               
               <a class="nav-link active" href="#home"><i class="fa fa-shopping-cart "></i></a>
             </li>
           </li>
-          <?php 
-              $adm = "";
-              if(isset($_SESSION['adm'])){
-              $adm = $_SESSION['adm'];      
-              } 
-              if(isset($_COOKIE['adm'])){
-              $adm = $_COOKIE['adm'];
-              }
+          <?php
+          $adm = "";
+                if(isset($_SESSION['adm'])){
+                $adm = $_SESSION['adm'];      
+                } 
+                if(isset($_COOKIE['adm'])){
+                $adm = $_COOKIE['adm'];
+                  }
+             
               if($adm == 'sim'){
-              echo "
-              <li>
-                <div>
-                  <a class='nav-link active' href='cadprod.php'>Cadastrar Produto</a>
-                </div>
-              </li>
-                 ";
+                echo "
+                <li>
+                  <div>
+                    <a class='nav-link active' href='cadprod.php'>Cadastrar Produto</a>
+                  </div>
+                </li>
+                   ";
               }
 
             if(empty($_SESSION['email']) and empty($_COOKIE['email'])){
@@ -110,16 +116,12 @@
                         </div>
                       </li>";
               }
-              
-              
-                    
           ?>
         </ul>
         <form class="form-inline my-2 my-lg-0" method="post" action="pesquisa.php">
           <input class="form-control mr-sm-2" type="text" placeholder="Pesquisar" size="30" name="p" required="">
           <button class="btn btn-primary my-2 my-sm-0 bg-dark " type="submit"><i class="fa fa-search"></i></button>
         </form>
-
         
       </nav>
       <div id="myModal" class="modal fade" role="dialog">
@@ -212,206 +214,58 @@
 
         </div>
       </div>
+	<?php 
+	 
+	if($pesquisa == 0){
+        $query = "select * from produto";
+      }else{
+        // caso venha de uma consulta, utilizamos o comando like, para pegar nome/cargo ou parte do nome/cargo(sempre se acordo com a consulta)
+      $query = "select * from produto where nomeprod like '%$p%' or categoria like '%$p%'"; 
+                  
+      }
+      $consulta = mysqli_query($con, $query);
+      
+      // as próximas linhas, servem para exibir uma mensagem de erro, caso a pesquisa não tenha nenhum retorno!
+      $total = mysqli_num_rows($consulta);
+      if($total == 0){
+        echo "Produto $p não encontrado!";
+      }
+ 		
+ 	echo "<div class=\"row\">";
 
+       while($f = mysqli_fetch_array($consulta)){
+      // os comandos abaixo, serve para pegar as informações que estão no banco de dados e colocá-los em uma variável
+        $nomeprod = $f['nomeprod'];
+        $preco = $f['preco'];
+        $idprod = $f['idprod'];
+        $preco = number_format($preco, 2, ',','.');
+        $img = $f['img'];
+        $_SESSION['idprod'] = $idprod;
+        $_SESSION['nomeprod'] = $nomeprod;
+    ?>
+      <!-- </div> <div style="min-height: 650px;">--> 
+       
 
-
-
-
-      <div style="border: 3px solid black; margin-top: 1%; background-color: #BEBEBE;">  
-        <h3 class="text-center"><marquee scrollDelay=1><font color=black><DATA>Informática</DATA></em></font></marquee></h3>
-      </div>
-
-
-      <div style="margin-left: 2%; margin-right: 2%; margin-top: 2%">
-        <div class="row">
-          <div class="col-sm-3 col-xs-12 col-md-3">
+        <form method="post">
+          <div class="col-sm-3 col-xs-12 ">
             <div class="card mb-4" style="width: 18rem;">
-              <img class="card-img-top" src="img/corei7.jpg" alt="Card image cap" height="200" width="239">
+              <img class="card-img-top" src="produto/<?php echo $img ?>" alt="Card image cap" height="200" width="239">
               <div class="card-body">
-                <h5 class="card-title">Processador Intel core I7</h5>
-                <a href="#" class="btn btn-primary">R$ 1.704,41<i class="fa fa-cart-arrow-down fa-2x"></i></a>
-                <details>
-                 <summary>Detalhes</summary> 
-                 <p>Marca Intel, Modelo BX80684I78700K,Soquete LGA 1151, Litografia 14nm,Número de núcleos 6, Threads 12, Frequência 3,70 GHz, Frequência Turbo 4,70 GHz, Cache 12 MB, Velocidade do barramento 8 GT/s DMI3, TDP 95 W, Tamanho Máximo de Memória 64 GB, Tipos de memória DDR4-2666, Máximo de Canais de Memória 2</p>
-
-               </details>
+                <h5 class="card-title" <?php echo "id='$idprod'>$idprod $nomeprod"; ?></h5>
+                <a href="#" class="btn btn-primary"><?php echo "$preco </a>
+                  <a href='carrinho.php?idprod=$idprod' style='height: 1%;''><i class='fa fa-cart-arrow-down fa-2x'></i></a>"; ?>
+                <?php echo "<a class='btn btn-danger' href='produto.php?id=$idprod'>Ver Produto</a>"; ?>
+                <a href="<?php echo "comprar.php?idprod=$idprod" ?>" class="btn btn-secondary">Comprar</a>
 
 
              </div>
            </div>
          </div>
+        </form>
+     <?php } ?>
 
-         <div class="col-sm-3 col-xs-12 col-md-3">
-          <div class="card mb-4" style="width: 18rem;" >
-            <img class="card-img-top" src="img/corei5.jpg" alt="Card image cap" height="200" width="239" >
-            <div class="card-body">
-              <h5 class="card-title">Processador Intel Core i5</h5>
-              <a href="#" class="btn btn-primary">R$ 768,90  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
-              <details>
-               <summary>Detalhes</summary> 
-               <p>Processador Intel Core i5-8400 Coffee Lake 8a Geração, Cache 9MB, 2.8GHz (4.0GHz Max Turbo), LGA 1151 Intel UHD Graphics 630 - BX80684I58400</p>
-
-             </details>
-
-
-           </div>
-         </div>
-       </div>
-       <div class="col-sm-6 col-xs-12 col-md-3">
-        <div class="card mb-4" style="width: 18rem;">
-          <img class="card-img-top" src="img/gtx1050.jpg" alt="Card image cap" height="200" width="239">
-          <div class="card-body">
-            <h5 class="card-title">Placa de Video VGA NVIDIA </h5>
-            <a href="#" class="btn btn-primary">R$ 637,90  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
-            <details>
-             <summary>Detalhes</summary> 
-             <p>Placa de Video VGA NVIDIA ASUS GEFORCE GTX 1050 2GB, Boost Clock 1518 MHz, DVI/HDMI/Display port/suport HDCP, DirectX 12, Expedition eSports EX-GTX1050-O2G</p>
-
-           </details>
-
-         </div>
-       </div>
-     </div>
-     <div class="col-sm-3 col-xs-12 col-md-3">
-      <div class="card mb-4" style="width: 18rem;">
-        <img class="card-img-top" src="img/videoamd.jpg" alt="Card image cap" height="200" width="239">
-        <div class="card-body">
-          <h5 class="card-title">Placa de Vídeo VGA AMD</h5>
-          <a href="#" class="btn btn-primary">R$ 421,06  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
-          <details>
-           <summary>Detalhes</summary> 
-           <p>Placa de Vídeo VGA AMD GIGABYTE RADEON R7 360 OC 2G Rev. 3.0 - GV-R736OC-2GD</p>
-
-         </details>
-
-       </div>
-     </div>
-    </div>
-    <div class="col-sm-3 col-xs-12 col-md-3">
-      <div class="card mb-4" style="width: 18rem;">
-        <img class="card-img-top" src="img/gamer1.jpg" alt="Card image cap" height="200" width="239">
-        <div class="card-body">
-          <h5 class="card-title">Computador Gamer</h5>
-          <a href="#" class="btn btn-primary">R$ 1.902,24  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
-          <details>
-           <summary>Detalhes</summary> 
-           <p>Computador Gamer G-Fire AMD A8-7600, 4GB, HD 500GB, Radeon R7 integrada, Linux - Ícarus LT HTAVA-R54 </p>
-
-         </details>
-
-       </div>
-     </div>
-    </div>
-    <div class="col-sm-3 col-xs-12 col-md-3">
-      <div class="card mb-4" style="width: 18rem;">
-        <img class="card-img-top" src="img/gamer2.jpg" alt="Card image cap" height="200" width="239">
-        <div class="card-body">
-          <h5 class="card-title">Computador Gamer</h5> 
-          <a href="#" class="btn btn-primary">R$ 3.670,47  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
-          <details>
-           <summary>Detalhes</summary> 
-           <p>Computador Gamer Rawar Armata Intel Core i3-7100, 8GB, HD 1TB, Geforce GTX1050TI - RW252PAZ</p>
-
-         </details>
-
-       </div>
-     </div>
-    </div>
-    <div class="col-sm-3 col-xs-12 col-md-3">
-      <div class="card mb-4" style="width: 18rem;">
-        <img class="card-img-top" src="img/gamer3.jpg" alt="Card image cap" height="200" width="239">
-        <div class="card-body">
-         <h5 class="card-title">Computador Gamer</h5> 
-          <a href="#" class="btn btn-primary">R$ 3.168,12<i class="fa fa-cart-arrow-down fa-2x"></i></a>
-          <details>
-           <summary>Detalhes</summary> 
-           <p>Computador Gamer NTC AMD Ryzen 1200, 8GB, HD 1TB, GTX 1050, Windows 10 (Versão de Avaliação) - 6501</p>
-
-         </details>
-
-       </div>
-     </div>
-    </div>
-    <div class="col-sm-3 col-xs-12 col-md-3">
-      <div class="card mb-4" style="width: 18rem;">
-        <img class="card-img-top" src="img/gamer4.jpg" alt="Card image cap" height="200" width="239">
-        <div class="card-body">
-          <h5 class="card-title">Computador Gamer</h5> 
-          <a href="#" class="btn btn-primary">R$ 2.368,12  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
-          <details>
-           <summary>Detalhes</summary> 
-           <p>Computador Gamer G-Fire AMD FX8300, 8GB, HD 1TB, DVD-RW, Linux - HTAVA-66</p>
-
-         </details>
-
-       </div>
-     </div>
-    </div>
-    <div class="col-sm-3 col-xs-12 col-md-3">
-      <div class="card mb-4" style="width: 18rem;">
-        <img class="card-img-top" src="img/not1.jpg" alt="Card image cap" height="200" width="239">
-        <div class="card-body">
-          <h5 class="card-title">Notebook Gamer</h5>
-          <a href="#" class="btn btn-primary">R$ 3.999,88  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
-          <details>
-           <summary>Detalhes</summary> 
-           <p>Notebook Gamer Acer Intel Core I5-7300HQ, 8GB, 1TB, DDR4, NVIDIA GEFORCE GTX 1050 4GB, DDR5, 15,6´´ FULL HD, Windows 10 HOME - VX5-591G-54PG</p>
-
-         </details>
-
-       </div>
-     </div>
-    </div>
-    <div class="col-sm-3 col-xs-12 col-md-3">
-      <div class="card mb-4" style="width: 18rem;">
-        <img class="card-img-top" src="img/not2.jpg" alt="Card image cap" height="200" width="239">
-        <div class="card-body">
-          <h5 class="card-title">Notebook Gamer</h5> 
-          <a href="#" class="btn btn-primary">R$ 7.599,90  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
-
-          <details>
-           <summary>Detalhes</summary> 
-           <p>Notebook Gamer MSI GT72 6QD Dominator G Intel Core i7-6820HK, NVIDIA GEFORCE GTX 970M, 16GB DDR4,128 SSD, 1TB, BD Writer , Tela 17.3</p>
-
-         </details>
-       </div>
-     </div>
-    </div>
-    <div class="col-sm-3 col-xs-12 col-md-3">
-      <div class="card mb-4" style="width: 18rem;">
-        <img class="card-img-top" src="img/mouse1.jpg" alt="Card image cap" height="200" width="239">
-        <div class="card-body">
-          <h5 class="card-title">Mouse Gamer</h5>
-          <a href="#" class="btn btn-primary">R$ 246,94  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
-          <details>
-           <summary>Detalhes</summary> 
-           <p>Mouse Gamer Logitech G403 RGB 12000DPI </p>
-
-         </details>
-
-       </div>
-     </div>
-    </div>
-    <div class="col-sm-3 col-xs-12 col-md-3">
-      <div class="card mb-4" style="width: 18rem;">
-        <img class="card-img-top" src="img/mouse2.jpg" alt="Card image cap" height="200" width="239">
-        <div class="card-body">
-          <h5 class="card-title">Mouse 2</h5>
-
-          <a href="#" class="btn btn-primary">R$ 235,18  <i class="fa fa-cart-arrow-down fa-2x"></i></a>
-          <details>
-           <summary>Detalhes</summary> 
-           <p>Mouse Gamer Logitech Ultra-rápido G402 Hyperion Fury FPS 4000DPI Preto</p>
-
-         </details>
-       </div>
-     </div>
-    </div>
-    </div>
-    </div>
-
-    <footer>
-    	<div class="footer-middle bg-dark" style="margin-top: 1%;">
+      <footer style="padding-top: 250px;">
+    	<div class="footer-middle bg-dark" style="margin-top: 30px;">
         <div class="container">
           <div class="row">
            <div class="col-md-3 col-sm-6">
@@ -433,7 +287,7 @@
             </address>
           </div>
         </div>
-
+        
         <div class="col-md-3 col-sm-6">
           <!--Column1-->
           <div class="footer-pad">
@@ -453,31 +307,28 @@
           <div class="footer-pad">
             <h4>Redes Sociais</h4>
             <ul class="list-unstyled">
-              <li><a href="https://www.facebook.com" target="_blank"> <i class="fa fa-facebook-official fa-3x" aria-hidden="true" style="float: left;"></i></li>
-                <li><a href="https://twitter.com" target="_blank"><i class="fa fa-twitter fa-3x" aria-hidden="true" style="float: left;"></i></a></li>
-                <li><a href="https://www.instagram.com/?hl=pt-br" target="_blank"><i class="fa fa-instagram fa-3x" aria-hidden="true"></i></a></li>
-
-              </ul>
-            </div>
+              <li><a href="https://www.facebook.com" target="_blank"> <i class="fa fa-facebook-official fa-3x" aria-hidden="true" style="float: left;"></i></a></li>
+              <li><a href="https://twitter.com" target="_blank"><i class="fa fa-twitter fa-3x" aria-hidden="true" style="float: left;"></i></a></li>
+              <li><a href="https://www.instagram.com/?hl=pt-br" target="_blank"><i class="fa fa-instagram fa-3x" aria-hidden="true"></i></a></li>
+              
+            </ul>
           </div>
-
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom bg-dark">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <!--Footer Bottom-->
+          <p class="text-xs-center">&copy; Todos os direitos reservados.</p>
         </div>
       </div>
     </div>
-    <div class="footer-bottom bg-dark">
-      <div class="container">
-        <div class="row">
-          <div class="col-xs-12">
-            <!--Footer Bottom-->
-            <p class="text-xs-center">&copy; Todos os direitos reservados.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    </footer>
+  </div>
+  </footer>
 
-
-
-    </html>
-    </body>
-    </html>
+  </body>
+  </html>

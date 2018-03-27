@@ -127,6 +127,98 @@
           <button class="btn btn-primary my-2 my-sm-0 bg-dark " type="submit"><i class="fa fa-search"></i></button>
         </form>
 </nav>
+
+      <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <h2 class="modal-title">Entrar</h2>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+              <form method="post" action="resp1.php" class="cadastro">
+                <p>
+                  E-mail:<p><input type="email" name="email" size=40 required=""></p>
+                </p>
+                <p>
+                  Senha:<p><input type="password" name="senha" size=40 required=""></p>
+                  <input type="checkbox" name="conect" value="conect" style="margin-left: 20px;">Permanecer Conectado
+                </p>
+                
+                <button type="submit" class="btn btn-info btn-lg">Logar</button>
+                <button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#myModal2">Cadastre-se</button>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      
+      <!-- Modal -->
+      <div id="myModal2" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <h2 class="modal-title">Cadastre-se</h2>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+              <form method="post" action="resp2.php" class="cadastro">
+
+                <p>
+                  Nome Completo:<p><input type="text" name="nome" size=40 required="" /></p>
+                </p>
+                <p>
+                  Identidade:<p><input type="text" name="identidade" size=40 required="" /></p>
+                </p>
+                <p>
+                  CPF:<p><input type="text" name="cpf" size=40 required="" /></p>
+                </p>
+                <p>
+                  Data de Nascimento:<p><input type="date" name="nascimento" min="1930-01-01" max="2000-02-22" size=40 required="" /></p>
+                </p>
+                <p>
+                  Endereço:<p><input type="text" name="endereco" size=40 required="" /></p>
+                </p>
+                <p>
+                  CEP:<p><input type="text" name="cep" placeholder="Somente números" size=40 required="" /></p>
+                </p>
+                <p>
+                  Complemento:<p><input type="text" name="complemento" placeholder="Casa, apto, etc..." size=40 /></p>
+                </p>
+                <p>
+                  Número:<p><input type="text" name="numero" placeholder="Número, lote, quadra, etc..." size=40 required="" /></p>
+                </p>
+                <p>
+                  Bairro:<p><input type="text" name="bairro" size=40 required="" /></p>
+                </p>
+                <p>
+                  Cidade:<p><input type="text" name="cidade" size=40 required="" /></p>
+                </p>
+                <p>
+                  Estado:<p><input type="text" name="estado" size=40 required="" /></p>
+                </p>
+                <p>
+                  E-mail:<p><input type="email" name="email" size=40 required="" /></p>
+                </p>
+                <p>
+                  Senha:<p><input type="password" id="senha" name="senha" placeholder="Crie uma senha" size=40 required="" /></p>
+                </p>
+                <p>
+                  Confirme a Senha:<p><input type="password" onblur="conf()" id="csenha" placeholder="Repita a senha" name="senha" size=40 required="" /></p>
+                </p>
+                <button type="submit" accesskey="13" class="btn btn-info btn-lg" onclick="conf()">Cadastrar</button>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
 	<div>
 		<?php
 			$query = "select * from produto where idprod = $idprod limit 1";
@@ -135,6 +227,7 @@
 			if($prod = mysqli_fetch_assoc($consulta)){
 				$nomeprod = $prod['nomeprod'];
 				$preco = $prod['preco'];
+        $preco = number_format($preco,2, ',','.');
 				$categoria = $prod['categoria'];
 				$marca = $prod['marca'];
 				$img = $prod['img'];
@@ -145,9 +238,20 @@
 			<div>
 				<p><?php echo $categoria; ?></p>
 				<p><?php echo $marca; ?></p>
-				<p><?php echo $preco; ?></p>
+				<p>R$ <?php echo $preco ?></p>
 			</div>
 	</div>
+  <?php
+      if($adm == "sim"){
+        echo "
+        <div>
+          <a href='editprod.php?id= $idprod' class='btn btn-danger'>Editar Produto</a>
+        </div>
+        ";
+      }
+  ?>
+
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
       <footer style="padding-top: 250px;">

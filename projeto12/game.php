@@ -1,5 +1,13 @@
-    <?php
+     <?php
     session_start();
+    if(isset($_POST['p'])){
+      $pesquisa = 1;
+      $p = $_POST['p'];
+      }else{
+        $pesquisa = 0;
+          } 
+    include "bd.php";      
+          
     ?>
     <!doctype html>
     <html lang="pt-br">
@@ -57,28 +65,32 @@
               <a class="dropdown-item" href="info.php">Informática</a>
               <a class="dropdown-item" href="celulares.php">Celulares</a>
               <a class="dropdown-item" href="game.php">Games</a>
+              
             </div>
             <li class="nav-item">
-              
-              <a class="nav-link active" href="#home"><i class="fa fa-shopping-cart "></i></a>
-            </li>            
-          </li>
-          <?php 
+              <?php
+              if(isset($_SESSION['email']) or isset($_COOKIE['email'])){
+              echo "
+              <a class='nav-link active' href='carrinho.php'><i class='fa fa-shopping-cart '></i></a>
+              </li>            
+            </li>
+              ";
+              }
               $adm = "";
               if(isset($_SESSION['adm'])){
-                $adm = $_SESSION['adm'];      
+              $adm = $_SESSION['adm'];      
               } 
               if(isset($_COOKIE['adm'])){
-                $adm = $_COOKIE['adm'];
+              $adm = $_COOKIE['adm'];
               }
               if($adm == 'sim'){
-                echo "
-                <li>
-                  <div>
-                    <a class='nav-link active' href='cadprod.php'>Cadastrar Produto</a>
-                  </div>
-                </li>
-                   ";
+              echo "
+              <li>
+                <div>
+                  <a class='nav-link active' href='cadprod.php'>Cadastrar Produto</a>
+                </div>
+              </li>
+                 ";
               }
 
             if(empty($_SESSION['email']) and empty($_COOKIE['email'])){
@@ -113,10 +125,11 @@
                     
           ?>
         </ul>
-        <form class="form-inline my-2 my-lg-0" method="post" action="pesquisa.php">
+         <form class="form-inline my-2 my-lg-0" method="post" action="pesquisa.php">
           <input class="form-control mr-sm-2" type="text" placeholder="Pesquisar" size="30" name="p" required="">
           <button class="btn btn-primary my-2 my-sm-0 bg-dark " type="submit"><i class="fa fa-search"></i></button>
         </form>
+         
         
       </nav>
       <div id="myModal" class="modal fade" role="dialog">
@@ -209,176 +222,52 @@
 
         </div>
       </div>
-
+    <div style="border: 3px solid black; margin-top: 1%; background-color: #BEBEBE;">  
+      <h3 class="text-center"><marquee scrollDelay=1><font color=black><DATA>Games disponíveis</DATA></em></font></marquee></h3>
+    </div>
+      <?php 
       
-      <div id="demo" class="carousel slide" data-ride="carousel">
+      $query = "select * from produto where nomeprod or categoria = 'Livros'"; 
+                  
+      $consulta = mysqli_query($con, $query);
+      
+      $total = mysqli_num_rows($consulta);
+      
+      
+      echo "<div class=\"row\">";
 
-        <!-- Indicators -->
-        <ul class="carousel-indicators">
-          <li data-target="#demo" data-slide-to="0" class="active"></li>
-          <li data-target="#demo" data-slide-to="1"></li>
-          <li data-target="#demo" data-slide-to="2"></li>
-          <li data-target="#demo" data-slide-to="3"></li>
-          <li data-target="#demo" data-slide-to="4"></li>
-          <li data-target="#demo" data-slide-to="5"></li>
-        </ul>
+      while($f = mysqli_fetch_array($consulta)){
+      // os comandos abaixo, serve para pegar as informações que estão no banco de dados e colocá-los em uma variável
+        $nomeprod = $f['nomeprod'];
+    ?>
+      <!-- </div> <div style="min-height: 650px;">--> 
+       
 
-        <!-- The slideshow -->
-        <div class="carousel-inner text-center" style="margin-top: 10px;">
-          <div class="carousel-item active">
-            <img  id="imgc" src="img/goku.jpg" alt="Blusa Goku">
-            <img  id="imgc" src="img/camisetakratos.jpg" alt="Blusa Kratos">
-            <img  id="imgc" src="img/deadpool.jpg" alt="Casaco Deadpool">
-            <div class="carousel-caption">
-             <h3><strong style="color:white;"><u>Roupas</u></strong></h3>
+        
+          <div class="col-sm-3 col-xs-12 ">
+            <div class="card mb-4" style="width: 18rem;">
+              <img class="card-img-top" src="img/farcry3.jpg" alt="Card image cap" height="200" width="239">
+              <div class="card-body">
+                <h5 class="card-title"><?php echo "$nomeprod"; ?></h5>
+                <a href="#" class="btn btn-primary">R$ 57,90<i class="fa fa-cart-arrow-down fa-2x"></i></a>
+                <details>
+                 <summary>Detalhes</summary> 
+                 <p>Jogo onde você assume o papel de Jason Brody, um homem sozinho, preso em uma ilha tropical misteriosa. Neste paraíso selvagem, onde a ilegalidade e a violência são a única coisa certa, os jogadores determinam o desenrolar da história, as batalhas que lutarão com aliados ou inimigos e outras situações intensas que vão além do certo e errado. Como Jason Brody, os jogadores vão usar vários tipos de ataque em um mundo aberto, possibilitando ao jogador realizar as missões de maneiras bastante distintas, com muitos desafios pela frente, perigo e muita ação.</p>
+
+               </details>
+
+
+             </div>
            </div>
          </div>
-         <div class="carousel-item">
-          <img  id="imgc" src="img/drone.jpg" alt="DJI Spark">
-          <img  id="imgc" src="img/ele2.jpg" alt="Go Pro Hero 5">
-          <img  id="imgc" src="img/ele3.jpg" alt="Microfone Rode">
-          <div class="carousel-caption">
-            <h3><strong style="color:black;"><u>Eletrônicos</u></strong></h3>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <img  id="imgc" src="img/livro1.jpg" alt="A Sutil Arte de Ligar o F#da -se">
-          <img  id="imgc" src="img/livro2.jpg" alt="Uma Breve História da Humanidade">
-          <img  id="imgc" src="img/livro3.jpg" alt="Seja F#da!">
-          <div class="carousel-caption">
-            <h3><strong style="color:black;"><u>Livros</u></strong></h3>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <img  id="imgc" src="img/info1.jpg" alt="GeForce Gtx 1050">
-          <img  id="imgc" src="img/info2.jpg" alt="Notebook Gamer">
-          <img  id="imgc" src="img/info3.jpg" alt="Mouse Deathadder">
-          <div class="carousel-caption">
-            <h3><strong style="color:black;"><u>Informática</u></strong></h3>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <img  id="imgc" src="img/cel1.jpg" alt="Iphone 8">
-          <img  id="imgc" src="img/cel2.jpg" alt="Galaxy S8 Plus">
-          <img  id="imgc" src="img/cel3.jpg" alt="Moto G5 Plus">
-          <div class="carousel-caption">
-            <h3><strong style="color:black;"><u>Celular</u></strong></h3>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <img  id="imgc" src="img/game1.jpg" alt="Farcry3">
-          <img  id="imgc" src="img/game2.jpg" alt="Plants vs Zombies">
-          <img  id="imgc" src="img/game3.jpg" alt="Gta 5">
-          <div class="carousel-caption">
-            <h3><strong style="color:black;"><u>Games</u></strong></h3>
-          </div>
-        </div>
-      </div>
 
-      <!-- Left and right controls -->
-      <a class="carousel-control-prev" href="#demo" data-slide="prev">
-        <span class="carousel-control-prev-icon" style="background-color: black"></span>
-      </a>
-      <a class="carousel-control-next" href="#demo" data-slide="next">
-        <span class="carousel-control-next-icon" style="background-color: black"></span>
-      </a>
-
-    </div>
-
-    <div style="border: 3px solid black; margin-top: 10px; background-color: #BEBEBE;">	
-    	<h3 class="text-center"><marquee scrollDelay=1><font color=black><DATA>Destaques da Semana</DATA></em></font></marquee></h3>
-    </div>
+        
     
-    
-    
-    <div class="card-deck">
-      <div class="card mb-4">
-        <div class="view overlay">
-          <img class="img-fluid" src="img/info3.jpg" alt="Mouse Deathadder">
-          <a href="#!">
-            <div class="mask rgba-white-slight"></div>
-          </a>
-        </div>
-        <div class="card-body">
-          <h4 class="card-title">Mouse Deathadder</h4>
-          <p class="card-text">Mouse Gamer Destiny 2 Razer DeathAdder Elite</p>
-          <button type="button" class="btn btn-light-blue btn-md">Saiba mais</button>
-        </div>
-      </div>
-      <div class="card mb-4">
-        <div class="view overlay">
-          <img class="img-fluid" src="img/dk.jpg" alt="Blusa Feminina">
-          <a href="#!">
-            <div class="mask rgba-white-slight"></div>
-          </a>
-        </div>
-        <div class="card-body">
-          <h4 class="card-title">Blusa Feminina</h4>
-          <p class="card-text">A estampa é produzida com impressão digital (DTG) e o processo é realizado com o que há de mais moderno no mercado, em impressora específica para malharia,imprimindo a arte com qualidade de definição excepcional e textura mínima sob a malha. O toque é levinho e veste bem demais, parece um abraço.</p>
-          <button type="button" class="btn btn-light-blue btn-md">Saiba mais</button>
-        </div>
-      </div>
-      <div class="card mb-4">
-        <div class="view overlay">
-          <img class="img-fluid" src="img/farcry3.jpg" alt="Farcry3">
-          <a href="#!">
-            <div class="mask rgba-white-slight"></div>
-          </a>
-        </div>
-        <div class="card-body">
-          <h4 class="card-title">Far Cry 3</h4>
-          <p class="card-text">Jogo onde você assume o papel de Jason Brody, um homem sozinho, preso em uma ilha tropical misteriosa. Neste paraíso selvagem, onde a ilegalidade e a violência são a única coisa certa, os jogadores determinam o desenrolar da história, as batalhas que lutarão com aliados ou inimigos e outras situações intensas que vão além do certo e errado. Como Jason Brody, os jogadores vão usar vários tipos de ataque em um mundo aberto, possibilitando ao jogador realizar as missões de maneiras bastante distintas, com muitos desafios pela frente, perigo e muita ação.</p>
+     <?php } ?>
 
-          <button type="button" class="btn btn-light-blue btn-md">Saiba mais</button>
-        </div>
-      </div>
-    </div>
-    <div class="card-deck">
-      <div class="card mb-4">
-        <div class="view overlay">
-          <img class="img-fluid" src="img/livro4.jpg" alt="O Poder do Hábito">
-          <a href="#!">
-            <div class="mask rgba-white-slight"></div>
-          </a>
-        </div>
-        <div class="card-body">
-          <h4 class="card-title">O Poder do Hábito</h4>
-          <p class="card-text">Segundo o autor, a chave para se exercitar regularmente, perder peso, educar os filhos, tornar-se mais produtivo, criar empresas revolucionárias e alcançar o sucesso é entender como os hábitos funcionam. Ele procura mostrar que, ao dominar esta ciência, todos podem transformar suas empresas e suas vidas.</p>
-          <button type="button" class="btn btn-light-blue btn-md">Saiba mais</button>
-        </div>
-      </div>
-      <div class="card mb-4">
-        <div class="view overlay">
-          <img class="img-fluid" src="img/casacocrossfire.png" alt="Casaco CrossFire">
-          <a href="#!">
-            <div class="mask rgba-white-slight"></div>
-          </a>
-        </div>
-        <div class="card-body">
-          <h4 class="card-title">Casaco CrossFire</h4>
-          <p class="card-text">A estampa é produzida com impressão digital (DTG) e o processo é realizado com o que há de mais moderno no mercado, em impressora específica para malharia,imprimindo a arte com qualidade de definição excepcional e textura mínima sob a malha. O toque é levinho e veste bem demais,parece um abraço.</p>
-          <button type="button" class="btn btn-light-blue btn-md">Saiba mais</button>
-        </div>
-      </div>
-      <div class="card mb-4">
-        <div class="view overlay">
-          <img class="img-fluid" src="img/livro1.jpg" alt="Card image cap">
-          <a href="#!">
-            <div class="mask rgba-white-slight"></div>
-          </a>
-        </div>
-        <div class="card-body">
-          <h4 class="card-title">A Arte de Ligar o F#da-se</h4>
-          <p class="card-text">Mark manson não tem meandros ou meias palavras. Com um estilo honesto, divertido e incrivelmente perspicaz, ele se tornou popular escrevendo em seu blog o que as pessoas realmente precisam ouvir, pois só isso funciona para nos fazer evoluir pessoal e profissionalmente. Mora em Nova York.</p>
-
-          <button type="button" class="btn btn-light-blue btn-md">Saiba mais</button>
-        </div>
-      </div>
-    </div>
-
-    
-    <footer>
-    	<div class="footer-middle bg-dark" style="margin-top: 30px;">
+<!-- </div> -->
+    <footer style="padding-top: 250px;">
+    	<div class="footer-middle bg-dark" style="margin-top: 1%;">
         <div class="container">
           <div class="row">
            <div class="col-md-3 col-sm-6">
@@ -400,7 +289,7 @@
             </address>
           </div>
         </div>
-        
+
         <div class="col-md-3 col-sm-6">
           <!--Column1-->
           <div class="footer-pad">
@@ -420,30 +309,31 @@
           <div class="footer-pad">
             <h4>Redes Sociais</h4>
             <ul class="list-unstyled">
-              <li><a href="https://www.facebook.com" target="_blank"> <i class="fa fa-facebook-official fa-3x" aria-hidden="true" style="float: left;"></i></a></li>
-              <li><a href="https://twitter.com" target="_blank"><i class="fa fa-twitter fa-3x" aria-hidden="true" style="float: left;"></i></a></li>
-              <li><a href="https://www.instagram.com/?hl=pt-br" target="_blank"><i class="fa fa-instagram fa-3x" aria-hidden="true"></i></a></li>
-              
-            </ul>
+              <li><a href="https://www.facebook.com" target="_blank"> <i class="fa fa-facebook-official fa-3x" aria-hidden="true" style="float: left;"></i></li>
+                <li><a href="https://twitter.com" target="_blank"><i class="fa fa-twitter fa-3x" aria-hidden="true" style="float: left;"></i></a></li>
+                <li><a href="https://www.instagram.com/?hl=pt-br" target="_blank"><i class="fa fa-instagram fa-3x" aria-hidden="true"></i></a></li>
+
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom bg-dark">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12">
+            <!--Footer Bottom-->
+            <p class="text-xs-center">&copy; Todos os direitos reservados.</p>
           </div>
         </div>
-        
       </div>
     </div>
-  </div>
-  <div class="footer-bottom bg-dark">
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12">
-          <!--Footer Bottom-->
-          <p class="text-xs-center">&copy; Todos os direitos reservados.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  </footer>
+    </footer>
 
 
 
-  </body>
-  </html>
+    </html>
+    </body>
+    </html>

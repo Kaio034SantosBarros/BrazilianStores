@@ -98,28 +98,19 @@
   </li>
   <li class="nav-item">
   	<div>
-  		<?php echo "<a class='nomeusu'>$nome, você está online!</a>" ?>
+  		<?php echo "<a class='nomeusu' href='perfil.php' title='Perfil $nome'>$nome,</a> você está online!" ?>
   	</div>
   </li>
 </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="text" placeholder="Pesquisar" size="30">
+    <form class="form-inline my-2 my-lg-0" method="post" action="pesquisa.php">
+      <input class="form-control mr-sm-2" type="text" placeholder="Pesquisar" size="30" name="p" required="">
       <button class="btn btn-primary my-2 my-sm-0 bg-dark " type="submit"><i class="fa fa-search"></i></button>
     </form>
 
 </nav>
-		<?php
-			$idprod = $_SESSION['idprod'];
-			$nomeprod = $_SESSION['nomeprod'];
-			$query = "select * from produto where idprod = '$idprod' limit 1";
-			include "bd.php";
-			$consulta = mysqli_query($con, $query);
-			$total = mysqli_num_rows($consulta);
-			echo "&nbsp &nbsp &nbsp $idprod ------- $total $nomeprod";
-		?>
 <div>
 	<form method="post" action="respcadprod.php">
-		<h2 class="text-center">EDITAR PRODUTO</h2>
+		<h2 class="text-center">CADASTRAR PRODUTO</h2>
 		<ul id="listprod">
 			<li>
 				<div>
@@ -145,6 +136,7 @@
 				<div>
 					<label for="categoria">Categorias</label>
 				<select name="categoria" id="categoria">
+					 <option value=""></option>
 					 <option value="roupas">Roupas</option>
 					 <option value="eletronicos">Eletrônicos</option>
 					 <option value="livros">Livros</option>
@@ -155,7 +147,13 @@
 				</div>
 			</li>
 			<li>
-				<input class="nav-link active text-center" onclick="categoria()" id="cadfoto" type="submit" value="Salvar Alterações">
+				<p>Descrição do Produto:</p>
+				<div>
+				<textarea type="text" name="descricao" rows="5" cols="42" maxlenght="1200"></textarea>
+				</div>
+			</li>
+			<li>
+				<input class="nav-link active text-center" onclick="categoria()" id="cadfoto" type="submit" value="Cadastrar Produto">
 			</li>
 		</ul>
 	</form>

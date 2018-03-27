@@ -61,11 +61,14 @@
               <a class="dropdown-item" href="game.php">Games</a>
             </div>
             <li class="nav-item">
-              
-              <a class="nav-link active" href="#home"><i class="fa fa-shopping-cart "></i></a>
+              <?php
+              if(isset($_SESSION['email']) or isset($_COOKIE['email'])){
+              echo "
+              <a class='nav-link active' href='carrinho.php'><i class='fa fa-shopping-cart '></i></a>
+              </li>            
             </li>
-          </li>
-          <?php 
+              ";
+              }
               $adm = "";
               if(isset($_SESSION['adm'])){
               $adm = $_SESSION['adm'];      

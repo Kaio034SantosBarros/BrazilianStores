@@ -1,11 +1,14 @@
 <?php
 	session_start();
-		if(isset($_SESSION['adm'])){
-		$adm = $_SESSION['adm'];			
-		} 
-		if(isset($_COOKIE['adm'])){
-		$adm = $_COOKIE['adm'];
-			}
+
+	if(isset($_SESSION['adm']) or isset($_COOKIE['adm'])){
+			$adm = "sim";
+
+	}
+
+	if($adm != 'sim'){
+		header("Location: perfil.php");
+	}
 
 	if(empty($_SESSION['email']) and empty($_COOKIE['email'])){
 		header("Location: index.php");
@@ -18,7 +21,6 @@
 		$email = $_COOKIE['email'];	
 		$nome = $_COOKIE['nome'];
 	}
-		
 ?>
 <!doctype html>
 <html lang="pt-br">
@@ -39,6 +41,14 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+
+    	function categoria(){
+    		categoria = document.getElementById("categoria").value;
+    	}
+
+    </script>
   
   </head>
   
@@ -78,8 +88,9 @@
 				</div>
 			</li>
 				 ";
-			}
+		}
 		?>
+		
   <li class="nav-item">
     <div>
     <a class="nav-link active btn btn-light" href="sair.php">Sair</a>
@@ -92,83 +103,82 @@
   </li>
 </ul>
     <form class="form-inline my-2 my-lg-0" method="post" action="pesquisa.php">
-      <input class="form-control mr-sm-2" type="text" placeholder="Pesquisar" size="30" name="p" required="">
-      <button class="btn btn-primary my-2 my-sm-0 bg-dark " type="submit"><i class="fa fa-search"></i></button>
-    </form>
+          <input class="form-control mr-sm-2" type="text" placeholder="Pesquisar" size="30" name="p" required="">
+          <button class="btn btn-primary my-2 my-sm-0 bg-dark " type="submit"><i class="fa fa-search"></i></button>
+        </form>
 
 </nav>
-
-
-      <footer style="padding-top: 250px;">
-      <div class="footer-middle bg-dark" style="margin-top: 30px;">
-        <div class="container">
-          <div class="row">
-           <div class="col-md-3 col-sm-6">
-            <!--Column1-->
-            <div class="footer-pad">
-             <h4>Contato</h4>
-             <address>
-               <ul class="list-unstyled">
-                 <li>
-                   City Hall<br>
-                   212  Street<br>
-                   Lawoma<br>
-                   735<br>
-                 </li>
-                 <li>
-                  Telefone: (21) 2222-2222
-                </li>
-              </ul>
-            </address>
-          </div>
-        </div>
-        
-        <div class="col-md-3 col-sm-6">
-          <!--Column1-->
-          <div class="footer-pad">
-            <h4>Informações</h4>
-            <ul class="list-unstyled">
-              <li><a href="#">Website Tutorial</a></li>
-              <li><a href="#">Accessibility</a></li>
-              <li><a href="#">Disclaimer</a></li>
-              <li><a href="#">Privacy Policy</a></li>
-              <li><a href="#">FAQs</a></li>
-              <li><a href="#">Webmaster</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-md-3 col-sm-6">
-          <!--Column1-->
-          <div class="footer-pad">
-            <h4>Redes Sociais</h4>
-            <ul class="list-unstyled">
-              <li><a href="https://www.facebook.com" target="_blank"> <i class="fa fa-facebook-official fa-3x" aria-hidden="true" style="float: left;"></i></a></li>
-              <li><a href="https://twitter.com" target="_blank"><i class="fa fa-twitter fa-3x" aria-hidden="true" style="float: left;"></i></a></li>
-              <li><a href="https://www.instagram.com/?hl=pt-br" target="_blank"><i class="fa fa-instagram fa-3x" aria-hidden="true"></i></a></li>
-              
-            </ul>
-          </div>
-        </div>
-        
-      </div>
-    </div>
-  </div>
-  <div class="footer-bottom bg-dark">
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12">
-          <!--Footer Bottom-->
-          <p class="text-xs-center">&copy; Todos os direitos reservados.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  </footer>
-
-  </body>
-  </html>
+		<?php
+			$idprod = $_GET['id'];
+			$query = "select * from produto where idprod = '$idprod' limit 1";
+			include "bd.php";
+			$consulta = mysqli_query($con, $query);
+			$total = mysqli_num_rows($consulta);
+			$pesq = mysqli_fetch_array($consulta);
+			$nomeprod = $pesq['nomeprod'];
+			$preco = $pesq['preco'];
+			$categoria = $pesq['categoria'];
+			$marca = $pesq['marca'];
+			$quantidade = $pesq['quantidade'];
+			$img = $pesq['img'];
+			$descricao = $pesq['descricao'];
+		?>
+<div>
+	<form method="post" action="respeditprod.php">
+		<h2 class="text-center">EDITAR PRODUTO</h2>
+		<ul id="listprod">
+			<li>
+				<div>
+				ID do Produto: <input type="text" name="idprod" required="" <?php echo " value='$idprod' >" ?>
+				</div>
+			</li>
+			<li>
+				<div>
+				Nome do Produto: <input type="text" name="nomeprod" required="" <?php echo " value='$nomeprod' >" ?>
+				</div>
+			</li>
+			<li>
+				<div>
+				Preço do Produto: <input type="number" name="preco" required="" <?php echo " value='$preco' >" ?>
+				</div>
+			</li>
+			<li>
+				<div>
+				Marca do Produto: <input type="text" name="marca" required="" <?php echo " value='$marca' >" ?>
+				</div>
+			</li>
+			<li>
+				<div>
+				Quantidade Por Item: <input type="number" name="quantidade" required="" <?php echo " value='$quantidade' >" ?>
+				</div>
+			</li>
+			<li>
+				<div>
+					<label for="categoria">Categorias</label>
+				<select name="categoria" id="categoria">
+					 <option <?php echo " value='$categoria' >$categoria" ?></option>
+					 <option value="roupas">Roupas</option>
+					 <option value="eletronicos">Eletrônicos</option>
+					 <option value="livros">Livros</option>
+					 <option value="informatica">Informática</option>
+					 <option value="celulares">Celulares</option>
+					 <option value="games">Games</option>
+				</select>
+				</div>
+			</li>
+			<li>
+				<p>Descrição do Produto:</p>
+				<div>
+				<textarea type="text" name="descricao" id="descricao" class="editar" rows="5" cols="42" maxlenght="1200" <?php echo " >$descricao" ?></textarea>
+				</div>
+			</li>
+			<li>
+				<input class="nav-link active text-center" onclick="categoria()" id="cadfoto" type="submit" value="Salvar Alterações">
+			</li>
+		</ul>
+	</form>
+</div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   </body>
 </html>
-

@@ -36,20 +36,19 @@ if ($_UP['tamanho'] < $_FILES['arquivo']['size']) {
 // Primeiro verifica se deve trocar o nome do arquivo
 if ($_UP['renomeia'] == true) {
   // Cria um nome baseado no UNIX TIMESTAMP atual e com extensão .png
-  if(isset($_GET['id'])){
-    $id = $_GET['id'];
-  }else{
+  session_start();
+  $idprod = $_SESSION['idprod'];
   include "bd.php";
-  $query = "select * from produto order by id desc limit 1";
+  $query = "select * from produto where idprod = '$idprod' limit 1";
   $consulta = mysqli_query($con, $query);
+
   if($dados = mysqli_fetch_assoc($consulta)){
-    $id = $dados['id'];
+    $id = $dados['idprod'];
     }
-  }
 
   $nome_final = "$id.$extensao";
 
-  mysqli_query($con, "update produto set img = '$nome_final' where id = $id");
+  mysqli_query($con, "update produto set img = '$nome_final' where idprod = $idprod");
 
 
 } else {

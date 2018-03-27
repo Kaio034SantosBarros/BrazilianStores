@@ -5,9 +5,10 @@
 	$categoria = strip_tags($_POST['categoria']);
 	$marca = strip_tags($_POST['marca']);
 	$quantidade = strip_tags($_POST['quantidade']);
+	$descricao = strip_tags($_POST['descricao']);
 
 	include "bd.php";
-	$query = "insert into produto(nomeprod, preco, categoria, marca, quantidade) values ('$nomeprod', '$preco', '$categoria', '$marca', '$quantidade')";
+	$query = "insert into produto(nomeprod, preco, categoria, marca, quantidade, descricao) values ('$nomeprod', '$preco', '$categoria', '$marca', '$quantidade', '$descricao')";
 		mysqli_query($con, $query);
 
 		echo "Produto cadastrado com sucesso!";
